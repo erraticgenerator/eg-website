@@ -1,0 +1,1201 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/eg-website/styles.8b5b382a01b64608909a.css">code[class*=language-],pre[class*=language-]{color:#657b83;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{background:#073642}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background-color:#fdf6e3}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#93a1a1}.token.punctuation{color:#586e75}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#268bd2}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string,.token.url{color:#2aa198}.token.entity{color:#657b83;background:#eee8d5}.token.atrule,.token.attr-value,.token.keyword{color:#859900}.token.class-name,.token.function{color:#b58900}.token.important,.token.regex,.token.variable{color:#cb4b16}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}body .gist .highlight{background:#fdf6e3}body .gist .blob-code-inner,body .gist .blob-num,body .gist .pl-s1 .pl-s2,body .gist .pl-smi,body .gist .pl-smp,body .gist .pl-stj,body .gist .pl-vo,body .gist .pl-vpf{color:#657b83}body .gist .pl-c,body .gist .pl-c span{color:#93a1a1;font-style:italic}body .gist .pl-mb{color:#2aa198;font-weight:700}body .gist .pl-mh .pl-en{color:#cb4b16;font-weight:700}body .gist .pl-mi{color:#859900;font-style:italic}body .gist .pl-c1,body .gist .pl-pds,body .gist .pl-s1,body .gist .pl-s1 .pl-pse .pl-s2,body .gist .pl-sv{color:#2aa198}body .gist .pl-e,body .gist .pl-en,body .gist .pl-ent,body .gist .pl-s,body .gist .pl-v{color:#268bd2}body .gist .pl-k,body .gist .pl-mdh,body .gist .pl-mdr,body .gist .pl-ml,body .gist .pl-mm,body .gist .pl-mo,body .gist .pl-mp,body .gist .pl-mr,body .gist .pl-ms,body .gist .pl-s1 .pl-v,body .gist .pl-s3{color:#859900}body .gist .pl-mh,body .gist .pl-sc,body .gist .pl-sr .pl-cce{color:#cb4b16}body .gist .highlight-source-css .pl-k,body .gist .pl-mq{color:#93a1a1}body .gist .pl-sr,body .gist .pl-sr .pl-sra,body .gist .pl-sr .pl-sre,body .gist .pl-src{color:#d30102}body .gist .highlight-source-c\+\+ .pl-s,body .gist .pl-st{color:#dc322f}body .gist .pl-mdht,body .gist .pl-mi1{color:#657b83;background:rgba(0,64,0,.5)}body .gist .pl-id,body .gist .pl-ii,body .gist .pl-md,body .gist .pl-mdhf{color:#657b83;background:rgba(64,0,0,.5)}</style><meta name="generator" content="Gatsby 2.26.1"/><title data-react-helmet="true">Animate Word by Word in p5.js | ErraticGenerator.com</title><meta data-react-helmet="true" name="description" content="Word-level typography animation with p5.js. Image by Author. In this post, I would like to show you how to make the text animation where you…"/><meta data-react-helmet="true" name="image"/><meta data-react-helmet="true" property="og:url" content="https://erraticgenerator.com/blog/animate-word-by-word-in-p5js"/><meta data-react-helmet="true" property="og:type" content="article"/><meta data-react-helmet="true" property="og:title" content="Animate Word by Word in p5.js"/><meta data-react-helmet="true" property="og:description" content="Word-level typography animation with p5.js. Image by Author. In this post, I would like to show you how to make the text animation where you…"/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" name="twitter:title" content="Animate Word by Word in p5.js"/><meta data-react-helmet="true" name="twitter:description" content="Word-level typography animation with p5.js. Image by Author. In this post, I would like to show you how to make the text animation where you…"/><link href="https://github.githubassets.com/assets/gist-embed-b3b573358bfc66d89e1e95dbf8319c09.css" rel="stylesheet"/><link rel="preconnect" href="https://www.google-analytics.com"/><link rel="dns-prefetch" href="https://www.google-analytics.com"/><link as="script" rel="preload" href="/eg-website/webpack-runtime-673e270c3253ed9b7780.js"/><link as="script" rel="preload" href="/eg-website/framework-de237a875aa45b276a9d.js"/><link as="script" rel="preload" href="/eg-website/app-449234f78fe4b358bd0f.js"/><link as="script" rel="preload" href="/eg-website/styles-7d4153d260c0197f0043.js"/><link as="script" rel="preload" href="/eg-website/commons-e2cc35d91cc25cea2225.js"/><link as="script" rel="preload" href="/eg-website/77e824346eb342330b3ba237752743d1d190a1c1-5a07f8e3f5d06948cd05.js"/><link as="script" rel="preload" href="/eg-website/component---src-templates-blog-post-template-js-724413307e6b2937ccc2.js"/><link as="fetch" rel="preload" href="/eg-website/page-data/blog/animate-word-by-word-in-p5js/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/eg-website/page-data/sq/d/1696241065.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/eg-website/page-data/sq/d/3380088787.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/eg-website/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion="css 1ccnnsi">.css-1ccnnsi{height:100%;display:grid;grid-template-rows:120px auto 100px;}.css-1ccnnsi p{margin-bottom:2.4rem;font-size:1.8rem;line-height:1.6;}</style><div class="css-1ccnnsi"><style data-emotion="css-global 7l1jaa">@import url("https://fonts.googleapis.com/css2?family=Andika+New+Basic:ital@0;1&family=Open+Sans:wght@400;700&display=swap");*{margin:0;box-sizing:border-box;}html,body{font-family:"Andika New Basic",sans-serif;font-size:10px;height:100%;}a{color:black;-webkit-text-decoration:none;text-decoration:none;}</style><style data-emotion="css 1esoh14">.css-1esoh14{outline:1px solid red;grid-row:1/2;}</style><style data-emotion="css 8souqa">.css-8souqa{margin-bottom:48px;padding:12px 0;height:120px;background-image:linear-gradient(#fdd 0%, white 100%);}</style><header class="css-8souqa"><style data-emotion="css 1uarw26">.css-1uarw26{margin:0 auto;padding:0 12px;max-width:720px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}</style><div class="css-1uarw26"><style data-emotion="css y30yr4">.css-y30yr4{-webkit-flex:4;-ms-flex:4;flex:4;}</style><div class="css-y30yr4"><style data-emotion="css 1t1kjl2">.css-1t1kjl2{font-family:"Open Sans",sans-serif;font-weight:700;}</style><h1 class="css-1t1kjl2"><a href="/eg-website/">Erratic Generator</a></h1><style data-emotion="css mmvz9h">.css-mmvz9h{font-weight:400;}</style><h2 class="css-mmvz9h">Creative Coding Resources for Artists and Designers</h2></div><style data-emotion="css 18zyra0">.css-18zyra0{-webkit-flex:1;-ms-flex:1;flex:1;font-family:"Open Sans",sans-serif;font-size:1.6rem;}</style><a class="css-18zyra0" href="/eg-website/about/">About</a></div></header><style data-emotion="css cz32py">.css-cz32py{max-width:720px;margin:0 auto;padding:0 12px;grid-row:2/3;}</style><main class="css-cz32py"><style data-emotion="css 1tca0if">.css-1tca0if{margin-bottom:3rem;font-family:"Open Sans",sans-serif;}</style><header class="css-1tca0if"><style data-emotion="css 10d63d4">.css-10d63d4{margin-top:1rem;font-size:4rem;line-height:1.2;}</style><h1 class="css-10d63d4">Animate Word by Word in p5.js</h1><style data-emotion="css 5ezmz0">.css-5ezmz0{margin-bottom:0.6rem;color:#666;font-size:2.4rem;font-weight:400;}</style><h2 class="css-5ezmz0">Typography animation using class &amp; objects</h2><style data-emotion="css 1dqoxsa">.css-1dqoxsa{color:#666;font-size:1.8rem;}</style><time class="css-1dqoxsa">December 08, 2020</time></header><style data-emotion="css 11cvyr3">.css-11cvyr3 h2{margin-bottom:0.8rem;font-family:"Open Sans",sans-serif;font-size:2.4rem;}.css-11cvyr3 p{margin-bottom:2.4rem;font-size:1.8rem;line-height:1.6;}.css-11cvyr3 a{color:teal;-webkit-text-decoration:underline;text-decoration:underline;}.css-11cvyr3 ul{margin-bottom:2.4rem;font-size:1.8rem;}.css-11cvyr3 figure{margin:5rem auto;width:100%;}.css-11cvyr3 .gatsby-resp-image-wrapper{max-width:100%!important;}.css-11cvyr3 figure img{width:100%;}.css-11cvyr3 figure figcaption{padding:0.6rem 4%;color:#666;font-size:1.6rem;text-align:center;}.css-11cvyr3 .gist,.css-11cvyr3 .gatsby-highlight{margin:5rem auto;}.css-11cvyr3 .gist .gist-file{border:none;}.css-11cvyr3 .gatsby-highlight,.css-11cvyr3 .gist span{font-size:1.4rem;}</style><div class="css-11cvyr3"><p><figure class="md-figure"><img src="/eg-website/static/word-anim-905efce7ec8720d3321074cf01a9c89e.gif"><figcaption>Word-level typography animation with p5.js. Image by Author.</figcaption></figure></p>
+<p>In this post, I would like to show you how to make the text animation where you can have control over individual words. We will also store its original position so that you can return back. We will use a JavaScript library called p5.js. If you are not familiar with the library, check out <a href="https://p5js.org/">their website</a>. It is designed to be beginner-friendly for creating audio-visual-interaction on the web.</p>
+<p>Here is a breakdown on what we will look at. First, we will write down some text but instead of storing in a single <code class="language-text">string</code> we will break them down into individual words so that our program will remember its original position. We will store each word along with its position in JS objects. That’s where we will also implement methods for animation.</p>
+<h2>Display Individual Words</h2>
+<p>p5.js has the <code class="language-text">text()</code> where you can pass the message and coordinates to display on the canvas. For example, this will display ‘Hello, world!’ on screen:</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> str <span class="token operator">=</span> <span class="token string">'Hello, world!'</span>
+<span class="token function">text</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span></code></pre></div>
+<p>If you want to animate the whole phrase, this is fine, but if you want to animate each word differently, we will need to use a different data structure since we don’t know exactly at what pixel coordinate the second word will start. We can split the string whenever there is an empty space between words and store them in an array. This is easy with the <code class="language-text">split()</code> function:</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> wordsStr <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span></code></pre></div>
+<p>We will then iterate over each word and determine the position of the next words. How to know where to place the next words? p5js has the <code class="language-text">textWidth()</code> function, which will return the width of any text given in pixels. Note that this width value is dependent on the current text size. Let’s look at what we have so far:</p>
+<p><div id="gist106841611" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-p5-word-anim-1-js" class="file my-2">
+    
+
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-javascript  ">
+      
+<table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
+      <tr>
+        <td id="file-p5-word-anim-1-js-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-p5-word-anim-1-js-LC1" class="blob-code blob-code-inner js-file-line"><span class=pl-k>function</span> <span class=pl-en>setup</span><span class=pl-kos>(</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-1-js-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-p5-word-anim-1-js-LC2" class="blob-code blob-code-inner js-file-line">    <span class=pl-en>createCanvas</span><span class=pl-kos>(</span><span class=pl-c1>800</span><span class=pl-kos>,</span> <span class=pl-c1>400</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-1-js-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-p5-word-anim-1-js-LC3" class="blob-code blob-code-inner js-file-line">    <span class=pl-en>background</span><span class=pl-kos>(</span><span class=pl-c1>0</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-1-js-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-p5-word-anim-1-js-LC4" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-1-js-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-p5-word-anim-1-js-LC5" class="blob-code blob-code-inner js-file-line">    <span class=pl-k>const</span> <span class=pl-s1>str</span> <span class=pl-c1>=</span> <span class=pl-s>&#39;Hello, world! Hi, there! Nice to meet you!&#39;</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-1-js-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-p5-word-anim-1-js-LC6" class="blob-code blob-code-inner js-file-line">    <span class=pl-k>const</span> <span class=pl-s1>wordsStr</span> <span class=pl-c1>=</span> <span class=pl-s1>str</span><span class=pl-kos>.</span><span class=pl-en>split</span><span class=pl-kos>(</span><span class=pl-s>&#39; &#39;</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-1-js-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-p5-word-anim-1-js-LC7" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-1-js-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-p5-word-anim-1-js-LC8" class="blob-code blob-code-inner js-file-line">    <span class=pl-en>textSize</span><span class=pl-kos>(</span><span class=pl-c1>48</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-1-js-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-p5-word-anim-1-js-LC9" class="blob-code blob-code-inner js-file-line">    </td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-1-js-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-p5-word-anim-1-js-LC10" class="blob-code blob-code-inner js-file-line">    <span class=pl-c>// track word position</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-1-js-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-p5-word-anim-1-js-LC11" class="blob-code blob-code-inner js-file-line">    <span class=pl-k>let</span> <span class=pl-s1>x</span> <span class=pl-c1>=</span> <span class=pl-c1>20</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-1-js-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-p5-word-anim-1-js-LC12" class="blob-code blob-code-inner js-file-line">    <span class=pl-k>let</span> <span class=pl-s1>y</span> <span class=pl-c1>=</span> <span class=pl-c1>60</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-1-js-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-p5-word-anim-1-js-LC13" class="blob-code blob-code-inner js-file-line">    <span class=pl-en>fill</span><span class=pl-kos>(</span><span class=pl-c1>255</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-1-js-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-p5-word-anim-1-js-LC14" class="blob-code blob-code-inner js-file-line">    <span class=pl-c>// iterate over each word</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-1-js-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-p5-word-anim-1-js-LC15" class="blob-code blob-code-inner js-file-line">    <span class=pl-k>for</span> <span class=pl-kos>(</span><span class=pl-k>let</span> <span class=pl-s1>i</span> <span class=pl-c1>=</span> <span class=pl-c1>0</span><span class=pl-kos>;</span> <span class=pl-s1>i</span> <span class=pl-c1>&lt;</span> <span class=pl-s1>wordsStr</span><span class=pl-kos>.</span><span class=pl-c1>length</span><span class=pl-kos>;</span> <span class=pl-s1>i</span><span class=pl-c1>++</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-1-js-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-p5-word-anim-1-js-LC16" class="blob-code blob-code-inner js-file-line">        <span class=pl-k>const</span> <span class=pl-s1>wordStr</span> <span class=pl-c1>=</span> <span class=pl-s1>wordsStr</span><span class=pl-kos>[</span><span class=pl-s1>i</span><span class=pl-kos>]</span> <span class=pl-c>// get current word</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-1-js-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-p5-word-anim-1-js-LC17" class="blob-code blob-code-inner js-file-line">        <span class=pl-k>const</span> <span class=pl-s1>wordStrWidth</span> <span class=pl-c1>=</span> <span class=pl-en>textWidth</span><span class=pl-kos>(</span><span class=pl-s1>wordStr</span><span class=pl-kos>)</span> <span class=pl-c>// get current word width</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-1-js-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-p5-word-anim-1-js-LC18" class="blob-code blob-code-inner js-file-line">        <span class=pl-en>text</span><span class=pl-kos>(</span><span class=pl-s1>wordStr</span><span class=pl-kos>,</span> <span class=pl-s1>x</span><span class=pl-kos>,</span> <span class=pl-s1>y</span><span class=pl-kos>)</span> <span class=pl-c>// display word</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-1-js-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-p5-word-anim-1-js-LC19" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-1-js-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-p5-word-anim-1-js-LC20" class="blob-code blob-code-inner js-file-line">        <span class=pl-s1>x</span> <span class=pl-c1>=</span> <span class=pl-s1>x</span> <span class=pl-c1>+</span> <span class=pl-s1>wordStrWidth</span> <span class=pl-c1>+</span> <span class=pl-en>textWidth</span><span class=pl-kos>(</span><span class=pl-s>&#39; &#39;</span><span class=pl-kos>)</span> <span class=pl-c>// update x by word width + space character</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-1-js-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-p5-word-anim-1-js-LC21" class="blob-code blob-code-inner js-file-line">    <span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-1-js-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-p5-word-anim-1-js-LC22" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-1-js-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-p5-word-anim-1-js-LC23" class="blob-code blob-code-inner js-file-line"><span class=pl-kos>}</span></td>
+      </tr>
+</table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/erraticgenerator/a504622c3b5f249bda36d374d6adeb13/raw/5d2f1be65a096641a7f0f8dbdec49604c24f68d0/p5-word-anim-1.js" style="float:right">view raw</a>
+        <a href="https://gist.github.com/erraticgenerator/a504622c3b5f249bda36d374d6adeb13#file-p5-word-anim-1-js">p5-word-anim-1.js</a>
+        hosted with &#10084; by <a href="https://github.com">GitHub</a>
+      </div>
+    </div>
+</div></p>
+<p><figure class='gatsby-resp-image-figure' style=''>
+    <span class='gatsby-resp-image-wrapper' style='position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 700px; '>
+      <span class='gatsby-resp-image-background-image' style="padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAgklEQVQoz+2NQQrEIAxFdY7gvqjQKiqtohVRQfD+l5oPZUr3A7OatwjJyw8hx3HUWs/zZIxprb336Pd9X5bFORdjhDTG9N6ttdu2CSEwppSklATpMUYpBWmonDMMDtZ1RbS1FkLgnOMBVkopePybc6IhX/H6QCm96pPb3JmnJ39+yBshHxUoOm+DtAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"></span>
+  <img class='gatsby-resp-image-image' alt='It doesn’t look like much, but now we broke the whole phrase into individual words. Image by Author.' title='It doesn’t look like much, but now we broke the whole phrase into individual words. Image by Author.' src='/eg-website/static/a1b0510e56652cb01200ed0633456532/8c557/word-1.png' srcset='/eg-website/static/a1b0510e56652cb01200ed0633456532/5a46d/word-1.png 300w,
+/eg-website/static/a1b0510e56652cb01200ed0633456532/0a47e/word-1.png 600w,
+/eg-website/static/a1b0510e56652cb01200ed0633456532/8c557/word-1.png 700w' sizes='(max-width: 700px) 100vw, 700px' style='width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;' loading='lazy'>
+    </span>
+    <figcaption class='gatsby-resp-image-figcaption'>It doesn’t look like much, but now we broke the whole phrase into individual words. Image by Author.</figcaption>
+  </figure></p>
+<p>This is going great, but we have a problem that when the text is too long, it goes beyond the screen width. To fix that, we need to check the next word’s width and if it won’t fit in the remaining space, we will need to do a line break.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// in the same for loop</span>
+x <span class="token operator">=</span> x <span class="token operator">+</span> wordStrWidth <span class="token operator">+</span> <span class="token function">textWidth</span><span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span>
+<span class="token comment">// look ahead the next word - will it fit in the space? if not, line break</span>
+<span class="token keyword">const</span> nextWordStrWidth <span class="token operator">=</span> <span class="token function">textWidth</span><span class="token punctuation">(</span>wordsStr<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token number">0</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">></span> width <span class="token operator">-</span> nextWordStrWidth<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    y <span class="token operator">+=</span> <span class="token number">40</span> <span class="token comment">// line height, sort of</span>
+    x <span class="token operator">=</span> <span class="token number">20</span> <span class="token comment">// reset x position</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h2>Word Class and objects</h2>
+<p>The next step is to store the x and y positions of each word so that we can retrieve them later in our program. Right now, these x and y values are only local variables, so it is difficult to use them again in other functions. So, we will create a class <code class="language-text">Word</code> for each word, and inside, we can store the word text itself as well as x/y values and more. Here is the definition of that class:</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">Word</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">word<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> idx</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>word <span class="token operator">=</span> word
+        <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> x
+        <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">=</span> y
+        <span class="token keyword">this</span><span class="token punctuation">.</span>idx <span class="token operator">=</span> idx
+        <span class="token keyword">this</span><span class="token punctuation">.</span>fcolor <span class="token operator">=</span> <span class="token function">color</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">fill</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>fcolor<span class="token punctuation">)</span>
+        <span class="token function">noStroke</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token function">text</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>word<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>x<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>y<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>This is very basic, but we will add more methods a little later. We also store the index value as this may come in handy in the future. Now, instead of directly using the <code class="language-text">text()</code> function, let’s create objects out of this class and use the <code class="language-text">word.display()</code> method:</p>
+<p><div id="gist106841771" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-p5-word-anim-2-js" class="file my-2">
+    
+
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-javascript  ">
+      
+<table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-p5-word-anim-2-js-LC1" class="blob-code blob-code-inner js-file-line"><span class=pl-k>const</span> <span class=pl-s1>words</span> <span class=pl-c1>=</span> <span class=pl-kos>[</span><span class=pl-kos>]</span> <span class=pl-c>// store word objects</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-p5-word-anim-2-js-LC2" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-p5-word-anim-2-js-LC3" class="blob-code blob-code-inner js-file-line"><span class=pl-k>function</span> <span class=pl-en>setup</span><span class=pl-kos>(</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-p5-word-anim-2-js-LC4" class="blob-code blob-code-inner js-file-line">    <span class=pl-en>createCanvas</span><span class=pl-kos>(</span><span class=pl-c1>800</span><span class=pl-kos>,</span> <span class=pl-c1>400</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-p5-word-anim-2-js-LC5" class="blob-code blob-code-inner js-file-line">    <span class=pl-en>background</span><span class=pl-kos>(</span><span class=pl-c1>0</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-p5-word-anim-2-js-LC6" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-p5-word-anim-2-js-LC7" class="blob-code blob-code-inner js-file-line">    <span class=pl-k>const</span> <span class=pl-s1>str</span> <span class=pl-c1>=</span> <span class=pl-s>&#39;Hello, world! Hi, there! Nice to meet you!&#39;</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-p5-word-anim-2-js-LC8" class="blob-code blob-code-inner js-file-line">    <span class=pl-k>const</span> <span class=pl-s1>wordsStr</span> <span class=pl-c1>=</span> <span class=pl-s1>str</span><span class=pl-kos>.</span><span class=pl-en>split</span><span class=pl-kos>(</span><span class=pl-s>&#39; &#39;</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-p5-word-anim-2-js-LC9" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-p5-word-anim-2-js-LC10" class="blob-code blob-code-inner js-file-line">    <span class=pl-en>textSize</span><span class=pl-kos>(</span><span class=pl-c1>48</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-p5-word-anim-2-js-LC11" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-p5-word-anim-2-js-LC12" class="blob-code blob-code-inner js-file-line">    <span class=pl-c>// track word position</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-p5-word-anim-2-js-LC13" class="blob-code blob-code-inner js-file-line">    <span class=pl-k>let</span> <span class=pl-s1>x</span> <span class=pl-c1>=</span> <span class=pl-c1>20</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-p5-word-anim-2-js-LC14" class="blob-code blob-code-inner js-file-line">    <span class=pl-k>let</span> <span class=pl-s1>y</span> <span class=pl-c1>=</span> <span class=pl-c1>60</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-p5-word-anim-2-js-LC15" class="blob-code blob-code-inner js-file-line">    <span class=pl-en>fill</span><span class=pl-kos>(</span><span class=pl-c1>255</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-p5-word-anim-2-js-LC16" class="blob-code blob-code-inner js-file-line">    <span class=pl-c>// iterate over each word</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-p5-word-anim-2-js-LC17" class="blob-code blob-code-inner js-file-line">    <span class=pl-k>for</span> <span class=pl-kos>(</span><span class=pl-k>let</span> <span class=pl-s1>i</span> <span class=pl-c1>=</span> <span class=pl-c1>0</span><span class=pl-kos>;</span> <span class=pl-s1>i</span> <span class=pl-c1>&lt;</span> <span class=pl-s1>wordsStr</span><span class=pl-kos>.</span><span class=pl-c1>length</span><span class=pl-kos>;</span> <span class=pl-s1>i</span><span class=pl-c1>++</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-p5-word-anim-2-js-LC18" class="blob-code blob-code-inner js-file-line">        <span class=pl-k>const</span> <span class=pl-s1>wordStr</span> <span class=pl-c1>=</span> <span class=pl-s1>wordsStr</span><span class=pl-kos>[</span><span class=pl-s1>i</span><span class=pl-kos>]</span> <span class=pl-c>// get current word</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-p5-word-anim-2-js-LC19" class="blob-code blob-code-inner js-file-line">        <span class=pl-k>const</span> <span class=pl-s1>wordStrWidth</span> <span class=pl-c1>=</span> <span class=pl-en>textWidth</span><span class=pl-kos>(</span><span class=pl-s1>wordStr</span><span class=pl-kos>)</span> <span class=pl-c>// get current word width</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-p5-word-anim-2-js-LC20" class="blob-code blob-code-inner js-file-line">        <span class=pl-k>const</span> <span class=pl-s1>word</span> <span class=pl-c1>=</span> <span class=pl-k>new</span> <span class=pl-v>Word</span><span class=pl-kos>(</span><span class=pl-s1>wordStr</span><span class=pl-kos>,</span> <span class=pl-s1>x</span><span class=pl-kos>,</span> <span class=pl-s1>y</span><span class=pl-kos>,</span> <span class=pl-s1>i</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-p5-word-anim-2-js-LC21" class="blob-code blob-code-inner js-file-line">        <span class=pl-s1>words</span><span class=pl-kos>.</span><span class=pl-en>push</span><span class=pl-kos>(</span><span class=pl-s1>word</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-p5-word-anim-2-js-LC22" class="blob-code blob-code-inner js-file-line">        <span class=pl-s1>x</span> <span class=pl-c1>=</span> <span class=pl-s1>x</span> <span class=pl-c1>+</span> <span class=pl-s1>wordStrWidth</span> <span class=pl-c1>+</span> <span class=pl-en>textWidth</span><span class=pl-kos>(</span><span class=pl-s>&#39; &#39;</span><span class=pl-kos>)</span> <span class=pl-c>// update x by word width + space character</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-p5-word-anim-2-js-LC23" class="blob-code blob-code-inner js-file-line">        <span class=pl-c>// look ahead the next word - will it fit in the space? if not, line break</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-p5-word-anim-2-js-LC24" class="blob-code blob-code-inner js-file-line">        <span class=pl-k>const</span> <span class=pl-s1>nextWordStrWidth</span> <span class=pl-c1>=</span> <span class=pl-en>textWidth</span><span class=pl-kos>(</span><span class=pl-s1>wordsStr</span><span class=pl-kos>[</span><span class=pl-s1>i</span><span class=pl-c1>+</span><span class=pl-c1>1</span><span class=pl-kos>]</span><span class=pl-kos>)</span> <span class=pl-c1>||</span> <span class=pl-c1>0</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="file-p5-word-anim-2-js-LC25" class="blob-code blob-code-inner js-file-line">        <span class=pl-k>if</span> <span class=pl-kos>(</span><span class=pl-s1>x</span> <span class=pl-c1>&gt;</span> <span class=pl-s1>width</span> <span class=pl-c1>-</span> <span class=pl-s1>nextWordStrWidth</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="file-p5-word-anim-2-js-LC26" class="blob-code blob-code-inner js-file-line">            <span class=pl-s1>y</span> <span class=pl-c1>+=</span> <span class=pl-c1>40</span> <span class=pl-c>// line height, sort of</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L27" class="blob-num js-line-number" data-line-number="27"></td>
+        <td id="file-p5-word-anim-2-js-LC27" class="blob-code blob-code-inner js-file-line">            <span class=pl-s1>x</span> <span class=pl-c1>=</span> <span class=pl-c1>20</span> <span class=pl-c>// reset x position</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L28" class="blob-num js-line-number" data-line-number="28"></td>
+        <td id="file-p5-word-anim-2-js-LC28" class="blob-code blob-code-inner js-file-line">        <span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L29" class="blob-num js-line-number" data-line-number="29"></td>
+        <td id="file-p5-word-anim-2-js-LC29" class="blob-code blob-code-inner js-file-line">    <span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L30" class="blob-num js-line-number" data-line-number="30"></td>
+        <td id="file-p5-word-anim-2-js-LC30" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L31" class="blob-num js-line-number" data-line-number="31"></td>
+        <td id="file-p5-word-anim-2-js-LC31" class="blob-code blob-code-inner js-file-line">    <span class=pl-k>for</span> <span class=pl-kos>(</span><span class=pl-k>let</span> <span class=pl-s1>i</span> <span class=pl-c1>=</span> <span class=pl-c1>0</span><span class=pl-kos>;</span> <span class=pl-s1>i</span> <span class=pl-c1>&lt;</span> <span class=pl-s1>words</span><span class=pl-kos>.</span><span class=pl-c1>length</span><span class=pl-kos>;</span> <span class=pl-s1>i</span><span class=pl-c1>++</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L32" class="blob-num js-line-number" data-line-number="32"></td>
+        <td id="file-p5-word-anim-2-js-LC32" class="blob-code blob-code-inner js-file-line">        <span class=pl-k>const</span> <span class=pl-s1>word</span> <span class=pl-c1>=</span> <span class=pl-s1>words</span><span class=pl-kos>[</span><span class=pl-s1>i</span><span class=pl-kos>]</span> <span class=pl-c>// retrive word object</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L33" class="blob-num js-line-number" data-line-number="33"></td>
+        <td id="file-p5-word-anim-2-js-LC33" class="blob-code blob-code-inner js-file-line">        <span class=pl-s1>word</span><span class=pl-kos>.</span><span class=pl-en>display</span><span class=pl-kos>(</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L34" class="blob-num js-line-number" data-line-number="34"></td>
+        <td id="file-p5-word-anim-2-js-LC34" class="blob-code blob-code-inner js-file-line">    <span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-2-js-L35" class="blob-num js-line-number" data-line-number="35"></td>
+        <td id="file-p5-word-anim-2-js-LC35" class="blob-code blob-code-inner js-file-line"><span class=pl-kos>}</span></td>
+      </tr>
+</table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/erraticgenerator/a1eea86098eb5c4a8c93f41b9f4a285c/raw/d7cae3d5c9edbfffe97511f12fc6b23d2ee2c238/p5-word-anim-2.js" style="float:right">view raw</a>
+        <a href="https://gist.github.com/erraticgenerator/a1eea86098eb5c4a8c93f41b9f4a285c#file-p5-word-anim-2-js">p5-word-anim-2.js</a>
+        hosted with &#10084; by <a href="https://github.com">GitHub</a>
+      </div>
+    </div>
+</div></p>
+<p>All the data we need is now part of word objects, and we can retrieve its values anytime we need. Try changing the <code class="language-text">str</code> text message itself, and it will nicely adapt to the new text at any length.</p>
+<h2>Animate Each Word</h2>
+<p>Because we now have a good structure, adding animation will be just adding more methods to the <code class="language-text">Word</code> class. We will create an <code class="language-text">update()</code> method, which will be run every frame in the main <code class="language-text">draw()</code> loop. And for animation, I will use <code class="language-text">lerp()</code> function and move the words 10% closer to our target each frame:</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token function">lerp</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>x<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>tx<span class="token punctuation">,</span> <span class="token number">0.1</span><span class="token punctuation">)</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">=</span> <span class="token function">lerp</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>y<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>ty<span class="token punctuation">,</span> <span class="token number">0.1</span><span class="token punctuation">)</span></code></pre></div>
+<p>Of course, <code class="language-text">this.tx</code> and <code class="language-text">this.ty</code> are new variables, so we will have to define it in the constructor. In the beginning, <code class="language-text">this.x</code> and <code class="language-text">this.tx</code> will be the same, so there will be no animation as the target is the same as the current position, but I will randomize the target position whenever we press the mouse. Here is the implementation:</p>
+<p><div id="gist106841891" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-p5-word-anim-3-js" class="file my-2">
+    
+
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-javascript  ">
+      
+<table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-p5-word-anim-3-js-LC1" class="blob-code blob-code-inner js-file-line"><span class=pl-k>const</span> <span class=pl-s1>words</span> <span class=pl-c1>=</span> <span class=pl-kos>[</span><span class=pl-kos>]</span> <span class=pl-c>// store word objects</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-p5-word-anim-3-js-LC2" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-p5-word-anim-3-js-LC3" class="blob-code blob-code-inner js-file-line"><span class=pl-k>function</span> <span class=pl-en>setup</span><span class=pl-kos>(</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-p5-word-anim-3-js-LC4" class="blob-code blob-code-inner js-file-line">    <span class=pl-en>createCanvas</span><span class=pl-kos>(</span><span class=pl-c1>800</span><span class=pl-kos>,</span> <span class=pl-c1>400</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-p5-word-anim-3-js-LC5" class="blob-code blob-code-inner js-file-line">    <span class=pl-en>background</span><span class=pl-kos>(</span><span class=pl-c1>0</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-p5-word-anim-3-js-LC6" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-p5-word-anim-3-js-LC7" class="blob-code blob-code-inner js-file-line">    <span class=pl-k>const</span> <span class=pl-s1>str</span> <span class=pl-c1>=</span> <span class=pl-s>&#39;Hello, world! Hi, there! Nice to meet you!&#39;</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-p5-word-anim-3-js-LC8" class="blob-code blob-code-inner js-file-line">    <span class=pl-k>const</span> <span class=pl-s1>wordsStr</span> <span class=pl-c1>=</span> <span class=pl-s1>str</span><span class=pl-kos>.</span><span class=pl-en>split</span><span class=pl-kos>(</span><span class=pl-s>&#39; &#39;</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-p5-word-anim-3-js-LC9" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-p5-word-anim-3-js-LC10" class="blob-code blob-code-inner js-file-line">    <span class=pl-en>textSize</span><span class=pl-kos>(</span><span class=pl-c1>48</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-p5-word-anim-3-js-LC11" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-p5-word-anim-3-js-LC12" class="blob-code blob-code-inner js-file-line">    <span class=pl-c>// track word position</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-p5-word-anim-3-js-LC13" class="blob-code blob-code-inner js-file-line">    <span class=pl-k>let</span> <span class=pl-s1>x</span> <span class=pl-c1>=</span> <span class=pl-c1>20</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-p5-word-anim-3-js-LC14" class="blob-code blob-code-inner js-file-line">    <span class=pl-k>let</span> <span class=pl-s1>y</span> <span class=pl-c1>=</span> <span class=pl-c1>60</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-p5-word-anim-3-js-LC15" class="blob-code blob-code-inner js-file-line">    <span class=pl-en>fill</span><span class=pl-kos>(</span><span class=pl-c1>255</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-p5-word-anim-3-js-LC16" class="blob-code blob-code-inner js-file-line">    <span class=pl-c>// iterate over each word</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-p5-word-anim-3-js-LC17" class="blob-code blob-code-inner js-file-line">    <span class=pl-k>for</span> <span class=pl-kos>(</span><span class=pl-k>let</span> <span class=pl-s1>i</span> <span class=pl-c1>=</span> <span class=pl-c1>0</span><span class=pl-kos>;</span> <span class=pl-s1>i</span> <span class=pl-c1>&lt;</span> <span class=pl-s1>wordsStr</span><span class=pl-kos>.</span><span class=pl-c1>length</span><span class=pl-kos>;</span> <span class=pl-s1>i</span><span class=pl-c1>++</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-p5-word-anim-3-js-LC18" class="blob-code blob-code-inner js-file-line">        <span class=pl-k>const</span> <span class=pl-s1>wordStr</span> <span class=pl-c1>=</span> <span class=pl-s1>wordsStr</span><span class=pl-kos>[</span><span class=pl-s1>i</span><span class=pl-kos>]</span> <span class=pl-c>// get current word</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-p5-word-anim-3-js-LC19" class="blob-code blob-code-inner js-file-line">        <span class=pl-k>const</span> <span class=pl-s1>wordStrWidth</span> <span class=pl-c1>=</span> <span class=pl-en>textWidth</span><span class=pl-kos>(</span><span class=pl-s1>wordStr</span><span class=pl-kos>)</span> <span class=pl-c>// get current word width</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-p5-word-anim-3-js-LC20" class="blob-code blob-code-inner js-file-line">        <span class=pl-k>const</span> <span class=pl-s1>word</span> <span class=pl-c1>=</span> <span class=pl-k>new</span> <span class=pl-v>Word</span><span class=pl-kos>(</span><span class=pl-s1>wordStr</span><span class=pl-kos>,</span> <span class=pl-s1>x</span><span class=pl-kos>,</span> <span class=pl-s1>y</span><span class=pl-kos>,</span> <span class=pl-s1>i</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-p5-word-anim-3-js-LC21" class="blob-code blob-code-inner js-file-line">        <span class=pl-s1>words</span><span class=pl-kos>.</span><span class=pl-en>push</span><span class=pl-kos>(</span><span class=pl-s1>word</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-p5-word-anim-3-js-LC22" class="blob-code blob-code-inner js-file-line">        <span class=pl-s1>x</span> <span class=pl-c1>=</span> <span class=pl-s1>x</span> <span class=pl-c1>+</span> <span class=pl-s1>wordStrWidth</span> <span class=pl-c1>+</span> <span class=pl-en>textWidth</span><span class=pl-kos>(</span><span class=pl-s>&#39; &#39;</span><span class=pl-kos>)</span> <span class=pl-c>// update x by word width + space character</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-p5-word-anim-3-js-LC23" class="blob-code blob-code-inner js-file-line">        <span class=pl-c>// look ahead the next word - will it fit in the space? if not, line break</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-p5-word-anim-3-js-LC24" class="blob-code blob-code-inner js-file-line">        <span class=pl-k>const</span> <span class=pl-s1>nextWordStrWidth</span> <span class=pl-c1>=</span> <span class=pl-en>textWidth</span><span class=pl-kos>(</span><span class=pl-s1>wordsStr</span><span class=pl-kos>[</span><span class=pl-s1>i</span><span class=pl-c1>+</span><span class=pl-c1>1</span><span class=pl-kos>]</span><span class=pl-kos>)</span> <span class=pl-c1>||</span> <span class=pl-c1>0</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="file-p5-word-anim-3-js-LC25" class="blob-code blob-code-inner js-file-line">        <span class=pl-k>if</span> <span class=pl-kos>(</span><span class=pl-s1>x</span> <span class=pl-c1>&gt;</span> <span class=pl-s1>width</span> <span class=pl-c1>-</span> <span class=pl-s1>nextWordStrWidth</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="file-p5-word-anim-3-js-LC26" class="blob-code blob-code-inner js-file-line">            <span class=pl-s1>y</span> <span class=pl-c1>+=</span> <span class=pl-c1>40</span> <span class=pl-c>// line height, sort of</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L27" class="blob-num js-line-number" data-line-number="27"></td>
+        <td id="file-p5-word-anim-3-js-LC27" class="blob-code blob-code-inner js-file-line">            <span class=pl-s1>x</span> <span class=pl-c1>=</span> <span class=pl-c1>20</span> <span class=pl-c>// reset x position</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L28" class="blob-num js-line-number" data-line-number="28"></td>
+        <td id="file-p5-word-anim-3-js-LC28" class="blob-code blob-code-inner js-file-line">        <span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L29" class="blob-num js-line-number" data-line-number="29"></td>
+        <td id="file-p5-word-anim-3-js-LC29" class="blob-code blob-code-inner js-file-line">    <span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L30" class="blob-num js-line-number" data-line-number="30"></td>
+        <td id="file-p5-word-anim-3-js-LC30" class="blob-code blob-code-inner js-file-line"><span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L31" class="blob-num js-line-number" data-line-number="31"></td>
+        <td id="file-p5-word-anim-3-js-LC31" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L32" class="blob-num js-line-number" data-line-number="32"></td>
+        <td id="file-p5-word-anim-3-js-LC32" class="blob-code blob-code-inner js-file-line"><span class=pl-k>function</span> <span class=pl-en>draw</span><span class=pl-kos>(</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L33" class="blob-num js-line-number" data-line-number="33"></td>
+        <td id="file-p5-word-anim-3-js-LC33" class="blob-code blob-code-inner js-file-line">    <span class=pl-en>background</span><span class=pl-kos>(</span><span class=pl-c1>0</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L34" class="blob-num js-line-number" data-line-number="34"></td>
+        <td id="file-p5-word-anim-3-js-LC34" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L35" class="blob-num js-line-number" data-line-number="35"></td>
+        <td id="file-p5-word-anim-3-js-LC35" class="blob-code blob-code-inner js-file-line">    <span class=pl-k>for</span> <span class=pl-kos>(</span><span class=pl-k>let</span> <span class=pl-s1>i</span> <span class=pl-c1>=</span> <span class=pl-c1>0</span><span class=pl-kos>;</span> <span class=pl-s1>i</span> <span class=pl-c1>&lt;</span> <span class=pl-s1>words</span><span class=pl-kos>.</span><span class=pl-c1>length</span><span class=pl-kos>;</span> <span class=pl-s1>i</span><span class=pl-c1>++</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L36" class="blob-num js-line-number" data-line-number="36"></td>
+        <td id="file-p5-word-anim-3-js-LC36" class="blob-code blob-code-inner js-file-line">        <span class=pl-k>const</span> <span class=pl-s1>word</span> <span class=pl-c1>=</span> <span class=pl-s1>words</span><span class=pl-kos>[</span><span class=pl-s1>i</span><span class=pl-kos>]</span> <span class=pl-c>// retrieve word object</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L37" class="blob-num js-line-number" data-line-number="37"></td>
+        <td id="file-p5-word-anim-3-js-LC37" class="blob-code blob-code-inner js-file-line">        <span class=pl-s1>word</span><span class=pl-kos>.</span><span class=pl-en>update</span><span class=pl-kos>(</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L38" class="blob-num js-line-number" data-line-number="38"></td>
+        <td id="file-p5-word-anim-3-js-LC38" class="blob-code blob-code-inner js-file-line">        <span class=pl-s1>word</span><span class=pl-kos>.</span><span class=pl-en>display</span><span class=pl-kos>(</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L39" class="blob-num js-line-number" data-line-number="39"></td>
+        <td id="file-p5-word-anim-3-js-LC39" class="blob-code blob-code-inner js-file-line">    <span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L40" class="blob-num js-line-number" data-line-number="40"></td>
+        <td id="file-p5-word-anim-3-js-LC40" class="blob-code blob-code-inner js-file-line"><span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L41" class="blob-num js-line-number" data-line-number="41"></td>
+        <td id="file-p5-word-anim-3-js-LC41" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L42" class="blob-num js-line-number" data-line-number="42"></td>
+        <td id="file-p5-word-anim-3-js-LC42" class="blob-code blob-code-inner js-file-line"><span class=pl-k>function</span> <span class=pl-en>mousePressed</span><span class=pl-kos>(</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L43" class="blob-num js-line-number" data-line-number="43"></td>
+        <td id="file-p5-word-anim-3-js-LC43" class="blob-code blob-code-inner js-file-line">    <span class=pl-k>for</span> <span class=pl-kos>(</span><span class=pl-k>let</span> <span class=pl-s1>i</span> <span class=pl-c1>=</span> <span class=pl-c1>0</span><span class=pl-kos>;</span> <span class=pl-s1>i</span> <span class=pl-c1>&lt;</span> <span class=pl-s1>words</span><span class=pl-kos>.</span><span class=pl-c1>length</span><span class=pl-kos>;</span> <span class=pl-s1>i</span><span class=pl-c1>++</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L44" class="blob-num js-line-number" data-line-number="44"></td>
+        <td id="file-p5-word-anim-3-js-LC44" class="blob-code blob-code-inner js-file-line">        <span class=pl-k>const</span> <span class=pl-s1>word</span> <span class=pl-c1>=</span> <span class=pl-s1>words</span><span class=pl-kos>[</span><span class=pl-s1>i</span><span class=pl-kos>]</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L45" class="blob-num js-line-number" data-line-number="45"></td>
+        <td id="file-p5-word-anim-3-js-LC45" class="blob-code blob-code-inner js-file-line">        <span class=pl-s1>word</span><span class=pl-kos>.</span><span class=pl-en>spread</span><span class=pl-kos>(</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L46" class="blob-num js-line-number" data-line-number="46"></td>
+        <td id="file-p5-word-anim-3-js-LC46" class="blob-code blob-code-inner js-file-line">    <span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L47" class="blob-num js-line-number" data-line-number="47"></td>
+        <td id="file-p5-word-anim-3-js-LC47" class="blob-code blob-code-inner js-file-line"><span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L48" class="blob-num js-line-number" data-line-number="48"></td>
+        <td id="file-p5-word-anim-3-js-LC48" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L49" class="blob-num js-line-number" data-line-number="49"></td>
+        <td id="file-p5-word-anim-3-js-LC49" class="blob-code blob-code-inner js-file-line"><span class=pl-k>class</span> <span class=pl-v>Word</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L50" class="blob-num js-line-number" data-line-number="50"></td>
+        <td id="file-p5-word-anim-3-js-LC50" class="blob-code blob-code-inner js-file-line">    <span class=pl-en>constructor</span><span class=pl-kos>(</span><span class=pl-s1>word</span><span class=pl-kos>,</span> <span class=pl-s1>x</span><span class=pl-kos>,</span> <span class=pl-s1>y</span><span class=pl-kos>,</span> <span class=pl-s1>idx</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L51" class="blob-num js-line-number" data-line-number="51"></td>
+        <td id="file-p5-word-anim-3-js-LC51" class="blob-code blob-code-inner js-file-line">        <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>word</span> <span class=pl-c1>=</span> <span class=pl-s1>word</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L52" class="blob-num js-line-number" data-line-number="52"></td>
+        <td id="file-p5-word-anim-3-js-LC52" class="blob-code blob-code-inner js-file-line">        <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>x</span> <span class=pl-c1>=</span> <span class=pl-s1>x</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L53" class="blob-num js-line-number" data-line-number="53"></td>
+        <td id="file-p5-word-anim-3-js-LC53" class="blob-code blob-code-inner js-file-line">        <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>y</span> <span class=pl-c1>=</span> <span class=pl-s1>y</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L54" class="blob-num js-line-number" data-line-number="54"></td>
+        <td id="file-p5-word-anim-3-js-LC54" class="blob-code blob-code-inner js-file-line">        <span class=pl-c>// target position is the same as current position at start</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L55" class="blob-num js-line-number" data-line-number="55"></td>
+        <td id="file-p5-word-anim-3-js-LC55" class="blob-code blob-code-inner js-file-line">        <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>tx</span> <span class=pl-c1>=</span> <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>x</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L56" class="blob-num js-line-number" data-line-number="56"></td>
+        <td id="file-p5-word-anim-3-js-LC56" class="blob-code blob-code-inner js-file-line">        <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>ty</span> <span class=pl-c1>=</span> <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>y</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L57" class="blob-num js-line-number" data-line-number="57"></td>
+        <td id="file-p5-word-anim-3-js-LC57" class="blob-code blob-code-inner js-file-line">        <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>idx</span> <span class=pl-c1>=</span> <span class=pl-s1>idx</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L58" class="blob-num js-line-number" data-line-number="58"></td>
+        <td id="file-p5-word-anim-3-js-LC58" class="blob-code blob-code-inner js-file-line">        <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>fcolor</span> <span class=pl-c1>=</span> <span class=pl-en>color</span><span class=pl-kos>(</span><span class=pl-c1>255</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L59" class="blob-num js-line-number" data-line-number="59"></td>
+        <td id="file-p5-word-anim-3-js-LC59" class="blob-code blob-code-inner js-file-line">    <span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L60" class="blob-num js-line-number" data-line-number="60"></td>
+        <td id="file-p5-word-anim-3-js-LC60" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L61" class="blob-num js-line-number" data-line-number="61"></td>
+        <td id="file-p5-word-anim-3-js-LC61" class="blob-code blob-code-inner js-file-line">    <span class=pl-en>spread</span><span class=pl-kos>(</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L62" class="blob-num js-line-number" data-line-number="62"></td>
+        <td id="file-p5-word-anim-3-js-LC62" class="blob-code blob-code-inner js-file-line">        <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>tx</span> <span class=pl-c1>=</span> <span class=pl-en>random</span><span class=pl-kos>(</span><span class=pl-s1>width</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L63" class="blob-num js-line-number" data-line-number="63"></td>
+        <td id="file-p5-word-anim-3-js-LC63" class="blob-code blob-code-inner js-file-line">        <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>ty</span> <span class=pl-c1>=</span> <span class=pl-en>random</span><span class=pl-kos>(</span><span class=pl-s1>height</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L64" class="blob-num js-line-number" data-line-number="64"></td>
+        <td id="file-p5-word-anim-3-js-LC64" class="blob-code blob-code-inner js-file-line">    <span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L65" class="blob-num js-line-number" data-line-number="65"></td>
+        <td id="file-p5-word-anim-3-js-LC65" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L66" class="blob-num js-line-number" data-line-number="66"></td>
+        <td id="file-p5-word-anim-3-js-LC66" class="blob-code blob-code-inner js-file-line">    <span class=pl-en>update</span><span class=pl-kos>(</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L67" class="blob-num js-line-number" data-line-number="67"></td>
+        <td id="file-p5-word-anim-3-js-LC67" class="blob-code blob-code-inner js-file-line">        <span class=pl-c>// move towards the target by 10% each time</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L68" class="blob-num js-line-number" data-line-number="68"></td>
+        <td id="file-p5-word-anim-3-js-LC68" class="blob-code blob-code-inner js-file-line">        <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>x</span> <span class=pl-c1>=</span> <span class=pl-en>lerp</span><span class=pl-kos>(</span><span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>x</span><span class=pl-kos>,</span> <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>tx</span><span class=pl-kos>,</span> <span class=pl-c1>0.1</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L69" class="blob-num js-line-number" data-line-number="69"></td>
+        <td id="file-p5-word-anim-3-js-LC69" class="blob-code blob-code-inner js-file-line">        <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>y</span> <span class=pl-c1>=</span> <span class=pl-en>lerp</span><span class=pl-kos>(</span><span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>y</span><span class=pl-kos>,</span> <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>ty</span><span class=pl-kos>,</span> <span class=pl-c1>0.1</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L70" class="blob-num js-line-number" data-line-number="70"></td>
+        <td id="file-p5-word-anim-3-js-LC70" class="blob-code blob-code-inner js-file-line">    <span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L71" class="blob-num js-line-number" data-line-number="71"></td>
+        <td id="file-p5-word-anim-3-js-LC71" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L72" class="blob-num js-line-number" data-line-number="72"></td>
+        <td id="file-p5-word-anim-3-js-LC72" class="blob-code blob-code-inner js-file-line">    <span class=pl-en>display</span><span class=pl-kos>(</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L73" class="blob-num js-line-number" data-line-number="73"></td>
+        <td id="file-p5-word-anim-3-js-LC73" class="blob-code blob-code-inner js-file-line">        <span class=pl-en>fill</span><span class=pl-kos>(</span><span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>fcolor</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L74" class="blob-num js-line-number" data-line-number="74"></td>
+        <td id="file-p5-word-anim-3-js-LC74" class="blob-code blob-code-inner js-file-line">        <span class=pl-en>noStroke</span><span class=pl-kos>(</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L75" class="blob-num js-line-number" data-line-number="75"></td>
+        <td id="file-p5-word-anim-3-js-LC75" class="blob-code blob-code-inner js-file-line">        <span class=pl-en>text</span><span class=pl-kos>(</span><span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>word</span><span class=pl-kos>,</span> <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>x</span><span class=pl-kos>,</span> <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>y</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L76" class="blob-num js-line-number" data-line-number="76"></td>
+        <td id="file-p5-word-anim-3-js-LC76" class="blob-code blob-code-inner js-file-line">    <span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-3-js-L77" class="blob-num js-line-number" data-line-number="77"></td>
+        <td id="file-p5-word-anim-3-js-LC77" class="blob-code blob-code-inner js-file-line"><span class=pl-kos>}</span></td>
+      </tr>
+</table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/erraticgenerator/03603f13a91cc5ed7ee1364adc72ce8c/raw/87da2d81f752bdf5de6b7795b67c3f02cbe41c24/p5-word-anim-3.js" style="float:right">view raw</a>
+        <a href="https://gist.github.com/erraticgenerator/03603f13a91cc5ed7ee1364adc72ce8c#file-p5-word-anim-3-js">p5-word-anim-3.js</a>
+        hosted with &#10084; by <a href="https://github.com">GitHub</a>
+      </div>
+    </div>
+</div></p>
+<p><figure class='gatsby-resp-image-figure' style=''>
+    <span class='gatsby-resp-image-wrapper' style='position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 700px; '>
+      <span class='gatsby-resp-image-background-image' style="padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAvElEQVQoz52RvQqEMBCENUGi6bTQVP6AEFDUQgRRBAko6cT3f5kbLpDyNLfFQob9dpaJ57mU7/voSZIURfE8dBzHeZ5CCCMaPY7jpmkefMIw7Lqu73sLe38UMEopIcTyrxYBcPMh37K7y7Icx/G6rmVZ1nXFCQ7ZSim11kiuqqo8z3+NRlGklNr3va5rmKADCILglRuALMtwHnJGv+97GAbASL5tW87586n4xnmet21L09TojLFpmszTxvEBMB4VwZP9BcMAAAAASUVORK5CYII='); background-size: cover; display: block;"></span>
+  <img class='gatsby-resp-image-image' alt='Each more press will randomize the word position. Image by Author.' title='Each more press will randomize the word position. Image by Author.' src='/eg-website/static/54988da294c193cbdf5c9e119c9132f9/8c557/word-2.png' srcset='/eg-website/static/54988da294c193cbdf5c9e119c9132f9/5a46d/word-2.png 300w,
+/eg-website/static/54988da294c193cbdf5c9e119c9132f9/0a47e/word-2.png 600w,
+/eg-website/static/54988da294c193cbdf5c9e119c9132f9/8c557/word-2.png 700w' sizes='(max-width: 700px) 100vw, 700px' style='width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;' loading='lazy'>
+    </span>
+    <figcaption class='gatsby-resp-image-figcaption'>Each more press will randomize the word position. Image by Author.</figcaption>
+  </figure></p>
+<h2>Bring Them Back</h2>
+<p>One last thing to do is to bring all the words back to where it started. We need to update <code class="language-text">this.x</code> and <code class="language-text">this.y</code> to be able to animate the words, so the moment it starts to animate, the word object loses its original position. We will need to create new variables so each word will always remember its original position.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// in Word class</span>
+<span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">word<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> idx</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>word <span class="token operator">=</span> word
+    <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> x
+    <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">=</span> y
+    <span class="token comment">// target position is the same as current position at start</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>tx <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>x
+    <span class="token keyword">this</span><span class="token punctuation">.</span>ty <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>y
+    <span class="token comment">// original position</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>origx <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>x
+    <span class="token keyword">this</span><span class="token punctuation">.</span>origy <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>y
+    <span class="token keyword">this</span><span class="token punctuation">.</span>idx <span class="token operator">=</span> idx
+    <span class="token keyword">this</span><span class="token punctuation">.</span>fcolor <span class="token operator">=</span> <span class="token function">color</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Let’s also add one more method in the <code class="language-text">Word</code> class to reset x and y positions to their original values:</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// in Word class</span>
+<span class="token function">reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>tx <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>origx
+    <span class="token keyword">this</span><span class="token punctuation">.</span>ty <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>origy
+<span class="token punctuation">}</span></code></pre></div>
+<p>Now, we have multiple actions to control, I am moving some parts of the code from <code class="language-text">mousePressed()</code> to <code class="language-text">keyPressed()</code>.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">keyPressed</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>key <span class="token operator">===</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> word <span class="token keyword">of</span> words<span class="token punctuation">)</span> word<span class="token punctuation">.</span><span class="token function">spread</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>key <span class="token operator">===</span> <span class="token string">' '</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> word <span class="token keyword">of</span> words<span class="token punctuation">)</span> word<span class="token punctuation">.</span><span class="token function">reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>And finally, here is the full implementation.</p>
+<p><div id="gist106841971" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-p5-word-anim-4-html" class="file my-2">
+    
+
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-html  ">
+      
+<table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-p5-word-anim-4-html-LC1" class="blob-code blob-code-inner js-file-line"><span class=pl-c1>&lt;!DOCTYPE html<span class=pl-kos>&gt;</span></span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-p5-word-anim-4-html-LC2" class="blob-code blob-code-inner js-file-line"><span class=pl-kos>&lt;</span><span class=pl-ent>html</span> <span class=pl-c1>lang</span>=&quot;<span class=pl-s>en</span>&quot;<span class=pl-kos>&gt;</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-p5-word-anim-4-html-LC3" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-p5-word-anim-4-html-LC4" class="blob-code blob-code-inner js-file-line"><span class=pl-kos>&lt;</span><span class=pl-ent>head</span><span class=pl-kos>&gt;</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-p5-word-anim-4-html-LC5" class="blob-code blob-code-inner js-file-line">    <span class=pl-kos>&lt;</span><span class=pl-ent>meta</span> <span class=pl-c1>charset</span>=&quot;<span class=pl-s>UTF-8</span>&quot;<span class=pl-kos>&gt;</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-p5-word-anim-4-html-LC6" class="blob-code blob-code-inner js-file-line">    <span class=pl-kos>&lt;</span><span class=pl-ent>meta</span> <span class=pl-c1>name</span>=&quot;<span class=pl-s>viewport</span>&quot; <span class=pl-c1>content</span>=&quot;<span class=pl-s>width=device-width, initial-scale=1.0</span>&quot;<span class=pl-kos>&gt;</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-p5-word-anim-4-html-LC7" class="blob-code blob-code-inner js-file-line">    <span class=pl-kos>&lt;</span><span class=pl-ent>title</span><span class=pl-kos>&gt;</span>Document<span class=pl-kos>&lt;/</span><span class=pl-ent>title</span><span class=pl-kos>&gt;</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-p5-word-anim-4-html-LC8" class="blob-code blob-code-inner js-file-line">    <span class=pl-kos>&lt;</span><span class=pl-ent>script</span> <span class=pl-c1>src</span>=&quot;<span class=pl-s>https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js</span>&quot;<span class=pl-kos>&gt;</span><span class=pl-kos>&lt;/</span><span class=pl-ent>script</span><span class=pl-kos>&gt;</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-p5-word-anim-4-html-LC9" class="blob-code blob-code-inner js-file-line"><span class=pl-kos>&lt;/</span><span class=pl-ent>head</span><span class=pl-kos>&gt;</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-p5-word-anim-4-html-LC10" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-p5-word-anim-4-html-LC11" class="blob-code blob-code-inner js-file-line"><span class=pl-kos>&lt;</span><span class=pl-ent>body</span><span class=pl-kos>&gt;</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-p5-word-anim-4-html-LC12" class="blob-code blob-code-inner js-file-line">    <span class=pl-kos>&lt;</span><span class=pl-ent>script</span><span class=pl-kos>&gt;</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-p5-word-anim-4-html-LC13" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-p5-word-anim-4-html-LC14" class="blob-code blob-code-inner js-file-line">        <span class=pl-k>const</span> <span class=pl-s1>words</span> <span class=pl-c1>=</span> <span class=pl-kos>[</span><span class=pl-kos>]</span> <span class=pl-c>// store word objects</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-p5-word-anim-4-html-LC15" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-p5-word-anim-4-html-LC16" class="blob-code blob-code-inner js-file-line">        <span class=pl-k>function</span> <span class=pl-en>setup</span><span class=pl-kos>(</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-p5-word-anim-4-html-LC17" class="blob-code blob-code-inner js-file-line">            <span class=pl-en>createCanvas</span><span class=pl-kos>(</span><span class=pl-c1>800</span><span class=pl-kos>,</span> <span class=pl-c1>400</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-p5-word-anim-4-html-LC18" class="blob-code blob-code-inner js-file-line">            <span class=pl-en>background</span><span class=pl-kos>(</span><span class=pl-c1>0</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-p5-word-anim-4-html-LC19" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-p5-word-anim-4-html-LC20" class="blob-code blob-code-inner js-file-line">            <span class=pl-k>const</span> <span class=pl-s1>str</span> <span class=pl-c1>=</span> <span class=pl-s>&#39;Hello, world! Hi, there! Nice to meet you!&#39;</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-p5-word-anim-4-html-LC21" class="blob-code blob-code-inner js-file-line">            <span class=pl-k>const</span> <span class=pl-s1>wordsStr</span> <span class=pl-c1>=</span> <span class=pl-s1>str</span><span class=pl-kos>.</span><span class=pl-en>split</span><span class=pl-kos>(</span><span class=pl-s>&#39; &#39;</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-p5-word-anim-4-html-LC22" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-p5-word-anim-4-html-LC23" class="blob-code blob-code-inner js-file-line">            <span class=pl-en>textSize</span><span class=pl-kos>(</span><span class=pl-c1>48</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-p5-word-anim-4-html-LC24" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="file-p5-word-anim-4-html-LC25" class="blob-code blob-code-inner js-file-line">            <span class=pl-c>// track word position</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="file-p5-word-anim-4-html-LC26" class="blob-code blob-code-inner js-file-line">            <span class=pl-k>let</span> <span class=pl-s1>x</span> <span class=pl-c1>=</span> <span class=pl-c1>20</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L27" class="blob-num js-line-number" data-line-number="27"></td>
+        <td id="file-p5-word-anim-4-html-LC27" class="blob-code blob-code-inner js-file-line">            <span class=pl-k>let</span> <span class=pl-s1>y</span> <span class=pl-c1>=</span> <span class=pl-c1>60</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L28" class="blob-num js-line-number" data-line-number="28"></td>
+        <td id="file-p5-word-anim-4-html-LC28" class="blob-code blob-code-inner js-file-line">            <span class=pl-en>fill</span><span class=pl-kos>(</span><span class=pl-c1>255</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L29" class="blob-num js-line-number" data-line-number="29"></td>
+        <td id="file-p5-word-anim-4-html-LC29" class="blob-code blob-code-inner js-file-line">            <span class=pl-c>// iterate over each word</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L30" class="blob-num js-line-number" data-line-number="30"></td>
+        <td id="file-p5-word-anim-4-html-LC30" class="blob-code blob-code-inner js-file-line">            <span class=pl-k>for</span> <span class=pl-kos>(</span><span class=pl-k>let</span> <span class=pl-s1>i</span> <span class=pl-c1>=</span> <span class=pl-c1>0</span><span class=pl-kos>;</span> <span class=pl-s1>i</span> <span class=pl-c1>&lt;</span> <span class=pl-s1>wordsStr</span><span class=pl-kos>.</span><span class=pl-c1>length</span><span class=pl-kos>;</span> <span class=pl-s1>i</span><span class=pl-c1>++</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L31" class="blob-num js-line-number" data-line-number="31"></td>
+        <td id="file-p5-word-anim-4-html-LC31" class="blob-code blob-code-inner js-file-line">                <span class=pl-k>const</span> <span class=pl-s1>wordStr</span> <span class=pl-c1>=</span> <span class=pl-s1>wordsStr</span><span class=pl-kos>[</span><span class=pl-s1>i</span><span class=pl-kos>]</span> <span class=pl-c>// get current word</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L32" class="blob-num js-line-number" data-line-number="32"></td>
+        <td id="file-p5-word-anim-4-html-LC32" class="blob-code blob-code-inner js-file-line">                <span class=pl-k>const</span> <span class=pl-s1>wordStrWidth</span> <span class=pl-c1>=</span> <span class=pl-en>textWidth</span><span class=pl-kos>(</span><span class=pl-s1>wordStr</span><span class=pl-kos>)</span> <span class=pl-c>// get current word width</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L33" class="blob-num js-line-number" data-line-number="33"></td>
+        <td id="file-p5-word-anim-4-html-LC33" class="blob-code blob-code-inner js-file-line">                <span class=pl-k>const</span> <span class=pl-s1>word</span> <span class=pl-c1>=</span> <span class=pl-k>new</span> <span class=pl-v>Word</span><span class=pl-kos>(</span><span class=pl-s1>wordStr</span><span class=pl-kos>,</span> <span class=pl-s1>x</span><span class=pl-kos>,</span> <span class=pl-s1>y</span><span class=pl-kos>,</span> <span class=pl-s1>i</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L34" class="blob-num js-line-number" data-line-number="34"></td>
+        <td id="file-p5-word-anim-4-html-LC34" class="blob-code blob-code-inner js-file-line">                <span class=pl-s1>words</span><span class=pl-kos>.</span><span class=pl-en>push</span><span class=pl-kos>(</span><span class=pl-s1>word</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L35" class="blob-num js-line-number" data-line-number="35"></td>
+        <td id="file-p5-word-anim-4-html-LC35" class="blob-code blob-code-inner js-file-line">                <span class=pl-s1>x</span> <span class=pl-c1>=</span> <span class=pl-s1>x</span> <span class=pl-c1>+</span> <span class=pl-s1>wordStrWidth</span> <span class=pl-c1>+</span> <span class=pl-en>textWidth</span><span class=pl-kos>(</span><span class=pl-s>&#39; &#39;</span><span class=pl-kos>)</span> <span class=pl-c>// update x by word width + space character</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L36" class="blob-num js-line-number" data-line-number="36"></td>
+        <td id="file-p5-word-anim-4-html-LC36" class="blob-code blob-code-inner js-file-line">                <span class=pl-c>// look ahead the next word - will it fit in the space? if not, line break</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L37" class="blob-num js-line-number" data-line-number="37"></td>
+        <td id="file-p5-word-anim-4-html-LC37" class="blob-code blob-code-inner js-file-line">                <span class=pl-k>const</span> <span class=pl-s1>nextWordStrWidth</span> <span class=pl-c1>=</span> <span class=pl-en>textWidth</span><span class=pl-kos>(</span><span class=pl-s1>wordsStr</span><span class=pl-kos>[</span><span class=pl-s1>i</span><span class=pl-c1>+</span><span class=pl-c1>1</span><span class=pl-kos>]</span><span class=pl-kos>)</span> <span class=pl-c1>||</span> <span class=pl-c1>0</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L38" class="blob-num js-line-number" data-line-number="38"></td>
+        <td id="file-p5-word-anim-4-html-LC38" class="blob-code blob-code-inner js-file-line">                <span class=pl-k>if</span> <span class=pl-kos>(</span><span class=pl-s1>x</span> <span class=pl-c1>&gt;</span> <span class=pl-s1>width</span> <span class=pl-c1>-</span> <span class=pl-s1>nextWordStrWidth</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L39" class="blob-num js-line-number" data-line-number="39"></td>
+        <td id="file-p5-word-anim-4-html-LC39" class="blob-code blob-code-inner js-file-line">                    <span class=pl-s1>y</span> <span class=pl-c1>+=</span> <span class=pl-c1>40</span> <span class=pl-c>// line height, sort of</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L40" class="blob-num js-line-number" data-line-number="40"></td>
+        <td id="file-p5-word-anim-4-html-LC40" class="blob-code blob-code-inner js-file-line">                    <span class=pl-s1>x</span> <span class=pl-c1>=</span> <span class=pl-c1>20</span> <span class=pl-c>// reset x position</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L41" class="blob-num js-line-number" data-line-number="41"></td>
+        <td id="file-p5-word-anim-4-html-LC41" class="blob-code blob-code-inner js-file-line">                <span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L42" class="blob-num js-line-number" data-line-number="42"></td>
+        <td id="file-p5-word-anim-4-html-LC42" class="blob-code blob-code-inner js-file-line">            <span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L43" class="blob-num js-line-number" data-line-number="43"></td>
+        <td id="file-p5-word-anim-4-html-LC43" class="blob-code blob-code-inner js-file-line">        <span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L44" class="blob-num js-line-number" data-line-number="44"></td>
+        <td id="file-p5-word-anim-4-html-LC44" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L45" class="blob-num js-line-number" data-line-number="45"></td>
+        <td id="file-p5-word-anim-4-html-LC45" class="blob-code blob-code-inner js-file-line">        <span class=pl-k>function</span> <span class=pl-en>draw</span><span class=pl-kos>(</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L46" class="blob-num js-line-number" data-line-number="46"></td>
+        <td id="file-p5-word-anim-4-html-LC46" class="blob-code blob-code-inner js-file-line">            <span class=pl-en>background</span><span class=pl-kos>(</span><span class=pl-c1>0</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L47" class="blob-num js-line-number" data-line-number="47"></td>
+        <td id="file-p5-word-anim-4-html-LC47" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L48" class="blob-num js-line-number" data-line-number="48"></td>
+        <td id="file-p5-word-anim-4-html-LC48" class="blob-code blob-code-inner js-file-line">            <span class=pl-k>for</span> <span class=pl-kos>(</span><span class=pl-k>let</span> <span class=pl-s1>i</span> <span class=pl-c1>=</span> <span class=pl-c1>0</span><span class=pl-kos>;</span> <span class=pl-s1>i</span> <span class=pl-c1>&lt;</span> <span class=pl-s1>words</span><span class=pl-kos>.</span><span class=pl-c1>length</span><span class=pl-kos>;</span> <span class=pl-s1>i</span><span class=pl-c1>++</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L49" class="blob-num js-line-number" data-line-number="49"></td>
+        <td id="file-p5-word-anim-4-html-LC49" class="blob-code blob-code-inner js-file-line">                <span class=pl-k>const</span> <span class=pl-s1>word</span> <span class=pl-c1>=</span> <span class=pl-s1>words</span><span class=pl-kos>[</span><span class=pl-s1>i</span><span class=pl-kos>]</span> <span class=pl-c>// retrieve word object</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L50" class="blob-num js-line-number" data-line-number="50"></td>
+        <td id="file-p5-word-anim-4-html-LC50" class="blob-code blob-code-inner js-file-line">                <span class=pl-s1>word</span><span class=pl-kos>.</span><span class=pl-en>update</span><span class=pl-kos>(</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L51" class="blob-num js-line-number" data-line-number="51"></td>
+        <td id="file-p5-word-anim-4-html-LC51" class="blob-code blob-code-inner js-file-line">                <span class=pl-s1>word</span><span class=pl-kos>.</span><span class=pl-en>display</span><span class=pl-kos>(</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L52" class="blob-num js-line-number" data-line-number="52"></td>
+        <td id="file-p5-word-anim-4-html-LC52" class="blob-code blob-code-inner js-file-line">            <span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L53" class="blob-num js-line-number" data-line-number="53"></td>
+        <td id="file-p5-word-anim-4-html-LC53" class="blob-code blob-code-inner js-file-line">        <span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L54" class="blob-num js-line-number" data-line-number="54"></td>
+        <td id="file-p5-word-anim-4-html-LC54" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L55" class="blob-num js-line-number" data-line-number="55"></td>
+        <td id="file-p5-word-anim-4-html-LC55" class="blob-code blob-code-inner js-file-line">        <span class=pl-k>function</span> <span class=pl-en>keyPressed</span><span class=pl-kos>(</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L56" class="blob-num js-line-number" data-line-number="56"></td>
+        <td id="file-p5-word-anim-4-html-LC56" class="blob-code blob-code-inner js-file-line">            <span class=pl-k>if</span> <span class=pl-kos>(</span><span class=pl-s1>key</span> <span class=pl-c1>===</span> <span class=pl-s>&#39;r&#39;</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L57" class="blob-num js-line-number" data-line-number="57"></td>
+        <td id="file-p5-word-anim-4-html-LC57" class="blob-code blob-code-inner js-file-line">                <span class=pl-k>for</span> <span class=pl-kos>(</span><span class=pl-k>let</span> <span class=pl-s1>word</span> <span class=pl-k>of</span> <span class=pl-s1>words</span><span class=pl-kos>)</span> <span class=pl-s1>word</span><span class=pl-kos>.</span><span class=pl-en>spread</span><span class=pl-kos>(</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L58" class="blob-num js-line-number" data-line-number="58"></td>
+        <td id="file-p5-word-anim-4-html-LC58" class="blob-code blob-code-inner js-file-line">            <span class=pl-kos>}</span> <span class=pl-k>else</span> <span class=pl-k>if</span> <span class=pl-kos>(</span><span class=pl-s1>key</span> <span class=pl-c1>===</span> <span class=pl-s>&#39; &#39;</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L59" class="blob-num js-line-number" data-line-number="59"></td>
+        <td id="file-p5-word-anim-4-html-LC59" class="blob-code blob-code-inner js-file-line">                <span class=pl-k>for</span> <span class=pl-kos>(</span><span class=pl-k>let</span> <span class=pl-s1>word</span> <span class=pl-k>of</span> <span class=pl-s1>words</span><span class=pl-kos>)</span> <span class=pl-s1>word</span><span class=pl-kos>.</span><span class=pl-en>reset</span><span class=pl-kos>(</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L60" class="blob-num js-line-number" data-line-number="60"></td>
+        <td id="file-p5-word-anim-4-html-LC60" class="blob-code blob-code-inner js-file-line">            <span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L61" class="blob-num js-line-number" data-line-number="61"></td>
+        <td id="file-p5-word-anim-4-html-LC61" class="blob-code blob-code-inner js-file-line">        <span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L62" class="blob-num js-line-number" data-line-number="62"></td>
+        <td id="file-p5-word-anim-4-html-LC62" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L63" class="blob-num js-line-number" data-line-number="63"></td>
+        <td id="file-p5-word-anim-4-html-LC63" class="blob-code blob-code-inner js-file-line">        <span class=pl-k>class</span> <span class=pl-v>Word</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L64" class="blob-num js-line-number" data-line-number="64"></td>
+        <td id="file-p5-word-anim-4-html-LC64" class="blob-code blob-code-inner js-file-line">            <span class=pl-en>constructor</span><span class=pl-kos>(</span><span class=pl-s1>word</span><span class=pl-kos>,</span> <span class=pl-s1>x</span><span class=pl-kos>,</span> <span class=pl-s1>y</span><span class=pl-kos>,</span> <span class=pl-s1>idx</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L65" class="blob-num js-line-number" data-line-number="65"></td>
+        <td id="file-p5-word-anim-4-html-LC65" class="blob-code blob-code-inner js-file-line">                <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>word</span> <span class=pl-c1>=</span> <span class=pl-s1>word</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L66" class="blob-num js-line-number" data-line-number="66"></td>
+        <td id="file-p5-word-anim-4-html-LC66" class="blob-code blob-code-inner js-file-line">                <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>x</span> <span class=pl-c1>=</span> <span class=pl-s1>x</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L67" class="blob-num js-line-number" data-line-number="67"></td>
+        <td id="file-p5-word-anim-4-html-LC67" class="blob-code blob-code-inner js-file-line">                <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>y</span> <span class=pl-c1>=</span> <span class=pl-s1>y</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L68" class="blob-num js-line-number" data-line-number="68"></td>
+        <td id="file-p5-word-anim-4-html-LC68" class="blob-code blob-code-inner js-file-line">                <span class=pl-c>// target position is the same as current position at start</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L69" class="blob-num js-line-number" data-line-number="69"></td>
+        <td id="file-p5-word-anim-4-html-LC69" class="blob-code blob-code-inner js-file-line">                <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>tx</span> <span class=pl-c1>=</span> <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>x</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L70" class="blob-num js-line-number" data-line-number="70"></td>
+        <td id="file-p5-word-anim-4-html-LC70" class="blob-code blob-code-inner js-file-line">                <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>ty</span> <span class=pl-c1>=</span> <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>y</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L71" class="blob-num js-line-number" data-line-number="71"></td>
+        <td id="file-p5-word-anim-4-html-LC71" class="blob-code blob-code-inner js-file-line">                <span class=pl-c>// original position</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L72" class="blob-num js-line-number" data-line-number="72"></td>
+        <td id="file-p5-word-anim-4-html-LC72" class="blob-code blob-code-inner js-file-line">                <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>origx</span> <span class=pl-c1>=</span> <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>x</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L73" class="blob-num js-line-number" data-line-number="73"></td>
+        <td id="file-p5-word-anim-4-html-LC73" class="blob-code blob-code-inner js-file-line">                <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>origy</span> <span class=pl-c1>=</span> <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>y</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L74" class="blob-num js-line-number" data-line-number="74"></td>
+        <td id="file-p5-word-anim-4-html-LC74" class="blob-code blob-code-inner js-file-line">                <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>idx</span> <span class=pl-c1>=</span> <span class=pl-s1>idx</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L75" class="blob-num js-line-number" data-line-number="75"></td>
+        <td id="file-p5-word-anim-4-html-LC75" class="blob-code blob-code-inner js-file-line">                <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>fcolor</span> <span class=pl-c1>=</span> <span class=pl-en>color</span><span class=pl-kos>(</span><span class=pl-c1>255</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L76" class="blob-num js-line-number" data-line-number="76"></td>
+        <td id="file-p5-word-anim-4-html-LC76" class="blob-code blob-code-inner js-file-line">            <span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L77" class="blob-num js-line-number" data-line-number="77"></td>
+        <td id="file-p5-word-anim-4-html-LC77" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L78" class="blob-num js-line-number" data-line-number="78"></td>
+        <td id="file-p5-word-anim-4-html-LC78" class="blob-code blob-code-inner js-file-line">            <span class=pl-en>reset</span><span class=pl-kos>(</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L79" class="blob-num js-line-number" data-line-number="79"></td>
+        <td id="file-p5-word-anim-4-html-LC79" class="blob-code blob-code-inner js-file-line">                <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>tx</span> <span class=pl-c1>=</span> <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>origx</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L80" class="blob-num js-line-number" data-line-number="80"></td>
+        <td id="file-p5-word-anim-4-html-LC80" class="blob-code blob-code-inner js-file-line">                <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>ty</span> <span class=pl-c1>=</span> <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>origy</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L81" class="blob-num js-line-number" data-line-number="81"></td>
+        <td id="file-p5-word-anim-4-html-LC81" class="blob-code blob-code-inner js-file-line">            <span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L82" class="blob-num js-line-number" data-line-number="82"></td>
+        <td id="file-p5-word-anim-4-html-LC82" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L83" class="blob-num js-line-number" data-line-number="83"></td>
+        <td id="file-p5-word-anim-4-html-LC83" class="blob-code blob-code-inner js-file-line">            <span class=pl-en>spread</span><span class=pl-kos>(</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L84" class="blob-num js-line-number" data-line-number="84"></td>
+        <td id="file-p5-word-anim-4-html-LC84" class="blob-code blob-code-inner js-file-line">                <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>tx</span> <span class=pl-c1>=</span> <span class=pl-en>random</span><span class=pl-kos>(</span><span class=pl-s1>width</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L85" class="blob-num js-line-number" data-line-number="85"></td>
+        <td id="file-p5-word-anim-4-html-LC85" class="blob-code blob-code-inner js-file-line">                <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>ty</span> <span class=pl-c1>=</span> <span class=pl-en>random</span><span class=pl-kos>(</span><span class=pl-s1>height</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L86" class="blob-num js-line-number" data-line-number="86"></td>
+        <td id="file-p5-word-anim-4-html-LC86" class="blob-code blob-code-inner js-file-line">            <span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L87" class="blob-num js-line-number" data-line-number="87"></td>
+        <td id="file-p5-word-anim-4-html-LC87" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L88" class="blob-num js-line-number" data-line-number="88"></td>
+        <td id="file-p5-word-anim-4-html-LC88" class="blob-code blob-code-inner js-file-line">            <span class=pl-en>update</span><span class=pl-kos>(</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L89" class="blob-num js-line-number" data-line-number="89"></td>
+        <td id="file-p5-word-anim-4-html-LC89" class="blob-code blob-code-inner js-file-line">                <span class=pl-c>// move towards the target by 10% each time</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L90" class="blob-num js-line-number" data-line-number="90"></td>
+        <td id="file-p5-word-anim-4-html-LC90" class="blob-code blob-code-inner js-file-line">                <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>x</span> <span class=pl-c1>=</span> <span class=pl-en>lerp</span><span class=pl-kos>(</span><span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>x</span><span class=pl-kos>,</span> <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>tx</span><span class=pl-kos>,</span> <span class=pl-c1>0.1</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L91" class="blob-num js-line-number" data-line-number="91"></td>
+        <td id="file-p5-word-anim-4-html-LC91" class="blob-code blob-code-inner js-file-line">                <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>y</span> <span class=pl-c1>=</span> <span class=pl-en>lerp</span><span class=pl-kos>(</span><span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>y</span><span class=pl-kos>,</span> <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>ty</span><span class=pl-kos>,</span> <span class=pl-c1>0.1</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L92" class="blob-num js-line-number" data-line-number="92"></td>
+        <td id="file-p5-word-anim-4-html-LC92" class="blob-code blob-code-inner js-file-line">            <span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L93" class="blob-num js-line-number" data-line-number="93"></td>
+        <td id="file-p5-word-anim-4-html-LC93" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L94" class="blob-num js-line-number" data-line-number="94"></td>
+        <td id="file-p5-word-anim-4-html-LC94" class="blob-code blob-code-inner js-file-line">            <span class=pl-en>display</span><span class=pl-kos>(</span><span class=pl-kos>)</span> <span class=pl-kos>{</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L95" class="blob-num js-line-number" data-line-number="95"></td>
+        <td id="file-p5-word-anim-4-html-LC95" class="blob-code blob-code-inner js-file-line">                <span class=pl-en>fill</span><span class=pl-kos>(</span><span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>fcolor</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L96" class="blob-num js-line-number" data-line-number="96"></td>
+        <td id="file-p5-word-anim-4-html-LC96" class="blob-code blob-code-inner js-file-line">                <span class=pl-en>noStroke</span><span class=pl-kos>(</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L97" class="blob-num js-line-number" data-line-number="97"></td>
+        <td id="file-p5-word-anim-4-html-LC97" class="blob-code blob-code-inner js-file-line">                <span class=pl-en>text</span><span class=pl-kos>(</span><span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>word</span><span class=pl-kos>,</span> <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>x</span><span class=pl-kos>,</span> <span class=pl-smi>this</span><span class=pl-kos>.</span><span class=pl-c1>y</span><span class=pl-kos>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L98" class="blob-num js-line-number" data-line-number="98"></td>
+        <td id="file-p5-word-anim-4-html-LC98" class="blob-code blob-code-inner js-file-line">            <span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L99" class="blob-num js-line-number" data-line-number="99"></td>
+        <td id="file-p5-word-anim-4-html-LC99" class="blob-code blob-code-inner js-file-line">        <span class=pl-kos>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L100" class="blob-num js-line-number" data-line-number="100"></td>
+        <td id="file-p5-word-anim-4-html-LC100" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L101" class="blob-num js-line-number" data-line-number="101"></td>
+        <td id="file-p5-word-anim-4-html-LC101" class="blob-code blob-code-inner js-file-line">    <span class=pl-kos>&lt;/</span><span class=pl-ent>script</span><span class=pl-kos>&gt;</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L102" class="blob-num js-line-number" data-line-number="102"></td>
+        <td id="file-p5-word-anim-4-html-LC102" class="blob-code blob-code-inner js-file-line"><span class=pl-kos>&lt;/</span><span class=pl-ent>body</span><span class=pl-kos>&gt;</span></td>
+      </tr>
+      <tr>
+        <td id="file-p5-word-anim-4-html-L103" class="blob-num js-line-number" data-line-number="103"></td>
+        <td id="file-p5-word-anim-4-html-LC103" class="blob-code blob-code-inner js-file-line"><span class=pl-kos>&lt;/</span><span class=pl-ent>html</span><span class=pl-kos>&gt;</span></td>
+      </tr>
+</table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/erraticgenerator/83b6b76088b1455363ec809988149c23/raw/417de575052ca372137abeee31bdf86bed6d1109/p5-word-anim-4.html" style="float:right">view raw</a>
+        <a href="https://gist.github.com/erraticgenerator/83b6b76088b1455363ec809988149c23#file-p5-word-anim-4-html">p5-word-anim-4.html</a>
+        hosted with &#10084; by <a href="https://github.com">GitHub</a>
+      </div>
+    </div>
+</div></p>
+<h2>Wrap-up</h2>
+<p>I hope my breakdown was helpful to you. In terms of what to do next, I suggest that you try different animation methods. I used <code class="language-text">lerp()</code> for simplicity but you can replace it with any types of easing methods and you will get very different looking results. Also, you can add more variables than just x and y positions. How about color or text size animation? How about breaking up the words into letters? I hope you have some fun!</p></div><style data-emotion="css gi1u7h">.css-gi1u7h{margin-top:60px;padding:30px;border-top:1px solid #aaa;font-size:1.8rem;text-align:center;}</style><div class="css-gi1u7h"><style data-emotion="css 1l67l6w">.css-1l67l6w{margin-bottom:16px;color:#666;}</style><p class="css-1l67l6w">If you like my contents, please consider supporting me <br/>so I can create more contents like this. Thank you!</p><style data-emotion="css 4zleql">.css-4zleql{display:block;}</style><a href="https://ko-fi.com/E1E12Z9TZ" target="_blank" rel="noreferrer" class="css-4zleql"><img style="border:0;height:36px" src="https://cdn.ko-fi.com/cdn/kofi2.png?v=2" alt="Buy Me a Coffee at ko-fi.com"/></a></div></main><style data-emotion="css d9qqnj">.css-d9qqnj{grid-row:3/4;}</style><style data-emotion="css 1f21wwo">.css-1f21wwo{margin-top:48px;height:100px;background-image:linear-gradient(white 0%, #fdd 100%);}</style><footer class="css-1f21wwo"><style data-emotion="css ahgem5">.css-ahgem5{margin:0 auto;padding:0 12px;max-width:720px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}</style><div class="css-ahgem5"><style data-emotion="css 10r641u">.css-10r641u{font-size:1.2rem;}</style><div class="css-10r641u">Copyright 2020 • ErraticGenerator.com</div><style data-emotion="css 11f9kv5">.css-11f9kv5{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;font-size:3rem;list-style-type:none;}.css-11f9kv5 li{margin:0 10px;}</style><ul class="css-11f9kv5"><li><a href="mailto:erraticgenerator@gmail.com" target="_blank" rel="noopener noreferrer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0 0 68.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"></path></svg></a></li><li><a href="https://instagram.com/erraticgenerator" target="_blank" rel="noopener noreferrer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M512 306.9c-113.5 0-205.1 91.6-205.1 205.1S398.5 717.1 512 717.1 717.1 625.5 717.1 512 625.5 306.9 512 306.9zm0 338.4c-73.4 0-133.3-59.9-133.3-133.3S438.6 378.7 512 378.7 645.3 438.6 645.3 512 585.4 645.3 512 645.3zm213.5-394.6c-26.5 0-47.9 21.4-47.9 47.9s21.4 47.9 47.9 47.9 47.9-21.3 47.9-47.9a47.84 47.84 0 0 0-47.9-47.9zM911.8 512c0-55.2.5-109.9-2.6-165-3.1-64-17.7-120.8-64.5-167.6-46.9-46.9-103.6-61.4-167.6-64.5-55.2-3.1-109.9-2.6-165-2.6-55.2 0-109.9-.5-165 2.6-64 3.1-120.8 17.7-167.6 64.5C132.6 226.3 118.1 283 115 347c-3.1 55.2-2.6 109.9-2.6 165s-.5 109.9 2.6 165c3.1 64 17.7 120.8 64.5 167.6 46.9 46.9 103.6 61.4 167.6 64.5 55.2 3.1 109.9 2.6 165 2.6 55.2 0 109.9.5 165-2.6 64-3.1 120.8-17.7 167.6-64.5 46.9-46.9 61.4-103.6 64.5-167.6 3.2-55.1 2.6-109.8 2.6-165zm-88 235.8c-7.3 18.2-16.1 31.8-30.2 45.8-14.1 14.1-27.6 22.9-45.8 30.2C695.2 844.7 570.3 840 512 840c-58.3 0-183.3 4.7-235.9-16.1-18.2-7.3-31.8-16.1-45.8-30.2-14.1-14.1-22.9-27.6-30.2-45.8C179.3 695.2 184 570.3 184 512c0-58.3-4.7-183.3 16.1-235.9 7.3-18.2 16.1-31.8 30.2-45.8s27.6-22.9 45.8-30.2C328.7 179.3 453.7 184 512 184s183.3-4.7 235.9 16.1c18.2 7.3 31.8 16.1 45.8 30.2 14.1 14.1 22.9 27.6 30.2 45.8C844.7 328.7 840 453.7 840 512c0 58.3 4.7 183.2-16.2 235.8z"></path></svg></a></li><li><a href="https://erraticgenerator.medium.com" target="_blank" rel="noopener noreferrer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M834.7 279.8l61.3-58.9V208H683.7L532.4 586.4 360.3 208H137.7v12.9l71.6 86.6c7 6.4 10.6 15.8 9.7 25.2V673c2.2 12.3-1.7 24.8-10.3 33.7L128 805v12.7h228.6v-12.9l-80.6-98a39.99 39.99 0 0 1-11.1-33.7V378.7l200.7 439.2h23.3l172.6-439.2v349.9c0 9.2 0 11.1-6 17.2l-62.1 60.3V819h301.2v-12.9l-59.9-58.9c-5.2-4-7.9-10.7-6.8-17.2V297a18.1 18.1 0 0 1 6.8-17.2z"></path></svg></a></li><li><a href="https://twitter.com/erraticgener8or" target="_blank" rel="noopener noreferrer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M928 254.3c-30.6 13.2-63.9 22.7-98.2 26.4a170.1 170.1 0 0 0 75-94 336.64 336.64 0 0 1-108.2 41.2A170.1 170.1 0 0 0 672 174c-94.5 0-170.5 76.6-170.5 170.6 0 13.2 1.6 26.4 4.2 39.1-141.5-7.4-267.7-75-351.6-178.5a169.32 169.32 0 0 0-23.2 86.1c0 59.2 30.1 111.4 76 142.1a172 172 0 0 1-77.1-21.7v2.1c0 82.9 58.6 151.6 136.7 167.4a180.6 180.6 0 0 1-44.9 5.8c-11.1 0-21.6-1.1-32.2-2.6C211 652 273.9 701.1 348.8 702.7c-58.6 45.9-132 72.9-211.7 72.9-14.3 0-27.5-.5-41.2-2.1C171.5 822 261.2 850 357.8 850 671.4 850 843 590.2 843 364.7c0-7.4 0-14.8-.5-22.2 33.2-24.3 62.3-54.4 85.5-88.2z"></path></svg></a></li></ul></div></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
+  
+  function gaOptout(){document.cookie=disableStr+'=true; expires=Thu, 31 Dec 2099 23:59:59 UTC;path=/',window[disableStr]=!0}var gaProperty='G-EW4MRYKDSH',disableStr='ga-disable-'+gaProperty;document.cookie.indexOf(disableStr+'=true')>-1&&(window[disableStr]=!0);
+  if(!(parseInt(navigator.doNotTrack) === 1 || parseInt(window.doNotTrack) === 1 || parseInt(navigator.msDoNotTrack) === 1 || navigator.doNotTrack === "yes")) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'G-EW4MRYKDSH', 'auto', {});
+      ga('set', 'anonymizeIp', true);
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/animate-word-by-word-in-p5js";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-303683f6c6a5fb752dca.js"],"app":["/app-449234f78fe4b358bd0f.js"],"component---src-pages-404-js":["/component---src-pages-404-js-5f5a8407856fc57a4351.js"],"component---src-pages-about-js":["/component---src-pages-about-js-9c759708abf8f8343137.js"],"component---src-pages-index-js":["/component---src-pages-index-js-30ae04b97720c3a50fc2.js"],"component---src-templates-blog-post-template-js":["/component---src-templates-blog-post-template-js-724413307e6b2937ccc2.js"]};/*]]>*/</script><script src="/eg-website/polyfill-303683f6c6a5fb752dca.js" nomodule=""></script><script src="/eg-website/component---src-templates-blog-post-template-js-724413307e6b2937ccc2.js" async=""></script><script src="/eg-website/77e824346eb342330b3ba237752743d1d190a1c1-5a07f8e3f5d06948cd05.js" async=""></script><script src="/eg-website/commons-e2cc35d91cc25cea2225.js" async=""></script><script src="/eg-website/styles-7d4153d260c0197f0043.js" async=""></script><script src="/eg-website/app-449234f78fe4b358bd0f.js" async=""></script><script src="/eg-website/framework-de237a875aa45b276a9d.js" async=""></script><script src="/eg-website/webpack-runtime-673e270c3253ed9b7780.js" async=""></script></body></html>

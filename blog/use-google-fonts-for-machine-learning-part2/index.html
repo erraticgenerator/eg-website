@@ -1,0 +1,926 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/eg-website/styles.8b5b382a01b64608909a.css">code[class*=language-],pre[class*=language-]{color:#657b83;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{background:#073642}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background-color:#fdf6e3}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#93a1a1}.token.punctuation{color:#586e75}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#268bd2}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string,.token.url{color:#2aa198}.token.entity{color:#657b83;background:#eee8d5}.token.atrule,.token.attr-value,.token.keyword{color:#859900}.token.class-name,.token.function{color:#b58900}.token.important,.token.regex,.token.variable{color:#cb4b16}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}body .gist .highlight{background:#fdf6e3}body .gist .blob-code-inner,body .gist .blob-num,body .gist .pl-s1 .pl-s2,body .gist .pl-smi,body .gist .pl-smp,body .gist .pl-stj,body .gist .pl-vo,body .gist .pl-vpf{color:#657b83}body .gist .pl-c,body .gist .pl-c span{color:#93a1a1;font-style:italic}body .gist .pl-mb{color:#2aa198;font-weight:700}body .gist .pl-mh .pl-en{color:#cb4b16;font-weight:700}body .gist .pl-mi{color:#859900;font-style:italic}body .gist .pl-c1,body .gist .pl-pds,body .gist .pl-s1,body .gist .pl-s1 .pl-pse .pl-s2,body .gist .pl-sv{color:#2aa198}body .gist .pl-e,body .gist .pl-en,body .gist .pl-ent,body .gist .pl-s,body .gist .pl-v{color:#268bd2}body .gist .pl-k,body .gist .pl-mdh,body .gist .pl-mdr,body .gist .pl-ml,body .gist .pl-mm,body .gist .pl-mo,body .gist .pl-mp,body .gist .pl-mr,body .gist .pl-ms,body .gist .pl-s1 .pl-v,body .gist .pl-s3{color:#859900}body .gist .pl-mh,body .gist .pl-sc,body .gist .pl-sr .pl-cce{color:#cb4b16}body .gist .highlight-source-css .pl-k,body .gist .pl-mq{color:#93a1a1}body .gist .pl-sr,body .gist .pl-sr .pl-sra,body .gist .pl-sr .pl-sre,body .gist .pl-src{color:#d30102}body .gist .highlight-source-c\+\+ .pl-s,body .gist .pl-st{color:#dc322f}body .gist .pl-mdht,body .gist .pl-mi1{color:#657b83;background:rgba(0,64,0,.5)}body .gist .pl-id,body .gist .pl-ii,body .gist .pl-md,body .gist .pl-mdhf{color:#657b83;background:rgba(64,0,0,.5)}</style><meta name="generator" content="Gatsby 2.26.1"/><title data-react-helmet="true">Use Google Fonts for Machine Learning (Part 2: Filter &amp; Generate) | ErraticGenerator.com</title><meta data-react-helmet="true" name="description" content="Machine learning training time-lapse. Image by Author. Let’s pick up from where we left off in the last post. We cleaned up the JSON…"/><meta data-react-helmet="true" name="image"/><meta data-react-helmet="true" property="og:url" content="https://erraticgenerator.com/blog/use-google-fonts-for-machine-learning-part2"/><meta data-react-helmet="true" property="og:type" content="article"/><meta data-react-helmet="true" property="og:title" content="Use Google Fonts for Machine Learning (Part 2: Filter &amp; Generate)"/><meta data-react-helmet="true" property="og:description" content="Machine learning training time-lapse. Image by Author. Let’s pick up from where we left off in the last post. We cleaned up the JSON…"/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" name="twitter:title" content="Use Google Fonts for Machine Learning (Part 2: Filter &amp; Generate)"/><meta data-react-helmet="true" name="twitter:description" content="Machine learning training time-lapse. Image by Author. Let’s pick up from where we left off in the last post. We cleaned up the JSON…"/><link href="https://github.githubassets.com/assets/gist-embed-b3b573358bfc66d89e1e95dbf8319c09.css" rel="stylesheet"/><link rel="preconnect" href="https://www.google-analytics.com"/><link rel="dns-prefetch" href="https://www.google-analytics.com"/><link as="script" rel="preload" href="/eg-website/webpack-runtime-673e270c3253ed9b7780.js"/><link as="script" rel="preload" href="/eg-website/framework-de237a875aa45b276a9d.js"/><link as="script" rel="preload" href="/eg-website/app-449234f78fe4b358bd0f.js"/><link as="script" rel="preload" href="/eg-website/styles-7d4153d260c0197f0043.js"/><link as="script" rel="preload" href="/eg-website/commons-e2cc35d91cc25cea2225.js"/><link as="script" rel="preload" href="/eg-website/77e824346eb342330b3ba237752743d1d190a1c1-5a07f8e3f5d06948cd05.js"/><link as="script" rel="preload" href="/eg-website/component---src-templates-blog-post-template-js-724413307e6b2937ccc2.js"/><link as="fetch" rel="preload" href="/eg-website/page-data/blog/use-google-fonts-for-machine-learning-part2/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/eg-website/page-data/sq/d/1696241065.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/eg-website/page-data/sq/d/3380088787.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/eg-website/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion="css 1ccnnsi">.css-1ccnnsi{height:100%;display:grid;grid-template-rows:120px auto 100px;}.css-1ccnnsi p{margin-bottom:2.4rem;font-size:1.8rem;line-height:1.6;}</style><div class="css-1ccnnsi"><style data-emotion="css-global 7l1jaa">@import url("https://fonts.googleapis.com/css2?family=Andika+New+Basic:ital@0;1&family=Open+Sans:wght@400;700&display=swap");*{margin:0;box-sizing:border-box;}html,body{font-family:"Andika New Basic",sans-serif;font-size:10px;height:100%;}a{color:black;-webkit-text-decoration:none;text-decoration:none;}</style><style data-emotion="css 1esoh14">.css-1esoh14{outline:1px solid red;grid-row:1/2;}</style><style data-emotion="css 8souqa">.css-8souqa{margin-bottom:48px;padding:12px 0;height:120px;background-image:linear-gradient(#fdd 0%, white 100%);}</style><header class="css-8souqa"><style data-emotion="css 1uarw26">.css-1uarw26{margin:0 auto;padding:0 12px;max-width:720px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}</style><div class="css-1uarw26"><style data-emotion="css y30yr4">.css-y30yr4{-webkit-flex:4;-ms-flex:4;flex:4;}</style><div class="css-y30yr4"><style data-emotion="css 1t1kjl2">.css-1t1kjl2{font-family:"Open Sans",sans-serif;font-weight:700;}</style><h1 class="css-1t1kjl2"><a href="/eg-website/">Erratic Generator</a></h1><style data-emotion="css mmvz9h">.css-mmvz9h{font-weight:400;}</style><h2 class="css-mmvz9h">Creative Coding Resources for Artists and Designers</h2></div><style data-emotion="css 18zyra0">.css-18zyra0{-webkit-flex:1;-ms-flex:1;flex:1;font-family:"Open Sans",sans-serif;font-size:1.6rem;}</style><a class="css-18zyra0" href="/eg-website/about/">About</a></div></header><style data-emotion="css cz32py">.css-cz32py{max-width:720px;margin:0 auto;padding:0 12px;grid-row:2/3;}</style><main class="css-cz32py"><style data-emotion="css 1tca0if">.css-1tca0if{margin-bottom:3rem;font-family:"Open Sans",sans-serif;}</style><header class="css-1tca0if"><style data-emotion="css 10d63d4">.css-10d63d4{margin-top:1rem;font-size:4rem;line-height:1.2;}</style><h1 class="css-10d63d4">Use Google Fonts for Machine Learning (Part 2: Filter &amp; Generate)</h1><style data-emotion="css 5ezmz0">.css-5ezmz0{margin-bottom:0.6rem;color:#666;font-size:2.4rem;font-weight:400;}</style><h2 class="css-5ezmz0">Quickly generate hundreds of font images.</h2><style data-emotion="css 1dqoxsa">.css-1dqoxsa{color:#666;font-size:1.8rem;}</style><time class="css-1dqoxsa">November 01, 2020</time></header><style data-emotion="css 11cvyr3">.css-11cvyr3 h2{margin-bottom:0.8rem;font-family:"Open Sans",sans-serif;font-size:2.4rem;}.css-11cvyr3 p{margin-bottom:2.4rem;font-size:1.8rem;line-height:1.6;}.css-11cvyr3 a{color:teal;-webkit-text-decoration:underline;text-decoration:underline;}.css-11cvyr3 ul{margin-bottom:2.4rem;font-size:1.8rem;}.css-11cvyr3 figure{margin:5rem auto;width:100%;}.css-11cvyr3 .gatsby-resp-image-wrapper{max-width:100%!important;}.css-11cvyr3 figure img{width:100%;}.css-11cvyr3 figure figcaption{padding:0.6rem 4%;color:#666;font-size:1.6rem;text-align:center;}.css-11cvyr3 .gist,.css-11cvyr3 .gatsby-highlight{margin:5rem auto;}.css-11cvyr3 .gist .gist-file{border:none;}.css-11cvyr3 .gatsby-highlight,.css-11cvyr3 .gist span{font-size:1.4rem;}</style><div class="css-11cvyr3"><p><figure class="md-figure"><img src="/eg-website/static/ml-timelapse-974efeb0728b4535686b44d32c91e608.gif"><figcaption>Machine learning training time-lapse. Image by Author.</figcaption></figure></p>
+<p>Let’s pick up from where we left off in the <a href="/eg-website/blog/use-google-fonts-for-machine-learning-part1">last post</a>. We cleaned up the JSON annotations and exported it as a CSV file. Now, let’s load the CSV file back in, and filter them with conditions we define and generate PNG images so that we can use the images to train Convolutional Neural Networks.</p>
+<h2>Directory Setup</h2>
+<p>Again, I am treating this post as a Jupyter Notebook, so if you want to follow along, open Jupyter Notebook in your own environment. You will also need to download Google Fonts Github repo and generate the CSV annotations. We went over all of these in <a href="">the last post</a>, so please check it out first.</p>
+<p>As you can see from the tree diagram below, the Google Fonts Github repo is downloaded into input directory. All the font files are stored in ofl subdirectory, which is how it is originally set up and I have not made any changes to it. I have also set up notebook directory with .ipynb notebook (this post) as well as the CSV annotation file.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">.
+├── input
+│   ├── fonts
+│   │   ...
+│   │   ├── ofl
+│   │   ...
+│   ├── fonts-master.json
+└── notebook
+    └── google-fonts-ml
+        ├── google-fonts-ml.ipynb
+        └── google-fonts-annotaion.csv</code></pre></div>
+<h2>Load CSV Annotations</h2>
+<p>First, we will load the CSV annotation as pandas.DataFrame.</p>
+<p><div id="gist106212232" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-gfonts-2-loadcsv-py" class="file my-2">
+    
+
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+      
+<table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
+      <tr>
+        <td id="file-gfonts-2-loadcsv-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-gfonts-2-loadcsv-py-LC1" class="blob-code blob-code-inner js-file-line"><span class=pl-c># modules we need this time</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-loadcsv-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-gfonts-2-loadcsv-py-LC2" class="blob-code blob-code-inner js-file-line"><span class=pl-k>import</span> <span class=pl-s1>matplotlib</span>.<span class=pl-s1>pyplot</span> <span class=pl-k>as</span> <span class=pl-s1>plt</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-loadcsv-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-gfonts-2-loadcsv-py-LC3" class="blob-code blob-code-inner js-file-line"><span class=pl-k>from</span> <span class=pl-v>PIL</span> <span class=pl-k>import</span> <span class=pl-v>Image</span>,<span class=pl-v>ImageDraw</span>,<span class=pl-v>ImageFont</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-loadcsv-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-gfonts-2-loadcsv-py-LC4" class="blob-code blob-code-inner js-file-line"><span class=pl-k>import</span> <span class=pl-s1>pandas</span> <span class=pl-k>as</span> <span class=pl-s1>pd</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-loadcsv-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-gfonts-2-loadcsv-py-LC5" class="blob-code blob-code-inner js-file-line"><span class=pl-k>import</span> <span class=pl-s1>numpy</span> <span class=pl-k>as</span> <span class=pl-s1>np</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-loadcsv-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-gfonts-2-loadcsv-py-LC6" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-loadcsv-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-gfonts-2-loadcsv-py-LC7" class="blob-code blob-code-inner js-file-line"><span class=pl-c># load the CSV we created in the last post</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-loadcsv-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-gfonts-2-loadcsv-py-LC8" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df</span> <span class=pl-c1>=</span> <span class=pl-s1>pd</span>.<span class=pl-en>read_csv</span>(<span class=pl-s>&#39;./google-fonts-annotaion.csv&#39;</span>)</td>
+      </tr>
+</table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/erraticgenerator/314a406afafd6571b0d5c5f828a2776f/raw/7f284a0bd64ae6dff6b402a4f74b845613f10552/gfonts-2-loadcsv.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/erraticgenerator/314a406afafd6571b0d5c5f828a2776f#file-gfonts-2-loadcsv-py">gfonts-2-loadcsv.py</a>
+        hosted with &#10084; by <a href="https://github.com">GitHub</a>
+      </div>
+    </div>
+</div></p>
+<h1>Look at Data Summary</h1>
+<p>Let’s have a look at what we are dealing with here — how many fonts are within each category, how many fonts have which variants, etc. We first filter the list of fonts using a regular expression to select the columns we want to look at. Find all the rows with the value of 1, sum all these rows, and sort by frequency.</p>
+<p><div id="gist106212473" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-gfonts-2-summary-py" class="file my-2">
+    
+
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+      
+<table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
+      <tr>
+        <td id="file-gfonts-2-summary-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-gfonts-2-summary-py-LC1" class="blob-code blob-code-inner js-file-line"><span class=pl-en>print</span>(<span class=pl-s>&#39;Number of fonts in each variant:&#39;</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-summary-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-gfonts-2-summary-py-LC2" class="blob-code blob-code-inner js-file-line"><span class=pl-en>print</span>(<span class=pl-s1>df</span>[<span class=pl-s1>df</span>.<span class=pl-en>filter</span>(<span class=pl-s1>regex</span><span class=pl-c1>=</span><span class=pl-s>r&#39;^variants_&#39;</span>, <span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>).<span class=pl-s1>columns</span>].<span class=pl-en>eq</span>(<span class=pl-c1>1</span>).<span class=pl-en>sum</span>().<span class=pl-en>sort_values</span>(<span class=pl-s1>ascending</span><span class=pl-c1>=</span><span class=pl-c1>False</span>))</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-summary-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-gfonts-2-summary-py-LC3" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-summary-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-gfonts-2-summary-py-LC4" class="blob-code blob-code-inner js-file-line"><span class=pl-en>print</span>(<span class=pl-s>&#39;<span class=pl-cce>\n</span>Number of fonts in each subset:&#39;</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-summary-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-gfonts-2-summary-py-LC5" class="blob-code blob-code-inner js-file-line"><span class=pl-en>print</span>(<span class=pl-s1>df</span>[<span class=pl-s1>df</span>.<span class=pl-en>filter</span>(<span class=pl-s1>regex</span><span class=pl-c1>=</span><span class=pl-s>r&#39;^subsets_&#39;</span>, <span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>).<span class=pl-s1>columns</span>].<span class=pl-en>eq</span>(<span class=pl-c1>1</span>).<span class=pl-en>sum</span>().<span class=pl-en>sort_values</span>(<span class=pl-s1>ascending</span><span class=pl-c1>=</span><span class=pl-c1>False</span>))</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-summary-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-gfonts-2-summary-py-LC6" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-summary-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-gfonts-2-summary-py-LC7" class="blob-code blob-code-inner js-file-line"><span class=pl-en>print</span>(<span class=pl-s>&#39;<span class=pl-cce>\n</span>Number of fonts in each category:&#39;</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-summary-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-gfonts-2-summary-py-LC8" class="blob-code blob-code-inner js-file-line"><span class=pl-en>print</span>(<span class=pl-s1>df</span>[<span class=pl-s1>df</span>.<span class=pl-en>filter</span>(<span class=pl-s1>regex</span><span class=pl-c1>=</span><span class=pl-s>r&#39;^category_&#39;</span>, <span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>).<span class=pl-s1>columns</span>].<span class=pl-en>eq</span>(<span class=pl-c1>1</span>).<span class=pl-en>sum</span>().<span class=pl-en>sort_values</span>(<span class=pl-s1>ascending</span><span class=pl-c1>=</span><span class=pl-c1>False</span>))</td>
+      </tr>
+</table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/erraticgenerator/592e80d6842f79a55a640fa2f97cd381/raw/f5f75a2ae76ebc68a15b6d6e0da812817629e00d/gfonts-2-summary.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/erraticgenerator/592e80d6842f79a55a640fa2f97cd381#file-gfonts-2-summary-py">gfonts-2-summary.py</a>
+        hosted with &#10084; by <a href="https://github.com">GitHub</a>
+      </div>
+    </div>
+</div></p>
+<p>At the time of writing, for instance, there are 325 display, 311 sans-serif, and 204 serif font families. The number of fonts is not the same as the number of font files, however, because the CSV annotation is only counting the font families and there are other factors such as variable fonts, etc.</p>
+<h2>Filtering Fonts</h2>
+<p>Now, let’s create conditions to create sub-groups of fonts. Because we took the time to create a nice CSV annotation it is easy to filter fonts according to our own criteria. Say, how many fonts that are <code class="language-text">thin</code>, <code class="language-text">regular</code> and <code class="language-text">thai</code>?</p>
+<p><div id="gist106213302" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-gfonts-2-filter1-py" class="file my-2">
+    
+
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+      
+<table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
+      <tr>
+        <td id="file-gfonts-2-filter1-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-gfonts-2-filter1-py-LC1" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>mask</span> <span class=pl-c1>=</span> (<span class=pl-s1>df</span>.<span class=pl-en>filter</span>(<span class=pl-s1>regex</span><span class=pl-c1>=</span><span class=pl-s>&#39;thin&#39;</span>, <span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>).<span class=pl-en>sum</span>(<span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>).<span class=pl-en>astype</span>(<span class=pl-s1>bool</span>) <span class=pl-c1>&amp;</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter1-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-gfonts-2-filter1-py-LC2" class="blob-code blob-code-inner js-file-line">        <span class=pl-s1>df</span>.<span class=pl-en>filter</span>(<span class=pl-s1>regex</span><span class=pl-c1>=</span><span class=pl-s>&#39;regular&#39;</span>, <span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>).<span class=pl-en>sum</span>(<span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>).<span class=pl-en>astype</span>(<span class=pl-s1>bool</span>) <span class=pl-c1>&amp;</span> </td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter1-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-gfonts-2-filter1-py-LC3" class="blob-code blob-code-inner js-file-line">        <span class=pl-s1>df</span>.<span class=pl-en>filter</span>(<span class=pl-s1>regex</span><span class=pl-c1>=</span><span class=pl-s>&#39;thai&#39;</span>, <span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>).<span class=pl-en>sum</span>(<span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>).<span class=pl-en>astype</span>(<span class=pl-s1>bool</span>))</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter1-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-gfonts-2-filter1-py-LC4" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df_selected</span> <span class=pl-c1>=</span> <span class=pl-s1>df</span>[<span class=pl-s1>mask</span>]</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter1-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-gfonts-2-filter1-py-LC5" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df_selected</span></td>
+      </tr>
+</table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/erraticgenerator/7bfab1e8f1d8502a31f424b8750bdac1/raw/3000aae69df6f7e22a7bdd9df402a77fa20bec7c/gfonts-2-filter1.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/erraticgenerator/7bfab1e8f1d8502a31f424b8750bdac1#file-gfonts-2-filter1-py">gfonts-2-filter1.py</a>
+        hosted with &#10084; by <a href="https://github.com">GitHub</a>
+      </div>
+    </div>
+</div></p>
+<p>The reason we <code class="language-text">sum(axis=1)</code> after filtering is to capture multiple columns if they meet the same condition. For example, if we filter with <code class="language-text">italic</code>, there are multiple columns that will be included such as <code class="language-text">bolditalic</code>, <code class="language-text">mediumitalic</code>, etc. We can combine multiple conditions to a boolean Series object called <code class="language-text">mask</code> and pass it to our DataFrame object. It will only return the rows that meet the conditions. We use <code class="language-text">&amp;</code> to only select the fonts that meet all the conditions.</p>
+<p>Here is another one — Let’s find the fonts that support <code class="language-text">chinese</code> and <code class="language-text">sans-serif</code>.</p>
+<p><div id="gist106213308" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-gfonts-2-filter2-py" class="file my-2">
+    
+
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+      
+<table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
+      <tr>
+        <td id="file-gfonts-2-filter2-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-gfonts-2-filter2-py-LC1" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>mask</span> <span class=pl-c1>=</span> (<span class=pl-s1>df</span>.<span class=pl-en>filter</span>(<span class=pl-s1>regex</span><span class=pl-c1>=</span><span class=pl-s>&#39;chinese&#39;</span>, <span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>).<span class=pl-en>sum</span>(<span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>).<span class=pl-en>astype</span>(<span class=pl-s1>bool</span>) <span class=pl-c1>&amp;</span> </td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter2-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-gfonts-2-filter2-py-LC2" class="blob-code blob-code-inner js-file-line">       <span class=pl-s1>df</span>.<span class=pl-en>filter</span>(<span class=pl-s1>regex</span><span class=pl-c1>=</span><span class=pl-s>&#39;sans-serif&#39;</span>, <span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>).<span class=pl-en>sum</span>(<span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>).<span class=pl-en>astype</span>(<span class=pl-s1>bool</span>))</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter2-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-gfonts-2-filter2-py-LC3" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df_selected</span> <span class=pl-c1>=</span> <span class=pl-s1>df</span>[<span class=pl-s1>mask</span>]</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter2-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-gfonts-2-filter2-py-LC4" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df_selected</span></td>
+      </tr>
+</table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/erraticgenerator/a4b855ad83bc907097af5b10cf1fdc97/raw/53d1b6e4980a88d836e678e79f7eb07c48123808/gfonts-2-filter2.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/erraticgenerator/a4b855ad83bc907097af5b10cf1fdc97#file-gfonts-2-filter2-py">gfonts-2-filter2.py</a>
+        hosted with &#10084; by <a href="https://github.com">GitHub</a>
+      </div>
+    </div>
+</div></p>
+<p>I get 3 fonts back that meet the criteria — NotoSansHK, NotoSansSC, and NotoSansTC. For some reason, these NotoSans fonts were not included in the Google Fonts Github repo. So, you will have to manually download them if you need to use them.</p>
+<p>We don’t want to keep editing the <code class="language-text">mask</code> object each time we use a different set of filters, so we will make a list with all the filters we want to use and simply iterate over them. These strings are in fact regular expressions and you can try more advanced filtering on your own.</p>
+<p><div id="gist106213329" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-gfonts-2-filter3-py" class="file my-2">
+    
+
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+      
+<table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
+      <tr>
+        <td id="file-gfonts-2-filter3-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-gfonts-2-filter3-py-LC1" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>regex_filters</span> <span class=pl-c1>=</span> [<span class=pl-s>&#39;_regular&#39;</span>, <span class=pl-s>&#39;_japanese&#39;</span>, <span class=pl-s>&#39;_serif&#39;</span>]</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter3-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-gfonts-2-filter3-py-LC2" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter3-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-gfonts-2-filter3-py-LC3" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df_new</span> <span class=pl-c1>=</span> <span class=pl-s1>pd</span>.<span class=pl-en>concat</span>([<span class=pl-s1>df</span>.<span class=pl-en>filter</span>(<span class=pl-s1>regex</span><span class=pl-c1>=</span><span class=pl-s1>regex</span>, <span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>).<span class=pl-en>sum</span>(<span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>).<span class=pl-en>astype</span>(<span class=pl-s1>bool</span>) <span class=pl-k>for</span> <span class=pl-s1>regex</span> <span class=pl-c1>in</span> <span class=pl-s1>regex_filters</span>], <span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter3-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-gfonts-2-filter3-py-LC4" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>mask</span> <span class=pl-c1>=</span> <span class=pl-s1>df_new</span>.<span class=pl-en>all</span>(<span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter3-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-gfonts-2-filter3-py-LC5" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter3-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-gfonts-2-filter3-py-LC6" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df</span>.<span class=pl-s1>loc</span>[<span class=pl-s1>mask</span>]</td>
+      </tr>
+</table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/erraticgenerator/03f27ac0b1079cb83d3511a6560d9f96/raw/b1dfab4325ad30f15e020fc5de4fefe3629b2a89/gfonts-2-filter3.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/erraticgenerator/03f27ac0b1079cb83d3511a6560d9f96#file-gfonts-2-filter3-py">gfonts-2-filter3.py</a>
+        hosted with &#10084; by <a href="https://github.com">GitHub</a>
+      </div>
+    </div>
+</div></p>
+<p>How about we make this into a reusable function? This function will take DataFrame and regex filter list as inputs, and outputs a list of font names.</p>
+<p><div id="gist106213334" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-gfonts-2-filter-func-py" class="file my-2">
+    
+
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+      
+<table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
+      <tr>
+        <td id="file-gfonts-2-filter-func-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-gfonts-2-filter-func-py-LC1" class="blob-code blob-code-inner js-file-line"><span class=pl-k>import</span> <span class=pl-s1>re</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-func-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-gfonts-2-filter-func-py-LC2" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-func-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-gfonts-2-filter-func-py-LC3" class="blob-code blob-code-inner js-file-line"><span class=pl-k>def</span> <span class=pl-en>filter_fonts</span>(<span class=pl-s1>df</span>, <span class=pl-s1>regex_filters</span>):</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-func-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-gfonts-2-filter-func-py-LC4" class="blob-code blob-code-inner js-file-line">    <span class=pl-s1>df_new</span> <span class=pl-c1>=</span> <span class=pl-s1>pd</span>.<span class=pl-en>concat</span>([<span class=pl-s1>df</span>.<span class=pl-en>filter</span>(<span class=pl-s1>regex</span><span class=pl-c1>=</span><span class=pl-s1>re</span>.<span class=pl-en>compile</span>(<span class=pl-s1>regex</span>, <span class=pl-s1>re</span>.<span class=pl-v>IGNORECASE</span>), <span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>).<span class=pl-en>sum</span>(<span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>).<span class=pl-en>astype</span>(<span class=pl-s1>bool</span>) <span class=pl-k>for</span> <span class=pl-s1>regex</span> <span class=pl-c1>in</span> <span class=pl-s1>regex_filters</span>], <span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-func-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-gfonts-2-filter-func-py-LC5" class="blob-code blob-code-inner js-file-line">    <span class=pl-s1>mask</span> <span class=pl-c1>=</span> <span class=pl-s1>df_new</span>.<span class=pl-en>all</span>(<span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-func-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-gfonts-2-filter-func-py-LC6" class="blob-code blob-code-inner js-file-line">    <span class=pl-k>return</span> <span class=pl-en>list</span>(<span class=pl-s1>df</span>.<span class=pl-s1>loc</span>[<span class=pl-s1>mask</span>].<span class=pl-s1>family</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-func-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-gfonts-2-filter-func-py-LC7" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-func-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-gfonts-2-filter-func-py-LC8" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>filtered_fontnames</span> <span class=pl-c1>=</span> <span class=pl-en>filter_fonts</span>(<span class=pl-s1>df</span>, [<span class=pl-s>&#39;Black&#39;</span>, <span class=pl-s>&#39;cyrillic&#39;</span>, <span class=pl-s>&#39;_serif&#39;</span>])</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-func-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-gfonts-2-filter-func-py-LC9" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>filtered_fontnames</span></td>
+      </tr>
+</table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/erraticgenerator/0bfa88d8be5f3d48c6d564bfd77ea591/raw/b42d1b5c802820bfe6dbf9fce69200eab5036698/gfonts-2-filter-func.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/erraticgenerator/0bfa88d8be5f3d48c6d564bfd77ea591#file-gfonts-2-filter-func-py">gfonts-2-filter-func.py</a>
+        hosted with &#10084; by <a href="https://github.com">GitHub</a>
+      </div>
+    </div>
+</div></p>
+<h2>Some Caveats</h2>
+<p>Before we move on, I want to point out some issues that I found. We are relying on the font data from the CSV annotations that we generated from the Google Fonts Developer API, but there are some discrepancies.</p>
+<ul>
+<li>First, the number of fonts present in the annotations is not the same as the number of font files we downloaded.</li>
+<li>Some fonts that are not indicated as <em>latin</em> still have latin alphabets.</li>
+<li><em>NotoSansTC</em> is present in the annotation but is not included in the zip archive. Probably because some languages such as Chinese or Korean have a lot of characters and font files get much bigger compared to latin fonts. It’s just my guess…</li>
+<li>A font called <em>Ballet</em> — the font file exists but it’s not in the annotation. There may be a few other cases like this.</li>
+<li>The name of the folder containing font files is mostly the same as the name of the fonts themselves but there are some exceptions. For example, a font called <em>SignikaNegative</em> is inside a folder called <em>signika</em>.</li>
+<li>A font called <em>BlackHanSans</em> is obviously a very thick black weight, but it is listed as <em>regular</em> weight.</li>
+</ul>
+<p>So, the annotation is not the complete representation of the font files we downloaded. As a whole, I think it is still a very valuable resource that we have.</p>
+<h2>Load Font File Path</h2>
+<p>We will use <code class="language-text">glob</code> to load the fonts path. If you only want to filter fonts through weights such as <code class="language-text">Regular</code>, <code class="language-text">Bold</code>, <code class="language-text">Thin</code>, simple filename checking will be enough as the weights/styles are already part of the file names, but you won't be able to use other annotations we looked at such as language subsets or category.</p>
+<p><div id="gist106213393" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-gfonts-2-all-fonts-path-py" class="file my-2">
+    
+
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+      
+<table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
+      <tr>
+        <td id="file-gfonts-2-all-fonts-path-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-gfonts-2-all-fonts-path-py-LC1" class="blob-code blob-code-inner js-file-line"><span class=pl-k>import</span> <span class=pl-s1>glob</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-all-fonts-path-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-gfonts-2-all-fonts-path-py-LC2" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-all-fonts-path-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-gfonts-2-all-fonts-path-py-LC3" class="blob-code blob-code-inner js-file-line"><span class=pl-c># change the root directory according to your setup</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-all-fonts-path-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-gfonts-2-all-fonts-path-py-LC4" class="blob-code blob-code-inner js-file-line"><span class=pl-v>ROOT</span> <span class=pl-c1>=</span> <span class=pl-s>&#39;../../input/fonts/ofl&#39;</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-all-fonts-path-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-gfonts-2-all-fonts-path-py-LC5" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-all-fonts-path-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-gfonts-2-all-fonts-path-py-LC6" class="blob-code blob-code-inner js-file-line"><span class=pl-c># some fonts are within /ofl/fontname/static directory (2 levels deep)</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-all-fonts-path-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-gfonts-2-all-fonts-path-py-LC7" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>all_fonts_path</span> <span class=pl-c1>=</span> <span class=pl-s1>glob</span>.<span class=pl-en>glob</span>(<span class=pl-v>ROOT</span> <span class=pl-c1>+</span> <span class=pl-s>&#39;/**/**/*.ttf&#39;</span>, <span class=pl-s1>recursive</span><span class=pl-c1>=</span><span class=pl-c1>True</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-all-fonts-path-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-gfonts-2-all-fonts-path-py-LC8" class="blob-code blob-code-inner js-file-line"><span class=pl-en>print</span>(<span class=pl-s>&#39;number of font files in total: &#39;</span>, <span class=pl-en>len</span>(<span class=pl-s1>all_fonts_path</span>))</td>
+      </tr>
+</table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/erraticgenerator/6b9bc56248d18f75a6d03f7f6e0060bb/raw/635d2712fb354ae6758db667675d2c3a0b87a059/gfonts-2-all-fonts-path.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/erraticgenerator/6b9bc56248d18f75a6d03f7f6e0060bb#file-gfonts-2-all-fonts-path-py">gfonts-2-all-fonts-path.py</a>
+        hosted with &#10084; by <a href="https://github.com">GitHub</a>
+      </div>
+    </div>
+</div></p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">number of font files in total:  8708</code></pre></div>
+<h2>Filter Fonts</h2>
+<p>It is time to bring different pieces together into a single function that will take a DataFrame object and the path to font files, and then use the filters we define to return a list of filtered font paths.</p>
+<p><div id="gist106213418" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-gfonts-2-filter-fonts-get-paths-py" class="file my-2">
+    
+
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+      
+<table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
+      <tr>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-LC1" class="blob-code blob-code-inner js-file-line"><span class=pl-k>def</span> <span class=pl-en>filter_fonts_get_paths</span>(<span class=pl-s1>df</span>, <span class=pl-s1>root</span><span class=pl-c1>=</span><span class=pl-s>&#39;./&#39;</span>, <span class=pl-s1>variants</span><span class=pl-c1>=</span>[<span class=pl-s>&#39;_&#39;</span>], <span class=pl-s1>subsets</span><span class=pl-c1>=</span>[<span class=pl-s>&#39;_&#39;</span>], <span class=pl-s1>category</span><span class=pl-c1>=</span><span class=pl-s>&#39;&#39;</span>):</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-LC2" class="blob-code blob-code-inner js-file-line">    <span class=pl-c># exceptions</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-LC3" class="blob-code blob-code-inner js-file-line">    <span class=pl-k>if</span> <span class=pl-c1>not</span> <span class=pl-s1>variants</span> <span class=pl-c1>or</span> <span class=pl-s1>variants</span> <span class=pl-c1>==</span> [<span class=pl-s>&#39;&#39;</span>] <span class=pl-c1>or</span> <span class=pl-s1>variants</span> <span class=pl-c1>==</span> <span class=pl-s>&#39;&#39;</span>: <span class=pl-s1>variants</span> <span class=pl-c1>=</span> [<span class=pl-s>&#39;_&#39;</span>]</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-LC4" class="blob-code blob-code-inner js-file-line">    <span class=pl-k>if</span> <span class=pl-c1>not</span> <span class=pl-s1>subsets</span> <span class=pl-c1>or</span> <span class=pl-s1>subsets</span> <span class=pl-c1>==</span> [<span class=pl-s>&#39;&#39;</span>] <span class=pl-c1>or</span> <span class=pl-s1>subsets</span> <span class=pl-c1>==</span> <span class=pl-s>&#39;&#39;</span>: <span class=pl-s1>subsets</span> <span class=pl-c1>=</span> [<span class=pl-s>&#39;_&#39;</span>]</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-LC5" class="blob-code blob-code-inner js-file-line">    <span class=pl-c># apply filters</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-LC6" class="blob-code blob-code-inner js-file-line">    <span class=pl-s1>regex_filters</span> <span class=pl-c1>=</span> <span class=pl-s1>variants</span> <span class=pl-c1>+</span> <span class=pl-s1>subsets</span> <span class=pl-c1>+</span> [<span class=pl-s>&#39;_&#39;</span><span class=pl-c1>+</span><span class=pl-s1>category</span>]</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-LC7" class="blob-code blob-code-inner js-file-line">    <span class=pl-s1>df_new</span> <span class=pl-c1>=</span> <span class=pl-s1>pd</span>.<span class=pl-en>concat</span>([<span class=pl-s1>df</span>.<span class=pl-en>filter</span>(<span class=pl-s1>regex</span><span class=pl-c1>=</span><span class=pl-s1>re</span>.<span class=pl-en>compile</span>(<span class=pl-s1>regex</span>, <span class=pl-s1>re</span>.<span class=pl-v>IGNORECASE</span>), <span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>).<span class=pl-en>sum</span>(<span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>).<span class=pl-en>astype</span>(<span class=pl-s1>bool</span>) <span class=pl-k>for</span> <span class=pl-s1>regex</span> <span class=pl-c1>in</span> <span class=pl-s1>regex_filters</span>], <span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-LC8" class="blob-code blob-code-inner js-file-line">    <span class=pl-s1>mask</span> <span class=pl-c1>=</span> <span class=pl-s1>df_new</span>.<span class=pl-en>all</span>(<span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-LC9" class="blob-code blob-code-inner js-file-line">    <span class=pl-s1>filtered_fontnames</span> <span class=pl-c1>=</span> <span class=pl-en>list</span>(<span class=pl-s1>df</span>.<span class=pl-s1>loc</span>[<span class=pl-s1>mask</span>].<span class=pl-s1>family</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-LC10" class="blob-code blob-code-inner js-file-line">    </td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-LC11" class="blob-code blob-code-inner js-file-line">    <span class=pl-c># construct file paths</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-LC12" class="blob-code blob-code-inner js-file-line">    <span class=pl-s1>paths</span> <span class=pl-c1>=</span> []</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-LC13" class="blob-code blob-code-inner js-file-line">    <span class=pl-k>for</span> <span class=pl-s1>fontname</span> <span class=pl-c1>in</span> <span class=pl-s1>filtered_fontnames</span>:</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-LC14" class="blob-code blob-code-inner js-file-line">        <span class=pl-k>if</span> <span class=pl-s1>variants</span> <span class=pl-c1>==</span> [<span class=pl-s>&#39;_&#39;</span>]: <span class=pl-c># select all variants</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-LC15" class="blob-code blob-code-inner js-file-line">            <span class=pl-s1>sel</span> <span class=pl-c1>=</span> <span class=pl-s1>glob</span>.<span class=pl-en>glob</span>(<span class=pl-s>f&#39;<span class=pl-s1><span class=pl-kos>{</span><span class=pl-s1>root</span><span class=pl-kos>}</span></span>/<span class=pl-s1><span class=pl-kos>{</span><span class=pl-s1>fontname</span>.<span class=pl-en>lower</span>()<span class=pl-kos>}</span></span>/**/*.ttf&#39;</span>, <span class=pl-s1>recursive</span><span class=pl-c1>=</span><span class=pl-c1>True</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-LC16" class="blob-code blob-code-inner js-file-line">            <span class=pl-s1>paths</span>.<span class=pl-en>extend</span>(<span class=pl-s1>sel</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-LC17" class="blob-code blob-code-inner js-file-line">        <span class=pl-k>else</span>:</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-LC18" class="blob-code blob-code-inner js-file-line">            <span class=pl-k>for</span> <span class=pl-s1>variant</span> <span class=pl-c1>in</span> <span class=pl-s1>variants</span>:</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-LC19" class="blob-code blob-code-inner js-file-line">                <span class=pl-s1>sel</span> <span class=pl-c1>=</span> <span class=pl-s1>glob</span>.<span class=pl-en>glob</span>(<span class=pl-s>f&#39;<span class=pl-s1><span class=pl-kos>{</span><span class=pl-s1>root</span><span class=pl-kos>}</span></span>/<span class=pl-s1><span class=pl-kos>{</span><span class=pl-s1>fontname</span>.<span class=pl-en>lower</span>()<span class=pl-kos>}</span></span>/**/<span class=pl-s1><span class=pl-kos>{</span><span class=pl-s1>fontname</span><span class=pl-kos>}</span></span>-<span class=pl-s1><span class=pl-kos>{</span><span class=pl-s1>variant</span><span class=pl-kos>}</span></span>.ttf&#39;</span>, <span class=pl-s1>recursive</span><span class=pl-c1>=</span><span class=pl-c1>True</span>) </td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-LC20" class="blob-code blob-code-inner js-file-line">                <span class=pl-k>for</span> <span class=pl-s1>path</span> <span class=pl-c1>in</span> <span class=pl-s1>sel</span>:</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-LC21" class="blob-code blob-code-inner js-file-line">                    <span class=pl-s1>paths</span>.<span class=pl-en>append</span>(<span class=pl-s1>path</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-LC22" class="blob-code blob-code-inner js-file-line">    <span class=pl-en>print</span>(<span class=pl-s>f&#39;Found <span class=pl-s1><span class=pl-kos>{</span><span class=pl-en>len</span>(<span class=pl-s1>paths</span>)<span class=pl-kos>}</span></span> font files.&#39;</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-LC23" class="blob-code blob-code-inner js-file-line">    <span class=pl-k>return</span> <span class=pl-s1>paths</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-LC24" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-LC25" class="blob-code blob-code-inner js-file-line"><span class=pl-c># let&#39;s try the function</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="file-gfonts-2-filter-fonts-get-paths-py-LC26" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>paths</span> <span class=pl-c1>=</span> <span class=pl-en>filter_fonts_get_paths</span>(<span class=pl-s1>df</span>, <span class=pl-s1>root</span><span class=pl-c1>=</span><span class=pl-v>ROOT</span>, <span class=pl-s1>subsets</span><span class=pl-c1>=</span>[<span class=pl-s>&#39;latin&#39;</span>], <span class=pl-s1>variants</span><span class=pl-c1>=</span>[<span class=pl-s>&#39;thinitalic&#39;</span>], <span class=pl-s1>category</span><span class=pl-c1>=</span><span class=pl-s>&#39;sans-serif&#39;</span>)</td>
+      </tr>
+</table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/erraticgenerator/6985c7ef6200a061310ddd688d5455fd/raw/27f7f9293103bd9b2b37899aa30f875c56c2aad3/gfonts-2-filter-fonts-get-paths.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/erraticgenerator/6985c7ef6200a061310ddd688d5455fd#file-gfonts-2-filter-fonts-get-paths-py">gfonts-2-filter-fonts-get-paths.py</a>
+        hosted with &#10084; by <a href="https://github.com">GitHub</a>
+      </div>
+    </div>
+</div></p>
+<p>To describe what the function is doing — What we want to do is to look at both <code class="language-text">filtered_fontnames</code> and its corresponding file path and check if the file exists. If so, the function returns a path to the file.</p>
+<p>From the <em>font</em> names, we can retrieve the <em>file</em> names so that we can load each font and later generate images. We filter fonts with weights, styles, subsets, and categories, but the file names only contain font names and weights/styles.</p>
+<p>A few things to note here:</p>
+<ul>
+<li>Depending on your OS, you may need to give case-sensitive filters. For example, <code class="language-text">Bold</code>, <code class="language-text">LightItalic</code> may work but <code class="language-text">bold</code>, <code class="language-text">lightitalic</code> may not. I am using a Mac, and it is case-insensitive. You also cannot combine mutually exclusive conditions together, such as filtering <code class="language-text">sans-serif</code> and <code class="language-text">serif</code> at the same time. You can, however, input a regular expression to create a more complex filter.</li>
+</ul>
+<p>Some variable fonts are not selected (ex. CrimsonPro, HeptaSlab) because they have different naming conventions than others. I just ignored them because they are not that many, and the variable fonts that have static versions are searchable through the filters.</p>
+<h2>Preview Font Images</h2>
+<p>It is finally time to see the fonts displayed as images.</p>
+<p><div id="gist106213543" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-gfonts-2-preview-py" class="file my-2">
+    
+
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+      
+<table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-gfonts-2-preview-py-LC1" class="blob-code blob-code-inner js-file-line"><span class=pl-k>import</span> <span class=pl-s1>random</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-gfonts-2-preview-py-LC2" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-gfonts-2-preview-py-LC3" class="blob-code blob-code-inner js-file-line"><span class=pl-v>IMG_HEIGHT</span> <span class=pl-c1>=</span> <span class=pl-c1>512</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-gfonts-2-preview-py-LC4" class="blob-code blob-code-inner js-file-line"><span class=pl-v>IMG_WIDTH</span> <span class=pl-c1>=</span> <span class=pl-c1>512</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-gfonts-2-preview-py-LC5" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-gfonts-2-preview-py-LC6" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>paths</span> <span class=pl-c1>=</span> <span class=pl-en>filter_fonts_get_paths</span>(<span class=pl-s1>df</span>, <span class=pl-s1>root</span><span class=pl-c1>=</span><span class=pl-v>ROOT</span>, <span class=pl-s1>subsets</span><span class=pl-c1>=</span>[<span class=pl-s>&#39;&#39;</span>], <span class=pl-s1>variants</span><span class=pl-c1>=</span>[<span class=pl-s>&#39;bold&#39;</span>], <span class=pl-s1>category</span><span class=pl-c1>=</span><span class=pl-s>&#39;&#39;</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-gfonts-2-preview-py-LC7" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>r</span> <span class=pl-c1>=</span> <span class=pl-s1>random</span>.<span class=pl-en>randrange</span>(<span class=pl-c1>0</span>, <span class=pl-en>len</span>(<span class=pl-s1>paths</span>))</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-gfonts-2-preview-py-LC8" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-gfonts-2-preview-py-LC9" class="blob-code blob-code-inner js-file-line"><span class=pl-c># sample text and font</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-gfonts-2-preview-py-LC10" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>text</span> <span class=pl-c1>=</span> <span class=pl-s>&quot;G&quot;</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-gfonts-2-preview-py-LC11" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>text_size</span> <span class=pl-c1>=</span> <span class=pl-c1>400</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-gfonts-2-preview-py-LC12" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>x</span> <span class=pl-c1>=</span> <span class=pl-v>IMG_WIDTH</span><span class=pl-c1>/</span><span class=pl-c1>2</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-gfonts-2-preview-py-LC13" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>y</span> <span class=pl-c1>=</span> <span class=pl-v>IMG_HEIGHT</span><span class=pl-c1>*</span><span class=pl-c1>3</span><span class=pl-c1>/</span><span class=pl-c1>4</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-gfonts-2-preview-py-LC14" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>font</span> <span class=pl-c1>=</span> <span class=pl-v>ImageFont</span>.<span class=pl-en>truetype</span>(<span class=pl-s1>paths</span>[<span class=pl-s1>r</span>], <span class=pl-s1>text_size</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-gfonts-2-preview-py-LC15" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-gfonts-2-preview-py-LC16" class="blob-code blob-code-inner js-file-line"><span class=pl-c># get text info (not being used but may be useful)</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-gfonts-2-preview-py-LC17" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>text_width</span>, <span class=pl-s1>text_height</span> <span class=pl-c1>=</span> <span class=pl-s1>font</span>.<span class=pl-en>getsize</span>(<span class=pl-s1>text</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-gfonts-2-preview-py-LC18" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>left</span>, <span class=pl-s1>top</span>, <span class=pl-s1>right</span>, <span class=pl-s1>bottom</span> <span class=pl-c1>=</span> <span class=pl-s1>font</span>.<span class=pl-en>getbbox</span>(<span class=pl-s1>text</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-gfonts-2-preview-py-LC19" class="blob-code blob-code-inner js-file-line"><span class=pl-en>print</span>(<span class=pl-s>&#39;text w &amp; h: &#39;</span>, <span class=pl-s1>text_width</span>, <span class=pl-s1>text_height</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-gfonts-2-preview-py-LC20" class="blob-code blob-code-inner js-file-line"><span class=pl-en>print</span>(<span class=pl-s1>left</span>, <span class=pl-s1>top</span>, <span class=pl-s1>right</span>, <span class=pl-s1>bottom</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-gfonts-2-preview-py-LC21" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-gfonts-2-preview-py-LC22" class="blob-code blob-code-inner js-file-line"><span class=pl-c># create a blank canvas with extra space between lines</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-gfonts-2-preview-py-LC23" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>canvas</span> <span class=pl-c1>=</span> <span class=pl-v>Image</span>.<span class=pl-en>new</span>(<span class=pl-s>&#39;RGB&#39;</span>, (<span class=pl-v>IMG_WIDTH</span>, <span class=pl-v>IMG_HEIGHT</span>), <span class=pl-s>&quot;black&quot;</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-gfonts-2-preview-py-LC24" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="file-gfonts-2-preview-py-LC25" class="blob-code blob-code-inner js-file-line"><span class=pl-c># draw the text onto the text canvas</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="file-gfonts-2-preview-py-LC26" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>draw</span> <span class=pl-c1>=</span> <span class=pl-v>ImageDraw</span>.<span class=pl-v>Draw</span>(<span class=pl-s1>canvas</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L27" class="blob-num js-line-number" data-line-number="27"></td>
+        <td id="file-gfonts-2-preview-py-LC27" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>draw</span>.<span class=pl-en>text</span>((<span class=pl-s1>x</span>, <span class=pl-s1>y</span>), <span class=pl-s1>text</span>, <span class=pl-s>&#39;white&#39;</span>, <span class=pl-s1>font</span>, <span class=pl-s1>anchor</span><span class=pl-c1>=</span><span class=pl-s>&#39;ms&#39;</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L28" class="blob-num js-line-number" data-line-number="28"></td>
+        <td id="file-gfonts-2-preview-py-LC28" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-preview-py-L29" class="blob-num js-line-number" data-line-number="29"></td>
+        <td id="file-gfonts-2-preview-py-LC29" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>plt</span>.<span class=pl-en>imshow</span>(<span class=pl-s1>canvas</span>)</td>
+      </tr>
+</table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/erraticgenerator/6b0093720bcfb41d76b523abd7965815/raw/2b2516919e1e6e887ceaad263ed474e42f50ce1b/gfonts-2-preview.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/erraticgenerator/6b0093720bcfb41d76b523abd7965815#file-gfonts-2-preview-py">gfonts-2-preview.py</a>
+        hosted with &#10084; by <a href="https://github.com">GitHub</a>
+      </div>
+    </div>
+</div></p>
+<p><figure class='gatsby-resp-image-figure' style=''>
+    <span class='gatsby-resp-image-wrapper' style='position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; '>
+      <span class='gatsby-resp-image-background-image' style="padding-bottom: 32.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAIAAACHqfpvAAAACXBIWXMAAAsTAAALEwEAmpwYAAABcElEQVQY0yWQTcsBYRSGfQ1SivHRpJDGpKyoYUXUhFix0SzGgpVkZass5PU1GTSzsPAHrOxs5q9YEEpp8BPc886zujrPuc9zncdEkmQwGOQ4rlqtulyuwWDwfD5jsZjH4wmHwzRNu93uZrP5+XxYlvV6vZFIJB6P+/3+YrFowkG40+lUKhVwu92+XC42mw1cLpdrtRogn89jItrAmGsAwzB6eDaboS+TyYAx5Xq9Akaj0Xa77ff7gUCgUCi8Xi8otFqt4XDodDp9Pl8ymdTD8/mcoqj9fg8Znudvt5vVaj0ej6FQqFQqwTabzX6/X7vdLstyvV5PpVLpdBoKerjRaOAdSZKwkiAIj8fDKB4OB1VVkUf4/X7jNpfLdbvdXq+H22g0qofNZjO+ClbGzufzmSAIMJ5yOBwAaN/vd/iDIWWxWACJRMK0Wq02m81isRBFcTqdnk4nTdMURVmv10ZxuVxCAdoo/v2fyWQyHo93u90PxUCCh7j6WxwAAAAASUVORK5CYII='); background-size: cover; display: block;"></span>
+  <img class='gatsby-resp-image-image' alt='It&#39;s working!' title='It&#39;s working!' src='/eg-website/static/0885cf07ec8402f7aa7740b78ad2ff92/5a190/preview-g.png' srcset='/eg-website/static/0885cf07ec8402f7aa7740b78ad2ff92/5a46d/preview-g.png 300w,
+/eg-website/static/0885cf07ec8402f7aa7740b78ad2ff92/0a47e/preview-g.png 600w,
+/eg-website/static/0885cf07ec8402f7aa7740b78ad2ff92/5a190/preview-g.png 800w' sizes='(max-width: 800px) 100vw, 800px' style='width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;' loading='lazy'>
+    </span>
+    <figcaption class='gatsby-resp-image-figcaption'>It&#39;s working!</figcaption>
+  </figure></p>
+<h2>Everything Pieced Together</h2>
+<p>Here is the code block that pieces everything together. This time, all the images will be saved as PNG files.</p>
+<p><div id="gist106213602" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-gfonts-2-everything-py" class="file my-2">
+    
+
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+      
+<table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-gfonts-2-everything-py-LC1" class="blob-code blob-code-inner js-file-line"><span class=pl-k>from</span> <span class=pl-v>IPython</span>.<span class=pl-s1>display</span> <span class=pl-k>import</span> <span class=pl-s1>clear_output</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-gfonts-2-everything-py-LC2" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-gfonts-2-everything-py-LC3" class="blob-code blob-code-inner js-file-line"><span class=pl-c># display images</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-gfonts-2-everything-py-LC4" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>monitor</span> <span class=pl-c1>=</span> <span class=pl-c1>False</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-gfonts-2-everything-py-LC5" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-gfonts-2-everything-py-LC6" class="blob-code blob-code-inner js-file-line"><span class=pl-c># font filtering</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-gfonts-2-everything-py-LC7" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df</span> <span class=pl-c1>=</span> <span class=pl-s1>pd</span>.<span class=pl-en>read_csv</span>(<span class=pl-s>&#39;./google-fonts-annotaion.csv&#39;</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-gfonts-2-everything-py-LC8" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>paths</span> <span class=pl-c1>=</span> <span class=pl-en>filter_fonts_get_paths</span>(<span class=pl-s1>df</span>, <span class=pl-s1>root</span><span class=pl-c1>=</span><span class=pl-v>ROOT</span>, <span class=pl-s1>subsets</span><span class=pl-c1>=</span>[<span class=pl-s>&#39;latin&#39;</span>], <span class=pl-s1>variants</span><span class=pl-c1>=</span>[<span class=pl-s>&#39;bold&#39;</span>], <span class=pl-s1>category</span><span class=pl-c1>=</span><span class=pl-s>&#39;serif&#39;</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-gfonts-2-everything-py-LC9" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-gfonts-2-everything-py-LC10" class="blob-code blob-code-inner js-file-line"><span class=pl-c># text setup</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-gfonts-2-everything-py-LC11" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>text</span> <span class=pl-c1>=</span> <span class=pl-s>&quot;G&quot;</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-gfonts-2-everything-py-LC12" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>x</span> <span class=pl-c1>=</span> <span class=pl-v>IMG_WIDTH</span><span class=pl-c1>/</span><span class=pl-c1>2</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-gfonts-2-everything-py-LC13" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>y</span> <span class=pl-c1>=</span> <span class=pl-v>IMG_HEIGHT</span><span class=pl-c1>*</span><span class=pl-c1>3</span><span class=pl-c1>/</span><span class=pl-c1>4</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-gfonts-2-everything-py-LC14" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>text_size</span> <span class=pl-c1>=</span> <span class=pl-c1>400</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-gfonts-2-everything-py-LC15" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-gfonts-2-everything-py-LC16" class="blob-code blob-code-inner js-file-line"><span class=pl-c># create save directory</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-gfonts-2-everything-py-LC17" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>target_dir</span> <span class=pl-c1>=</span> <span class=pl-s>f&#39;./fonts-images/<span class=pl-s1><span class=pl-kos>{</span><span class=pl-s1>text</span><span class=pl-kos>}</span></span>&#39;</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-gfonts-2-everything-py-LC18" class="blob-code blob-code-inner js-file-line">!m<span class=pl-s1>kdir</span> <span class=pl-c1>-</span><span class=pl-s1>p</span> $<span class=pl-s1>target_dir</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-gfonts-2-everything-py-LC19" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-gfonts-2-everything-py-LC20" class="blob-code blob-code-inner js-file-line"><span class=pl-c># drawing setup</span></td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-gfonts-2-everything-py-LC21" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>canvas</span> <span class=pl-c1>=</span> <span class=pl-v>Image</span>.<span class=pl-en>new</span>(<span class=pl-s>&#39;RGB&#39;</span>, (<span class=pl-v>IMG_WIDTH</span>, <span class=pl-v>IMG_HEIGHT</span>), <span class=pl-s>&quot;black&quot;</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-gfonts-2-everything-py-LC22" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>draw</span> <span class=pl-c1>=</span> <span class=pl-v>ImageDraw</span>.<span class=pl-v>Draw</span>(<span class=pl-s1>canvas</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-gfonts-2-everything-py-LC23" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-gfonts-2-everything-py-LC24" class="blob-code blob-code-inner js-file-line"><span class=pl-k>for</span> <span class=pl-s1>i</span>, <span class=pl-s1>path</span> <span class=pl-c1>in</span> <span class=pl-en>enumerate</span>(<span class=pl-s1>paths</span>):    </td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="file-gfonts-2-everything-py-LC25" class="blob-code blob-code-inner js-file-line">    <span class=pl-s1>font</span> <span class=pl-c1>=</span> <span class=pl-v>ImageFont</span>.<span class=pl-en>truetype</span>(<span class=pl-s1>path</span>, <span class=pl-s1>text_size</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="file-gfonts-2-everything-py-LC26" class="blob-code blob-code-inner js-file-line">    <span class=pl-s1>draw</span>.<span class=pl-en>rectangle</span>((<span class=pl-c1>0</span>,<span class=pl-c1>0</span>,<span class=pl-v>IMG_WIDTH</span>,<span class=pl-v>IMG_HEIGHT</span>),<span class=pl-s1>fill</span><span class=pl-c1>=</span><span class=pl-s>&#39;black&#39;</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L27" class="blob-num js-line-number" data-line-number="27"></td>
+        <td id="file-gfonts-2-everything-py-LC27" class="blob-code blob-code-inner js-file-line">    <span class=pl-s1>draw</span>.<span class=pl-en>text</span>((<span class=pl-s1>x</span>, <span class=pl-s1>y</span>), <span class=pl-s1>text</span>, <span class=pl-s>&#39;white&#39;</span>, <span class=pl-s1>font</span>, <span class=pl-s1>anchor</span><span class=pl-c1>=</span><span class=pl-s>&#39;ms&#39;</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L28" class="blob-num js-line-number" data-line-number="28"></td>
+        <td id="file-gfonts-2-everything-py-LC28" class="blob-code blob-code-inner js-file-line">    <span class=pl-s1>canvas</span>.<span class=pl-en>save</span>(<span class=pl-s>f&#39;<span class=pl-s1><span class=pl-kos>{</span><span class=pl-s1>target_dir</span><span class=pl-kos>}</span></span>/<span class=pl-s1><span class=pl-kos>{</span><span class=pl-s1>i</span>:05<span class=pl-kos>}</span></span>.png&#39;</span>, <span class=pl-s>&quot;PNG&quot;</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L29" class="blob-num js-line-number" data-line-number="29"></td>
+        <td id="file-gfonts-2-everything-py-LC29" class="blob-code blob-code-inner js-file-line">    </td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L30" class="blob-num js-line-number" data-line-number="30"></td>
+        <td id="file-gfonts-2-everything-py-LC30" class="blob-code blob-code-inner js-file-line">    <span class=pl-k>if</span> <span class=pl-s1>monitor</span>:</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L31" class="blob-num js-line-number" data-line-number="31"></td>
+        <td id="file-gfonts-2-everything-py-LC31" class="blob-code blob-code-inner js-file-line">        <span class=pl-en>clear_output</span>(<span class=pl-s1>wait</span><span class=pl-c1>=</span><span class=pl-c1>True</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L32" class="blob-num js-line-number" data-line-number="32"></td>
+        <td id="file-gfonts-2-everything-py-LC32" class="blob-code blob-code-inner js-file-line">        <span class=pl-s1>plt</span>.<span class=pl-en>imshow</span>(<span class=pl-s1>canvas</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L33" class="blob-num js-line-number" data-line-number="33"></td>
+        <td id="file-gfonts-2-everything-py-LC33" class="blob-code blob-code-inner js-file-line">        <span class=pl-s1>plt</span>.<span class=pl-en>show</span>()</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L34" class="blob-num js-line-number" data-line-number="34"></td>
+        <td id="file-gfonts-2-everything-py-LC34" class="blob-code blob-code-inner js-file-line">    <span class=pl-k>if</span> <span class=pl-s1>i</span> <span class=pl-c1>%</span> <span class=pl-c1>200</span> <span class=pl-c1>==</span> <span class=pl-c1>0</span>:</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L35" class="blob-num js-line-number" data-line-number="35"></td>
+        <td id="file-gfonts-2-everything-py-LC35" class="blob-code blob-code-inner js-file-line">        <span class=pl-en>print</span>(<span class=pl-s>f&#39;exporting <span class=pl-s1><span class=pl-kos>{</span><span class=pl-s1>i</span>:05<span class=pl-kos>}</span></span>th of <span class=pl-s1><span class=pl-kos>{</span><span class=pl-en>len</span>(<span class=pl-s1>paths</span>)<span class=pl-kos>}</span></span>&#39;</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L36" class="blob-num js-line-number" data-line-number="36"></td>
+        <td id="file-gfonts-2-everything-py-LC36" class="blob-code blob-code-inner js-file-line">        </td>
+      </tr>
+      <tr>
+        <td id="file-gfonts-2-everything-py-L37" class="blob-num js-line-number" data-line-number="37"></td>
+        <td id="file-gfonts-2-everything-py-LC37" class="blob-code blob-code-inner js-file-line"><span class=pl-en>print</span>(<span class=pl-s>&#39;Exporting completed.&#39;</span>)</td>
+      </tr>
+</table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/erraticgenerator/ab3dcaf4ab0eb7ba50378fe17bc1f97f/raw/d48d15c6e00f376b8c9fdb7e019b0e595a5e0fc7/gfonts-2-everything.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/erraticgenerator/ab3dcaf4ab0eb7ba50378fe17bc1f97f#file-gfonts-2-everything-py">gfonts-2-everything.py</a>
+        hosted with &#10084; by <a href="https://github.com">GitHub</a>
+      </div>
+    </div>
+</div></p>
+<h2>Conclusion</h2>
+<p>Now, you can use the generated images as inputs to Convolutional Neural Networks such as Generative Adversarial Networks or Autoencoders. That is what I am going to be playing the images with. I am sure you can find examples of the model architectures pretty easily on Medium and elsewhere.</p>
+<p>I hope you found my post useful — please let me know if you make some fun stuff with the fonts!</p></div><style data-emotion="css gi1u7h">.css-gi1u7h{margin-top:60px;padding:30px;border-top:1px solid #aaa;font-size:1.8rem;text-align:center;}</style><div class="css-gi1u7h"><style data-emotion="css 1l67l6w">.css-1l67l6w{margin-bottom:16px;color:#666;}</style><p class="css-1l67l6w">If you like my contents, please consider supporting me <br/>so I can create more contents like this. Thank you!</p><style data-emotion="css 4zleql">.css-4zleql{display:block;}</style><a href="https://ko-fi.com/E1E12Z9TZ" target="_blank" rel="noreferrer" class="css-4zleql"><img style="border:0;height:36px" src="https://cdn.ko-fi.com/cdn/kofi2.png?v=2" alt="Buy Me a Coffee at ko-fi.com"/></a></div></main><style data-emotion="css d9qqnj">.css-d9qqnj{grid-row:3/4;}</style><style data-emotion="css 1f21wwo">.css-1f21wwo{margin-top:48px;height:100px;background-image:linear-gradient(white 0%, #fdd 100%);}</style><footer class="css-1f21wwo"><style data-emotion="css ahgem5">.css-ahgem5{margin:0 auto;padding:0 12px;max-width:720px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}</style><div class="css-ahgem5"><style data-emotion="css 10r641u">.css-10r641u{font-size:1.2rem;}</style><div class="css-10r641u">Copyright 2020 • ErraticGenerator.com</div><style data-emotion="css 11f9kv5">.css-11f9kv5{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;font-size:3rem;list-style-type:none;}.css-11f9kv5 li{margin:0 10px;}</style><ul class="css-11f9kv5"><li><a href="mailto:erraticgenerator@gmail.com" target="_blank" rel="noopener noreferrer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0 0 68.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"></path></svg></a></li><li><a href="https://instagram.com/erraticgenerator" target="_blank" rel="noopener noreferrer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M512 306.9c-113.5 0-205.1 91.6-205.1 205.1S398.5 717.1 512 717.1 717.1 625.5 717.1 512 625.5 306.9 512 306.9zm0 338.4c-73.4 0-133.3-59.9-133.3-133.3S438.6 378.7 512 378.7 645.3 438.6 645.3 512 585.4 645.3 512 645.3zm213.5-394.6c-26.5 0-47.9 21.4-47.9 47.9s21.4 47.9 47.9 47.9 47.9-21.3 47.9-47.9a47.84 47.84 0 0 0-47.9-47.9zM911.8 512c0-55.2.5-109.9-2.6-165-3.1-64-17.7-120.8-64.5-167.6-46.9-46.9-103.6-61.4-167.6-64.5-55.2-3.1-109.9-2.6-165-2.6-55.2 0-109.9-.5-165 2.6-64 3.1-120.8 17.7-167.6 64.5C132.6 226.3 118.1 283 115 347c-3.1 55.2-2.6 109.9-2.6 165s-.5 109.9 2.6 165c3.1 64 17.7 120.8 64.5 167.6 46.9 46.9 103.6 61.4 167.6 64.5 55.2 3.1 109.9 2.6 165 2.6 55.2 0 109.9.5 165-2.6 64-3.1 120.8-17.7 167.6-64.5 46.9-46.9 61.4-103.6 64.5-167.6 3.2-55.1 2.6-109.8 2.6-165zm-88 235.8c-7.3 18.2-16.1 31.8-30.2 45.8-14.1 14.1-27.6 22.9-45.8 30.2C695.2 844.7 570.3 840 512 840c-58.3 0-183.3 4.7-235.9-16.1-18.2-7.3-31.8-16.1-45.8-30.2-14.1-14.1-22.9-27.6-30.2-45.8C179.3 695.2 184 570.3 184 512c0-58.3-4.7-183.3 16.1-235.9 7.3-18.2 16.1-31.8 30.2-45.8s27.6-22.9 45.8-30.2C328.7 179.3 453.7 184 512 184s183.3-4.7 235.9 16.1c18.2 7.3 31.8 16.1 45.8 30.2 14.1 14.1 22.9 27.6 30.2 45.8C844.7 328.7 840 453.7 840 512c0 58.3 4.7 183.2-16.2 235.8z"></path></svg></a></li><li><a href="https://erraticgenerator.medium.com" target="_blank" rel="noopener noreferrer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M834.7 279.8l61.3-58.9V208H683.7L532.4 586.4 360.3 208H137.7v12.9l71.6 86.6c7 6.4 10.6 15.8 9.7 25.2V673c2.2 12.3-1.7 24.8-10.3 33.7L128 805v12.7h228.6v-12.9l-80.6-98a39.99 39.99 0 0 1-11.1-33.7V378.7l200.7 439.2h23.3l172.6-439.2v349.9c0 9.2 0 11.1-6 17.2l-62.1 60.3V819h301.2v-12.9l-59.9-58.9c-5.2-4-7.9-10.7-6.8-17.2V297a18.1 18.1 0 0 1 6.8-17.2z"></path></svg></a></li><li><a href="https://twitter.com/erraticgener8or" target="_blank" rel="noopener noreferrer"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M928 254.3c-30.6 13.2-63.9 22.7-98.2 26.4a170.1 170.1 0 0 0 75-94 336.64 336.64 0 0 1-108.2 41.2A170.1 170.1 0 0 0 672 174c-94.5 0-170.5 76.6-170.5 170.6 0 13.2 1.6 26.4 4.2 39.1-141.5-7.4-267.7-75-351.6-178.5a169.32 169.32 0 0 0-23.2 86.1c0 59.2 30.1 111.4 76 142.1a172 172 0 0 1-77.1-21.7v2.1c0 82.9 58.6 151.6 136.7 167.4a180.6 180.6 0 0 1-44.9 5.8c-11.1 0-21.6-1.1-32.2-2.6C211 652 273.9 701.1 348.8 702.7c-58.6 45.9-132 72.9-211.7 72.9-14.3 0-27.5-.5-41.2-2.1C171.5 822 261.2 850 357.8 850 671.4 850 843 590.2 843 364.7c0-7.4 0-14.8-.5-22.2 33.2-24.3 62.3-54.4 85.5-88.2z"></path></svg></a></li></ul></div></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
+  
+  function gaOptout(){document.cookie=disableStr+'=true; expires=Thu, 31 Dec 2099 23:59:59 UTC;path=/',window[disableStr]=!0}var gaProperty='G-EW4MRYKDSH',disableStr='ga-disable-'+gaProperty;document.cookie.indexOf(disableStr+'=true')>-1&&(window[disableStr]=!0);
+  if(!(parseInt(navigator.doNotTrack) === 1 || parseInt(window.doNotTrack) === 1 || parseInt(navigator.msDoNotTrack) === 1 || navigator.doNotTrack === "yes")) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'G-EW4MRYKDSH', 'auto', {});
+      ga('set', 'anonymizeIp', true);
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/use-google-fonts-for-machine-learning-part2";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-303683f6c6a5fb752dca.js"],"app":["/app-449234f78fe4b358bd0f.js"],"component---src-pages-404-js":["/component---src-pages-404-js-5f5a8407856fc57a4351.js"],"component---src-pages-about-js":["/component---src-pages-about-js-9c759708abf8f8343137.js"],"component---src-pages-index-js":["/component---src-pages-index-js-30ae04b97720c3a50fc2.js"],"component---src-templates-blog-post-template-js":["/component---src-templates-blog-post-template-js-724413307e6b2937ccc2.js"]};/*]]>*/</script><script src="/eg-website/polyfill-303683f6c6a5fb752dca.js" nomodule=""></script><script src="/eg-website/component---src-templates-blog-post-template-js-724413307e6b2937ccc2.js" async=""></script><script src="/eg-website/77e824346eb342330b3ba237752743d1d190a1c1-5a07f8e3f5d06948cd05.js" async=""></script><script src="/eg-website/commons-e2cc35d91cc25cea2225.js" async=""></script><script src="/eg-website/styles-7d4153d260c0197f0043.js" async=""></script><script src="/eg-website/app-449234f78fe4b358bd0f.js" async=""></script><script src="/eg-website/framework-de237a875aa45b276a9d.js" async=""></script><script src="/eg-website/webpack-runtime-673e270c3253ed9b7780.js" async=""></script></body></html>
