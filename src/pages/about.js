@@ -36,7 +36,8 @@ export default () => {
         <h1>About</h1>
         <p>
           Hi, I'm Erratic Generator. I create contents for creative coding and
-          design. My main tools are Processing and JavaScript. I'm also learning Python for machine learning.
+          design. I mainly use JavaScript and Processing. I also use Python and
+          Tensorflow for machine learning, but I am just starting out.
         </p>
         <h2>Credits</h2>
         <ul>

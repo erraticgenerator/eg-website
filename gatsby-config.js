@@ -9,7 +9,7 @@ module.exports = {
     title: `Erratic Generator`,
     titleTemplate: "%s | ErraticGenerator.com",
     siteUrl: `https://erraticgenerator.com`,
-    tagline: `Creative Coding Resources for Artists and Designers`,
+    tagline: `Creative Coding and Design`,
     email: `erraticgenerator@gmail.com`,
     social: {
       twitterUrl: `https://twitter.com/erraticgener8or`,
@@ -68,7 +68,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // The property ID; the tracking code won't be generated without it
-        trackingId: "G-EW4MRYKDSH",
+        trackingId: "UA-185826355-1",
         // Defines where to place the tracking script - `true` in the head and `false` in the body
         head: false,
         // Setting this parameter is optional

@@ -19,8 +19,6 @@ The first time I tried to learn machine learning a few years ago, I felt miserab
 
 One thing I really wanted to try and learn was to train Generative Adversarial Network models with fonts. Working with the simple MNIST hand-written digits is fun at the beginning, but I wanted to create or curate my own dataset to continue with the experiments. What better place to find lots of free fonts than [Google Fonts](https://fonts.google.com)? This will give me more control over the dataset and the ability to create high-resolution images (MNIST is only 28x28 pixels). It also comes with helpful annotations for each font family. Here, I would like to share my experience so far starting with downloading and managing thousands of Google Fonts and generating PNG images of each glyph. If you are experienced, this may seem too easy, but for someone like me who is just starting a journey in ML, I hope my post will be a little bit useful. This post is a documentation of my learning process.
 
-http://localhost:8000/blog/experiment.gif
-
 ![A quick experiment with GAN trained on Google Fonts](./experiment.gif)
 
 ## Download Google Fonts and JSON Annotations
