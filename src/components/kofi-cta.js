@@ -16,7 +16,7 @@ const text = css`
 `
 
 const button = css`
-  display: block;
+  // display: block;
 `
 
 const KofiCta = () => {
@@ -26,11 +26,16 @@ const KofiCta = () => {
   return (
     <div css={container}>
       <p css={text}>
-        If you like my contents, please consider supporting me. It helps me create more contents like this. Thank
-        you!
+        If you like my contents, please consider supporting me. It helps me
+        create more contents like this. Thank you!
       </p>
 
-      <a css={button} href={metadata.social.kofiUrl} target="_blank" rel="noreferrer">
+      <a
+        css={button}
+        href={metadata.social.kofiUrl}
+        target="_blank"
+        rel="noreferrer"
+      >
         <img
           style={{
             border: 0,
