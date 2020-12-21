@@ -30,6 +30,9 @@ const container = css`
 
 const child1 = css`
   flex: 4;
+  @media (max-width: 600px) {
+    flex: 6;
+  }
 `
 
 const child2 = css`

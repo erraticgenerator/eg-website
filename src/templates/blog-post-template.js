@@ -4,8 +4,13 @@ import { graphql } from "gatsby"
 import { css } from "@emotion/react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import KofiCta from '../components/kofi-cta'
+import KofiCta from "../components/kofi-cta"
 import "../styles/gist-solarized-light.css"
+
+const contents = css`
+  // margin: 0 auto;
+  // width: 100%;
+`
 
 const header = css`
   // outline: 1px solid red;
@@ -106,13 +111,15 @@ export default ({ data, pageContext: { pagePath } }) => {
         pagePath={pagePath}
         isBlogPost
       />
-      <header css={header}>
-        <h1 css={title}>{frontmatter.title}</h1>
-        <h2 css={subtitle}>{frontmatter.subtitle}</h2>
-        <time css={date}>{frontmatter.date}</time>
-      </header>
-      <div css={markdown} dangerouslySetInnerHTML={{ __html: html }} />
-      <KofiCta />
+      <div css={contents}>
+        <header css={header}>
+          <h1 css={title}>{frontmatter.title}</h1>
+          <h2 css={subtitle}>{frontmatter.subtitle}</h2>
+          <time css={date}>{frontmatter.date}</time>
+        </header>
+        <div css={markdown} dangerouslySetInnerHTML={{ __html: html }} />
+        <KofiCta />
+      </div>
     </Layout>
   )
 }

@@ -15,21 +15,26 @@ import SEO from "../components/seo"
 // Article has 2 children (featured image, header)
 const Article = styled.article`
   font-family: "Open Sans", sans-serif;
-  margin: 6rem 0;
+  margin: 7rem 0;
   display: flex;
   flex-direction: row;
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 `
 // grouping for flex purpose
 const FeaturedImage = styled.div`
-  // outline: 2px solid green;
+  margin-bottom: 12px;
   width: 100%;
   flex: 1;
 `
 // grouping for flex purpose
 const HeaderGroup = styled.div`
-  // outline: 3px solid blue;
   margin-left: 20px;
   flex: 3;
+  @media (max-width: 600px) {
+    margin-left: 0;
+  }
 `
 
 const postTitle = css`
@@ -39,7 +44,7 @@ const postTitle = css`
 `
 
 const postSubtitle = css`
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.8rem;
   font-family: "Andika New Basic", sans-serif;
   font-size: 1.8rem;
   font-weight: 400;
@@ -47,23 +52,25 @@ const postSubtitle = css`
 `
 
 const postDate = css`
-  margin-bottom: 1.4rem;
+  margin-bottom: 0.8rem;
   font-size: 1.4rem;
   color: #666;
 `
 
 const postTags = css`
-  margin: 1rem 0;
+  // margin: 1rem 0;
 `
 
 const postTag = css`
-  margin: 0 2px;
-  padding: 4px 8px;
-  border-radius: 6px;
+  display: inline-block;
+  margin: 2px;
+  padding: 0 8px;
+  border-radius: 4px;
   font-size: 1rem;
   // font-weight: 700;
   text-transform: uppercase;
   text-align: center;
+  line-height: 2;
   background-color: #fee;
   // border: 1px solid #fcc;
 `

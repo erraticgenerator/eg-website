@@ -18,7 +18,8 @@ module.exports = {
       kofiUrl: `https://ko-fi.com/E1E12Z9TZ`,
     },
   },
-  pathPrefix: "/eg-website", // for gh-pages website
+  // pathPrefix: "/eg-website", // for gh-pages website
+  pathPrefix: "",
   plugins: [
     `gatsby-plugin-react-helmet`,
     {

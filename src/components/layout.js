@@ -7,6 +7,7 @@ import Footer from "./footer"
 const pageContainer = css`
   height: 100%;
   display: grid;
+  grid-template-columns: 100%;
   grid-template-rows: 120px auto 100px;
 
   p {
@@ -16,16 +17,14 @@ const pageContainer = css`
   }
 `
 const header = css`
-  outline: 1px solid red;
+  // outline: 1px solid red;
   grid-row: 1 / 2;
 `
 
-// content max width 720px
-// image max width 840px
-// set max-width to 840px and add padding 60px on each side.
 const mainContainer = css`
-  // outline: 1px solid red;
+  // border: 5px solid red;
   max-width: 720px;
+  width: 100%; // without this, it doesn't shrink.
   margin: 0 auto;
   padding: 0 12px;
   grid-row: 2 / 3;

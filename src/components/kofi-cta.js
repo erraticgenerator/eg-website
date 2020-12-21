@@ -26,7 +26,7 @@ const KofiCta = () => {
   return (
     <div css={container}>
       <p css={text}>
-        If you like my contents, please consider supporting me <br />so I can create more contents like this. Thank
+        If you like my contents, please consider supporting me. It helps me create more contents like this. Thank
         you!
       </p>
 
