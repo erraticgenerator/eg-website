@@ -1,5 +1,5 @@
 ---
-slug: '/blog/use-google-fonts-for-machine-learning-part1'
+slug: '/blog/use-google-fonts-for-machine-learning-part1/'
 title: 'Use Google Fonts for Machine Learning (Part 1: Annotation)'
 subtitle: Filter the fonts you need out of thousands of Google Fonts
 date: 2020-10-31

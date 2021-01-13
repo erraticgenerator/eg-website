@@ -1,5 +1,5 @@
 ---
-slug: '/blog/use-google-fonts-for-machine-learning-part2'
+slug: '/blog/use-google-fonts-for-machine-learning-part2/'
 title: 'Use Google Fonts for Machine Learning (Part 2: Filter & Generate)'
 subtitle: Quickly generate hundreds of font images.
 date: 2020-11-01

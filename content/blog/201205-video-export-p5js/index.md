@@ -1,5 +1,5 @@
 ---
-slug: '/blog/video-export-from-p5js-sketch'
+slug: '/blog/video-export-from-p5js-sketch/'
 title: 'Video Export from p5.js Sketch'
 subtitle: 'Save mp4 videos from within a browser. No server needed.'
 date: 2020-12-05

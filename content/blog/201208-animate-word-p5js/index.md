@@ -1,5 +1,5 @@
 ---
-slug: '/blog/animate-word-by-word-in-p5js'
+slug: '/blog/animate-word-by-word-in-p5js/'
 title: 'Animate Word by Word in p5.js'
 subtitle: 'Typography animation using class & objects'
 date: 2020-12-08

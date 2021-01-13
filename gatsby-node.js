@@ -38,7 +38,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       context: {
         // additional data
         slug: node.frontmatter.slug,
-        pagePath: node.frontmatter.slug.substr(1), // quick&dirty hack b/c of double slash siteUrl//blog/post-title
+        // pagePath: node.frontmatter.slug.substr(1), // quick&dirty hack b/c of double slash siteUrl//blog/post-title
       }
     })
   })

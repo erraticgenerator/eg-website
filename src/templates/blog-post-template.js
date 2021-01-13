@@ -99,16 +99,18 @@ const markdown = css`
   }
 `
 
-export default ({ data, pageContext: { pagePath } }) => {
+export default ({ data }) => {
   const { markdownRemark } = data // data.markdownRemark holds post data
   const { frontmatter, html } = markdownRemark
+  const image = frontmatter.featuredImage ? frontmatter.featuredImage.publicURL : null
 
   return (
     <Layout>
       <SEO
         title={frontmatter.title}
         description={markdownRemark.excerpt}
-        pagePath={pagePath}
+        pagePath={frontmatter.slug}
+        image={image}
         isBlogPost
       />
       <div css={contents}>
@@ -135,6 +137,9 @@ export const query = graphql`
         subtitle
         date(formatString: "MMMM DD, YYYY")
         tags
+        featuredImage {
+          publicURL
+        }
       }
     }
   }

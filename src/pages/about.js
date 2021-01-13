@@ -37,7 +37,8 @@ export default () => {
         <p>
           Hi, I'm Erratic Generator. I create contents for creative coding and
           design. I mainly use JavaScript and Processing. I also use Python and
-          Tensorflow for machine learning, but I am just starting out.
+          Tensorflow for machine learning. I am still figuring out how to use
+          this website.
         </p>
         <h2>Credits</h2>
         <ul>

@@ -10,7 +10,8 @@ const SEO = ({ title, description, image, pagePath, isBlogPost }) => (
         title: title || siteMetadata.title,
         titleTemplate: siteMetadata.titleTemplate || "",
         description: description || siteMetadata.tagline,
-        url: `${siteMetadata.siteUrl}/${pagePath || ""}`,
+        url: `${siteMetadata.siteUrl}${pagePath || ""}`,
+        image: image ? `${siteMetadata.siteUrl}${image}` : null
       }
       return (
         <Helmet
@@ -28,7 +29,7 @@ const SEO = ({ title, description, image, pagePath, isBlogPost }) => (
           {seo.description && (
             <meta property="og:description" content={seo.description} />
           )}
-          {seo.image && <meta property="og:image" content={seo.image} />} */}
+          {seo.image && <meta property="og:image" content={seo.image} />}
           {(seo.imageWidth ? true : null) && (
             <meta property="og:image:width" content={seo.imageWidth} />
           )}

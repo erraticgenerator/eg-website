@@ -1,5 +1,5 @@
 ---
-slug: '/blog/p5js-texttopoints-function'
+slug: '/blog/p5js-texttopoints-function/'
 title: 'p5.js textToPoints() function'
 subtitle: 'Get the outlines of your fonts with p5.js and opentype.js'
 date: 2020-12-06
