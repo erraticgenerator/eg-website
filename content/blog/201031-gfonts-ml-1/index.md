@@ -8,7 +8,7 @@ tags:
 - machine learning
 - typography
 - fonts
-featuredImage: ./google-fonts-images.png
+featuredImage: google-fonts-images.png
 ---
 
 ![Google Fonts images generated from a Python script](./google-fonts-images.png)

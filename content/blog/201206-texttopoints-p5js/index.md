@@ -9,7 +9,7 @@ tags:
 - creative coding
 - typography
 - opentype
-featuredImage: ./thumb.png
+featuredImage: thumb.png
 ---
 
 ![Type animation using font outlines. Image by Author.](./paths.gif)

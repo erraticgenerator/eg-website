@@ -1,5 +1,6 @@
 import React from "react"
 import { css } from "@emotion/react"
+import { OutboundLink } from "gatsby-plugin-google-gtag"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 
 const container = css`
@@ -26,11 +27,12 @@ const KofiCta = () => {
   return (
     <div css={container}>
       <p css={text}>
-        If you like my contents, please consider supporting my website. It helps
-        me create more contents like this. Thank you!
+        I publish the same articles on Medium, but they are behind the paywall.
+        Your support will help me keep this website open to everyone. If you
+        liked my contents, please consider supporting. Thank you!
       </p>
 
-      <a
+      <OutboundLink
         css={button}
         href={metadata.social.kofiUrl}
         target="_blank"
@@ -44,7 +46,7 @@ const KofiCta = () => {
           src="https://cdn.ko-fi.com/cdn/kofi2.png?v=2"
           alt="Buy Me a Coffee at ko-fi.com"
         />
-      </a>
+      </OutboundLink>
     </div>
   )
 }

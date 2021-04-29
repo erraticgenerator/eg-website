@@ -8,7 +8,7 @@ tags:
 - p5js
 - creative coding
 - typography
-featuredImage: ./thumb.png
+featuredImage: thumb.png
 ---
 
 ![Word-level typography animation with p5.js. Image by Author.](./word-anim.gif)

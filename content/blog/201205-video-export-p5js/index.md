@@ -9,6 +9,7 @@ tags:
 - creative coding
 - canvas
 - html5
+featuredImage: thumb.png
 ---
 
 The p5.js library itself does not have a way to export a video out of a sketch but because everything you do is simply drawing on an HTML5 Canvas, if you can find a library to export what’s on the Canvas, you should be able to use it. I recently stumbled upon a really good and simple library that exports to H.264 mp4 video straight out of a browser (no server needed) and made a simple example to make it work with a p5js sketch.

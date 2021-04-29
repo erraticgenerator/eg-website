@@ -14,7 +14,9 @@ featuredImage: ./thumb.png
 
 ![React Draggable component and CSS transition](./demo.gif)
 
-In this post, I would like to document my learning process of using `react-draggable` component. The basic usage is quite simple - you only need to wrap your element with a `Draggable` component. To learn how, you can refer to [the original repo](https://github.com/STRML/react-draggable) or read [a write up by Victoria Lo](https://medium.com/javascript-in-plain-english/making-draggable-components-in-react-4c6d4d1df95f) on Medium. What I wanted to do was a little different in that I not only wanted to drag elements but also attach CSS transition animation to them, and that's what I want to cover in this post. 
+In this post, I would like to document my process of learning to use `react-draggable` component. The basic usage is quite simple - you only need to wrap your element with a `Draggable` component. To learn how, you can refer to [the original repo](https://github.com/STRML/react-draggable) or read [a write up by Victoria Lo](https://medium.com/javascript-in-plain-english/making-draggable-components-in-react-4c6d4d1df95f) on Medium. 
+
+What I wanted to do was a little different in that I not only wanted to drag elements but also attach CSS transition animation to them, and that's what I want to cover in this post. 
 
 ## Setup
 

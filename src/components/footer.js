@@ -1,5 +1,5 @@
 import React from "react"
-// import { Link } from "gatsby"
+import { Link } from "gatsby"
 import { css } from "@emotion/react"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 
@@ -45,7 +45,7 @@ const Footer = () => {
     <footer css={footer}>
       <div css={container}>
         <div css={copyright}>
-          Copyright 2020 • ErraticGenerator.com
+          Copyright 2020-2021 • ErraticGenerator.com • <Link to="/privacy/">Our Privacy Policy</Link>
         </div>
         <ul css={listLinks}>
           <li>

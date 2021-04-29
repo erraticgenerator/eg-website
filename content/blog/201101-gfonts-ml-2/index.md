@@ -8,7 +8,7 @@ tags:
 - machine learning
 - typography
 - fonts
-featuredImage: ./thumb.png
+featuredImage: thumb.png
 ---
 
 ![Machine learning training time-lapse. Image by Author.](./ml-timelapse.gif)
