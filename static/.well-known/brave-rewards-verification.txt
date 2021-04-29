@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: erraticgenerator.com
+Token: def200f94f69b27cb23c956f0f92d0e47e2dc49b255c644166527209f8cd068c
