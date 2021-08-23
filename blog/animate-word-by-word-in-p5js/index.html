@@ -9,12 +9,13 @@
 <div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> wordsStr <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span></code></pre></div>
 <p>We will then iterate over each word and determine the position of the next words. How to know where to place the next words? p5js has the <code class="language-text">textWidth()</code> function, which will return the width of any text given in pixels. Note that this width value is dependent on the current text size. Let’s look at what we have so far:</p>
 <p><div id="gist106841611" class="gist">
-    <div class="gist-file">
+    <div class="gist-file" translate="no">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">
   <div id="file-p5-word-anim-1-js" class="file my-2">
     
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-javascript  ">
+
       
 <table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
       <tr>
@@ -165,12 +166,13 @@ x <span class="token operator">=</span> x <span class="token operator">+</span> 
 <span class="token punctuation">}</span></code></pre></div>
 <p>This is very basic, but we will add more methods a little later. We also store the index value as this may come in handy in the future. Now, instead of directly using the <code class="language-text">text()</code> function, let’s create objects out of this class and use the <code class="language-text">word.display()</code> method:</p>
 <p><div id="gist106841771" class="gist">
-    <div class="gist-file">
+    <div class="gist-file" translate="no">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">
   <div id="file-p5-word-anim-2-js" class="file my-2">
     
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-javascript  ">
+
       
 <table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
       <tr>
@@ -341,12 +343,13 @@ x <span class="token operator">=</span> x <span class="token operator">+</span> 
 <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">=</span> <span class="token function">lerp</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>y<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>ty<span class="token punctuation">,</span> <span class="token number">0.1</span><span class="token punctuation">)</span></code></pre></div>
 <p>Of course, <code class="language-text">this.tx</code> and <code class="language-text">this.ty</code> are new variables, so we will have to define it in the constructor. In the beginning, <code class="language-text">this.x</code> and <code class="language-text">this.tx</code> will be the same, so there will be no animation as the target is the same as the current position, but I will randomize the target position whenever we press the mouse. Here is the implementation:</p>
 <p><div id="gist106841891" class="gist">
-    <div class="gist-file">
+    <div class="gist-file" translate="no">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">
   <div id="file-p5-word-anim-3-js" class="file my-2">
     
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-javascript  ">
+
       
 <table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
       <tr>
@@ -725,12 +728,13 @@ x <span class="token operator">=</span> x <span class="token operator">+</span> 
 <span class="token punctuation">}</span></code></pre></div>
 <p>And finally, here is the full implementation.</p>
 <p><div id="gist106841971" class="gist">
-    <div class="gist-file">
+    <div class="gist-file" translate="no">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">
   <div id="file-p5-word-anim-4-html" class="file my-2">
     
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-html  ">
+
       
 <table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
       <tr>

@@ -17,12 +17,13 @@
 <h2>Load CSV Annotations</h2>
 <p>First, we will load the CSV annotation as pandas.DataFrame.</p>
 <p><div id="gist106212232" class="gist">
-    <div class="gist-file">
+    <div class="gist-file" translate="no">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">
   <div id="file-gfonts-2-loadcsv-py" class="file my-2">
     
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+
       
 <table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
       <tr>
@@ -77,12 +78,13 @@
 <h1>Look at Data Summary</h1>
 <p>Let’s have a look at what we are dealing with here — how many fonts are within each category, how many fonts have which variants, etc. We first filter the list of fonts using a regular expression to select the columns we want to look at. Find all the rows with the value of 1, sum all these rows, and sort by frequency.</p>
 <p><div id="gist106212473" class="gist">
-    <div class="gist-file">
+    <div class="gist-file" translate="no">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">
   <div id="file-gfonts-2-summary-py" class="file my-2">
     
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+
       
 <table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
       <tr>
@@ -139,12 +141,13 @@
 <h2>Filtering Fonts</h2>
 <p>Now, let’s create conditions to create sub-groups of fonts. Because we took the time to create a nice CSV annotation it is easy to filter fonts according to our own criteria. Say, how many fonts that are <code class="language-text">thin</code>, <code class="language-text">regular</code> and <code class="language-text">thai</code>?</p>
 <p><div id="gist106213302" class="gist">
-    <div class="gist-file">
+    <div class="gist-file" translate="no">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">
   <div id="file-gfonts-2-filter1-py" class="file my-2">
     
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+
       
 <table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
       <tr>
@@ -186,12 +189,13 @@
 <p>The reason we <code class="language-text">sum(axis=1)</code> after filtering is to capture multiple columns if they meet the same condition. For example, if we filter with <code class="language-text">italic</code>, there are multiple columns that will be included such as <code class="language-text">bolditalic</code>, <code class="language-text">mediumitalic</code>, etc. We can combine multiple conditions to a boolean Series object called <code class="language-text">mask</code> and pass it to our DataFrame object. It will only return the rows that meet the conditions. We use <code class="language-text">&amp;</code> to only select the fonts that meet all the conditions.</p>
 <p>Here is another one — Let’s find the fonts that support <code class="language-text">chinese</code> and <code class="language-text">sans-serif</code>.</p>
 <p><div id="gist106213308" class="gist">
-    <div class="gist-file">
+    <div class="gist-file" translate="no">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">
   <div id="file-gfonts-2-filter2-py" class="file my-2">
     
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+
       
 <table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
       <tr>
@@ -229,12 +233,13 @@
 <p>I get 3 fonts back that meet the criteria — NotoSansHK, NotoSansSC, and NotoSansTC. For some reason, these NotoSans fonts were not included in the Google Fonts Github repo. So, you will have to manually download them if you need to use them.</p>
 <p>We don’t want to keep editing the <code class="language-text">mask</code> object each time we use a different set of filters, so we will make a list with all the filters we want to use and simply iterate over them. These strings are in fact regular expressions and you can try more advanced filtering on your own.</p>
 <p><div id="gist106213329" class="gist">
-    <div class="gist-file">
+    <div class="gist-file" translate="no">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">
   <div id="file-gfonts-2-filter3-py" class="file my-2">
     
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+
       
 <table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
       <tr>
@@ -281,12 +286,13 @@
 </div></p>
 <p>How about we make this into a reusable function? This function will take DataFrame and regex filter list as inputs, and outputs a list of font names.</p>
 <p><div id="gist106213334" class="gist">
-    <div class="gist-file">
+    <div class="gist-file" translate="no">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">
   <div id="file-gfonts-2-filter-func-py" class="file my-2">
     
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+
       
 <table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
       <tr>
@@ -357,12 +363,13 @@
 <h2>Load Font File Path</h2>
 <p>We will use <code class="language-text">glob</code> to load the fonts path. If you only want to filter fonts through weights such as <code class="language-text">Regular</code>, <code class="language-text">Bold</code>, <code class="language-text">Thin</code>, simple filename checking will be enough as the weights/styles are already part of the file names, but you won't be able to use other annotations we looked at such as language subsets or category.</p>
 <p><div id="gist106213393" class="gist">
-    <div class="gist-file">
+    <div class="gist-file" translate="no">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">
   <div id="file-gfonts-2-all-fonts-path-py" class="file my-2">
     
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+
       
 <table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
       <tr>
@@ -419,12 +426,13 @@
 <h2>Filter Fonts</h2>
 <p>It is time to bring different pieces together into a single function that will take a DataFrame object and the path to font files, and then use the filters we define to return a list of filtered font paths.</p>
 <p><div id="gist106213418" class="gist">
-    <div class="gist-file">
+    <div class="gist-file" translate="no">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">
   <div id="file-gfonts-2-filter-fonts-get-paths-py" class="file my-2">
     
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+
       
 <table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
       <tr>
@@ -558,12 +566,13 @@
 <h2>Preview Font Images</h2>
 <p>It is finally time to see the fonts displayed as images.</p>
 <p><div id="gist106213543" class="gist">
-    <div class="gist-file">
+    <div class="gist-file" translate="no">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">
   <div id="file-gfonts-2-preview-py" class="file my-2">
     
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+
       
 <table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
       <tr>
@@ -717,12 +726,13 @@
 <h2>Everything Pieced Together</h2>
 <p>Here is the code block that pieces everything together. This time, all the images will be saved as PNG files.</p>
 <p><div id="gist106213602" class="gist">
-    <div class="gist-file">
+    <div class="gist-file" translate="no">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">
   <div id="file-gfonts-2-everything-py" class="file my-2">
     
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+
       
 <table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
       <tr>

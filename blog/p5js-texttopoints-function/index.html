@@ -5,12 +5,13 @@
 <p>Next, <code class="language-text">font.textToPoints()</code> function takes 4 arguments — the text you want to get points from, x and y coordinates, and what size the text will be. It also has an optional fifth argument, where you can define <code class="language-text">samplingFactor</code>, which you can think of as sampling resolution and <code class="language-text">simplifyThrehold</code>, which removes collinear points if you need to have a minimum number of points to draw the outlines. I suggest that you play with these values (start with something small) to get a feel for it.</p>
 <p>Once you have all the points stored in thepts array, you can use them however you want. You can use x, y coordinates to draw lines, ellipses, etc. Here is the result of my example and the code below. I am using a beautiful open source font called <a href="https://www.theleagueofmoveabletype.com/chunk">Chunk</a>, but if you don’t have it, you will need to replace it with your own font file.</p>
 <p><div id="gist106800286" class="gist">
-    <div class="gist-file">
+    <div class="gist-file" translate="no">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">
   <div id="file-p5-texttopoints-1-html" class="file my-2">
     
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-html  ">
+
       
 <table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
       <tr>
@@ -363,12 +364,13 @@
   </figure></p>
 <p>It looks pretty cool, but the problem is all the letters are connected. The <code class="language-text">pts</code> array contains all the coordinates but it does not tell us when each letter starts and ends. One workaround is to use a 2-dimensional array and store the points for each letter.</p>
 <p><div id="gist106800672" class="gist">
-    <div class="gist-file">
+    <div class="gist-file" translate="no">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">
   <div id="file-p5-texttopoints-2-html" class="file my-2">
     
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-html  ">
+
       
 <table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
       <tr>
@@ -688,12 +690,13 @@
 </ul>
 <p>Also, the way opentype.js loads a font is a bit different so we will also need to change that part of the code. Here is the full working code:</p>
 <p><div id="gist106800915" class="gist">
-    <div class="gist-file">
+    <div class="gist-file" translate="no">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">
   <div id="file-p5-texttopoints-opentypejs-html" class="file my-2">
     
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-html  ">
+
       
 <table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
       <tr>

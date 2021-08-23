@@ -23,12 +23,13 @@
 <p>I will treat this post as a Jupyter notebook, so if you want to follow along, you can open up a new notebook in your own environment, and run each code cell one by one. By the way, I am running Jupyter Lab on a Conda environment on MacbookPro.</p>
 <p>Let’s first import the main modules we will be using:</p>
 <p><div id="gist106211071" class="gist">
-    <div class="gist-file">
+    <div class="gist-file" translate="no">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">
   <div id="file-gfonts-1-imports-py" class="file my-2">
     
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+
       
 <table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
       <tr>
@@ -66,12 +67,13 @@
 <h2>Load JSON Annotations</h2>
 <p>Let’s first take a look at the JSON data by loading it as pandas.DataFrame. The JSON file has only 2 columns, <em>kind</em>, and <em>items</em>. The kind column doesn’t seem so useful, but the items column has a lot more information. A problem is that it is nested and it is in dict format. We can simply use <code class="language-text">pd.json_normalize()</code> to flatten the items column.</p>
 <p><div id="gist106211237" class="gist">
-    <div class="gist-file">
+    <div class="gist-file" translate="no">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">
   <div id="file-gfonts-1-download-json-py" class="file my-2">
     
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+
       
 <table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
       <tr>
@@ -146,12 +148,13 @@
 <p>I decided that I will not need many of the columns for my machine learning training. The columns that I find particularly interesting are <code class="language-text">family</code>, <code class="language-text">variants</code>, <code class="language-text">subsets</code> and <code class="language-text">category</code> as these will directly affect the letterforms. Let’s just select these columns.</p>
 <p>I am also removing any space from <code class="language-text">family</code> string because that is how the font files are named. It will make things a bit easier when we later load the file paths.</p>
 <p><div id="gist106211750" class="gist">
-    <div class="gist-file">
+    <div class="gist-file" translate="no">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">
   <div id="file-gfonts-1-cleanup-py" class="file my-2">
     
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+
       
 <table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
       <tr>
@@ -205,12 +208,13 @@
 </div></p>
 <p>You may have already noticed that variants and subsets column values are enclosed with square brackets as Python lists. (ex. <code class="language-text">[regular, 500, 600, 700, 800]</code>) We will create new columns for each value and assign either 0 or 1 for each font family. This one-hot encoding will make it easy to filter fonts with different conditions. (ie. filter fonts that have regular weights that support Thai character set.) I have tried a few different methods and the <em>Scikit-Learn</em> module gave me the result I needed.</p>
 <p><div id="gist106211852" class="gist">
-    <div class="gist-file">
+    <div class="gist-file" translate="no">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">
   <div id="file-gfonts-1-onehot-py" class="file my-2">
     
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+
       
 <table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
       <tr>
@@ -281,12 +285,13 @@
 </div></p>
 <p>Now, we have separate columns for each variable, and the font families have a value of 0 or 1 for each column depending on whether they support each variable. The variants columns are named <em>100, 100italic, 200, 200italic, 300, 300italic</em>, etc. which can work just fine, but I wanted to go one step further by renaming them so that it will match the way the font files are named. (ex. Barlow-BlackItalic.ttf instead of Barlow-900italic.ttf) This hand labeling could definitely be improved, but this worked for me anyway.</p>
 <p><div id="gist106211897" class="gist">
-    <div class="gist-file">
+    <div class="gist-file" translate="no">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">
   <div id="file-gfonts-1-rename-columns-py" class="file my-2">
     
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
+
       
 <table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
       <tr>
