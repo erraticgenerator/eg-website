@@ -28,7 +28,7 @@ const contents = css`
   }
 `
 
-export default () => {
+const About = () => {
   return (
     <Layout>
       <SEO title="About" description="About ErraticGenerator.com" />
@@ -62,3 +62,5 @@ export default () => {
     </Layout>
   )
 }
+
+export default About

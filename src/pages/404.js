@@ -6,7 +6,7 @@ import React from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
 
-export default () => {
+const PageNotFound = () => {
   return (
     <Layout>
       404 error
@@ -14,3 +14,5 @@ export default () => {
     </Layout>
   )
 }
+
+export default PageNotFound

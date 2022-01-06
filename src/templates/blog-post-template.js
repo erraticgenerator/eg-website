@@ -99,10 +99,12 @@ const markdown = css`
   }
 `
 
-export default ({ data }) => {
+const BlogPostTemplate = ({ data }) => {
   const { markdownRemark } = data // data.markdownRemark holds post data
   const { frontmatter, html } = markdownRemark
-  const image = frontmatter.featuredImage ? frontmatter.featuredImage.publicURL : null
+  const image = frontmatter.featuredImage
+    ? frontmatter.featuredImage.publicURL
+    : null
 
   return (
     <Layout>
@@ -144,3 +146,5 @@ export const query = graphql`
     }
   }
 `
+
+export default BlogPostTemplate

@@ -75,7 +75,7 @@ const postTag = css`
   // border: 1px solid #fcc;
 `
 
-export default ({ data }) => {
+const Index = ({ data }) => {
   const edges = data.allMarkdownRemark.edges
   const metadata = data.site.siteMetadata
 
@@ -124,6 +124,8 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+export default Index
 
 // fixed image 240x180 (for thumbnail)
 export const query = graphql`

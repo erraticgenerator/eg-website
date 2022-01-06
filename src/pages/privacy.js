@@ -36,7 +36,7 @@ const contents = css`
   }
 `
 
-export default () => {
+const Privacy = () => {
   return (
     <Layout>
       <SEO title="Privacy Policy" description="Our privacy policy" />
@@ -536,3 +536,5 @@ export default () => {
     </Layout>
   )
 }
+
+export default Privacy
