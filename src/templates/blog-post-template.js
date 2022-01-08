@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 // import Img from "gatsby-image"
 import { css } from "@emotion/react"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import KofiCta from "../components/kofi-cta"
 import "../styles/gist-solarized-light.css"
 
@@ -108,7 +108,7 @@ const BlogPostTemplate = ({ data }) => {
 
   return (
     <Layout>
-      <SEO
+      <Seo
         title={frontmatter.title}
         description={markdownRemark.excerpt}
         pagePath={frontmatter.slug}

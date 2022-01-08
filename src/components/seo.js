@@ -2,7 +2,7 @@ import React from "react"
 import Helmet from "react-helmet"
 import { StaticQuery, graphql } from "gatsby"
 
-const SEO = ({ title, description, image, pagePath, isBlogPost }) => (
+const Seo = ({ title, description, image, pagePath, isBlogPost }) => (
   <StaticQuery
     query={query}
     render={({ site: { siteMetadata } }) => {
@@ -11,7 +11,7 @@ const SEO = ({ title, description, image, pagePath, isBlogPost }) => (
         titleTemplate: siteMetadata.titleTemplate || "",
         description: description || siteMetadata.tagline,
         url: `${siteMetadata.siteUrl}${pagePath || ""}`,
-        image: image ? `${siteMetadata.siteUrl}${image}` : null
+        image: image ? `${siteMetadata.siteUrl}${image}` : null,
       }
       return (
         <Helmet
@@ -48,9 +48,9 @@ const SEO = ({ title, description, image, pagePath, isBlogPost }) => (
   />
 )
 
-export default SEO
+export default Seo
 
-SEO.defaultProps = {
+Seo.defaultProps = {
   title: null,
   description: null,
   image: null,
@@ -59,7 +59,7 @@ SEO.defaultProps = {
 }
 
 const query = graphql`
-  query SEO {
+  query Seo {
     site {
       siteMetadata {
         title

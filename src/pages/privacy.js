@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import { css } from "@emotion/react"
 // import styled from "@emotion/styled"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 // find a way to do a full height page layout no matter how long contents are.
 const contents = css`
@@ -39,7 +39,7 @@ const contents = css`
 const Privacy = () => {
   return (
     <Layout>
-      <SEO title="Privacy Policy" description="Our privacy policy" />
+      <Seo title="Privacy Policy" description="Our privacy policy" />
       <div css={contents}>
         <h1>Privacy Policy</h1>
         <p>Last updated: April 29, 2021</p>
@@ -57,6 +57,7 @@ const Privacy = () => {
           <a
             href="https://www.privacypolicies.com/privacy-policy-generator/"
             target="_blank"
+            rel="noreferrer"
           >
             Privacy Policy Generator
           </a>
@@ -140,7 +141,7 @@ const Privacy = () => {
               from{" "}
               <a
                 href="https://erraticgenerator.com"
-                rel="external nofollow noopener"
+                rel="external nofollow noopener noreferrer"
                 target="_blank"
               >
                 https://erraticgenerator.com
@@ -216,7 +217,7 @@ const Privacy = () => {
             disabling, or deleting local shared objects?&quot; available at{" "}
             <a
               href="https://helpx.adobe.com/flash-player/kb/disable-local-shared-objects-flash.html#main_Where_can_I_change_the_settings_for_disabling__or_deleting_local_shared_objects_"
-              rel="external nofollow noopener"
+              rel="external nofollow noopener noreferrer"
               target="_blank"
             >
               https://helpx.adobe.com/flash-player/kb/disable-local-shared-objects-flash.html#main_Where_can_I_change_the_settings_for_disabling__or_deleting_local_shared_objects_
@@ -240,6 +241,7 @@ const Privacy = () => {
           <a
             href="https://www.privacypolicies.com/blog/cookies/"
             target="_blank"
+            rel="noreferrer"
           >
             What Are Cookies?
           </a>
