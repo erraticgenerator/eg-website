@@ -1,11 +1,11 @@
-<!DOCTYPE html><html lang="en-US"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.8b5b382a01b64608909a.css" id="gatsby-global-css">code[class*=language-],pre[class*=language-]{color:#657b83;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{background:#073642}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background-color:#fdf6e3}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#93a1a1}.token.punctuation{color:#586e75}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#268bd2}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string,.token.url{color:#2aa198}.token.entity{color:#657b83;background:#eee8d5}.token.atrule,.token.attr-value,.token.keyword{color:#859900}.token.class-name,.token.function{color:#b58900}.token.important,.token.regex,.token.variable{color:#cb4b16}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}body .gist .highlight{background:#fdf6e3}body .gist .blob-code-inner,body .gist .blob-num,body .gist .pl-s1 .pl-s2,body .gist .pl-smi,body .gist .pl-smp,body .gist .pl-stj,body .gist .pl-vo,body .gist .pl-vpf{color:#657b83}body .gist .pl-c,body .gist .pl-c span{color:#93a1a1;font-style:italic}body .gist .pl-mb{color:#2aa198;font-weight:700}body .gist .pl-mh .pl-en{color:#cb4b16;font-weight:700}body .gist .pl-mi{color:#859900;font-style:italic}body .gist .pl-c1,body .gist .pl-pds,body .gist .pl-s1,body .gist .pl-s1 .pl-pse .pl-s2,body .gist .pl-sv{color:#2aa198}body .gist .pl-e,body .gist .pl-en,body .gist .pl-ent,body .gist .pl-s,body .gist .pl-v{color:#268bd2}body .gist .pl-k,body .gist .pl-mdh,body .gist .pl-mdr,body .gist .pl-ml,body .gist .pl-mm,body .gist .pl-mo,body .gist .pl-mp,body .gist .pl-mr,body .gist .pl-ms,body .gist .pl-s1 .pl-v,body .gist .pl-s3{color:#859900}body .gist .pl-mh,body .gist .pl-sc,body .gist .pl-sr .pl-cce{color:#cb4b16}body .gist .highlight-source-css .pl-k,body .gist .pl-mq{color:#93a1a1}body .gist .pl-sr,body .gist .pl-sr .pl-sra,body .gist .pl-sr .pl-sre,body .gist .pl-src{color:#d30102}body .gist .highlight-source-c\+\+ .pl-s,body .gist .pl-st{color:#dc322f}body .gist .pl-mdht,body .gist .pl-mi1{color:#657b83;background:rgba(0,64,0,.5)}body .gist .pl-id,body .gist .pl-ii,body .gist .pl-md,body .gist .pl-mdhf{color:#657b83;background:rgba(64,0,0,.5)}</style><meta name="generator" content="Gatsby 2.32.4"/><title data-react-helmet="true">Use Google Fonts for Machine Learning (Part 1: Annotation) | ErraticGenerator.com</title><meta data-react-helmet="true" name="description" content="Note: This is the first post of the two-part series where I will go over downloading Google Fonts and cleaning up the JSON annotations…"/><meta data-react-helmet="true" name="image" content="https://erraticgenerator.com/static/6142f93069e7945f04c89914b8a695d4/google-fonts-images.png"/><meta data-react-helmet="true" property="og:url" content="https://erraticgenerator.com/blog/use-google-fonts-for-machine-learning-part1/"/><meta data-react-helmet="true" property="og:type" content="article"/><meta data-react-helmet="true" property="og:title" content="Use Google Fonts for Machine Learning (Part 1: Annotation)"/><meta data-react-helmet="true" property="og:description" content="Note: This is the first post of the two-part series where I will go over downloading Google Fonts and cleaning up the JSON annotations…"/><meta data-react-helmet="true" property="og:image" content="https://erraticgenerator.com/static/6142f93069e7945f04c89914b8a695d4/google-fonts-images.png"/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" name="twitter:title" content="Use Google Fonts for Machine Learning (Part 1: Annotation)"/><meta data-react-helmet="true" name="twitter:description" content="Note: This is the first post of the two-part series where I will go over downloading Google Fonts and cleaning up the JSON annotations…"/><meta data-react-helmet="true" name="twitter:image" content="https://erraticgenerator.com/static/6142f93069e7945f04c89914b8a695d4/google-fonts-images.png"/><link href="https://github.githubassets.com/assets/gist-embed-b3b573358bfc66d89e1e95dbf8319c09.css" rel="stylesheet"/><link rel="preconnect dns-prefetch" href="https://www.google-analytics.com"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/webpack-runtime-daa063bbded8b8dce7f4.js"/><link as="script" rel="preload" href="/framework-445649399d1c721f1f74.js"/><link as="script" rel="preload" href="/app-5e13e0d387a72a4e0bc1.js"/><link as="script" rel="preload" href="/styles-7d4153d260c0197f0043.js"/><link as="script" rel="preload" href="/commons-a88009e00676e9d708bb.js"/><link as="script" rel="preload" href="/eb9d8cad3e7a5281726e7c4ed76f1fbad1e5b719-7b9c8ff4bca920dfac62.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-template-js-bd8e263ed1e07a926d0c.js"/><link as="fetch" rel="preload" href="/page-data/blog/use-google-fonts-for-machine-learning-part1/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/1696241065.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3380088787.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion="css 1j3ddox">.css-1j3ddox{height:100%;display:grid;grid-template-columns:100%;grid-template-rows:120px auto 100px;}.css-1j3ddox p{margin-bottom:2.4rem;font-size:1.8rem;line-height:1.6;}</style><div class="css-1j3ddox"><style data-emotion="css-global 7l1jaa">@import url("https://fonts.googleapis.com/css2?family=Andika+New+Basic:ital@0;1&family=Open+Sans:wght@400;700&display=swap");*{margin:0;box-sizing:border-box;}html,body{font-family:"Andika New Basic",sans-serif;font-size:10px;height:100%;}a{color:black;-webkit-text-decoration:none;text-decoration:none;}</style><style data-emotion="css yepcm5">.css-yepcm5{grid-row:1/2;}</style><style data-emotion="css 8souqa">.css-8souqa{margin-bottom:48px;padding:12px 0;height:120px;background-image:linear-gradient(#fdd 0%, white 100%);}</style><header class="css-8souqa"><style data-emotion="css 1uarw26">.css-1uarw26{margin:0 auto;padding:0 12px;max-width:720px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}</style><div class="css-1uarw26"><style data-emotion="css 16xc8z8">.css-16xc8z8{-webkit-flex:4;-ms-flex:4;flex:4;}@media (max-width: 600px){.css-16xc8z8{-webkit-flex:6;-ms-flex:6;flex:6;}}</style><div class="css-16xc8z8"><style data-emotion="css 1t1kjl2">.css-1t1kjl2{font-family:"Open Sans",sans-serif;font-weight:700;}</style><h1 class="css-1t1kjl2"><a href="/">Erratic Generator</a></h1><style data-emotion="css mmvz9h">.css-mmvz9h{font-weight:400;}</style><h2 class="css-mmvz9h">Creative Coding and Design</h2></div><style data-emotion="css 18zyra0">.css-18zyra0{-webkit-flex:1;-ms-flex:1;flex:1;font-family:"Open Sans",sans-serif;font-size:1.6rem;}</style><a class="css-18zyra0" href="/about/">About</a></div></header><style data-emotion="css 1sg5m6l">.css-1sg5m6l{max-width:720px;width:100%;margin:0 auto;padding:0 12px;grid-row:2/3;}</style><main class="css-1sg5m6l"><div class="css-0"><style data-emotion="css 1tca0if">.css-1tca0if{margin-bottom:3rem;font-family:"Open Sans",sans-serif;}</style><header class="css-1tca0if"><style data-emotion="css 10d63d4">.css-10d63d4{margin-top:1rem;font-size:4rem;line-height:1.2;}</style><h1 class="css-10d63d4">Use Google Fonts for Machine Learning (Part 1: Annotation)</h1><style data-emotion="css 5ezmz0">.css-5ezmz0{margin-bottom:0.6rem;color:#666;font-size:2.4rem;font-weight:400;}</style><h2 class="css-5ezmz0">Filter the fonts you need out of thousands of Google Fonts</h2><style data-emotion="css 1dqoxsa">.css-1dqoxsa{color:#666;font-size:1.8rem;}</style><time class="css-1dqoxsa">October 31, 2020</time></header><style data-emotion="css 11cvyr3">.css-11cvyr3 h2{margin-bottom:0.8rem;font-family:"Open Sans",sans-serif;font-size:2.4rem;}.css-11cvyr3 p{margin-bottom:2.4rem;font-size:1.8rem;line-height:1.6;}.css-11cvyr3 a{color:teal;-webkit-text-decoration:underline;text-decoration:underline;}.css-11cvyr3 ul{margin-bottom:2.4rem;font-size:1.8rem;}.css-11cvyr3 figure{margin:5rem auto;width:100%;}.css-11cvyr3 .gatsby-resp-image-wrapper{max-width:100%!important;}.css-11cvyr3 figure img{width:100%;}.css-11cvyr3 figure figcaption{padding:0.6rem 4%;color:#666;font-size:1.6rem;text-align:center;}.css-11cvyr3 .gist,.css-11cvyr3 .gatsby-highlight{margin:5rem auto;}.css-11cvyr3 .gist .gist-file{border:none;}.css-11cvyr3 .gatsby-highlight,.css-11cvyr3 .gist span{font-size:1.4rem;}</style><div class="css-11cvyr3"><p><figure class='gatsby-resp-image-figure' style=''>
+<!DOCTYPE html><html lang="en-US"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.089d615cbf80b4e5aea0.css" data-identity="gatsby-global-css">code[class*=language-],pre[class*=language-]{word-wrap:normal;color:#657b83;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none;line-height:1.5;-o-tab-size:4;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{background:#073642}pre[class*=language-]{border-radius:.3em;margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background-color:#fdf6e3}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#93a1a1}.token.punctuation{color:#586e75}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#268bd2}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string,.token.url{color:#2aa198}.token.entity{background:#eee8d5;color:#657b83}.token.atrule,.token.attr-value,.token.keyword{color:#859900}.token.class-name,.token.function{color:#b58900}.token.important,.token.regex,.token.variable{color:#cb4b16}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}body .gist .highlight{background:#fdf6e3}body .gist .blob-code-inner,body .gist .blob-num,body .gist .pl-s1 .pl-s2,body .gist .pl-smi,body .gist .pl-smp,body .gist .pl-stj,body .gist .pl-vo,body .gist .pl-vpf{color:#657b83}body .gist .pl-c,body .gist .pl-c span{color:#93a1a1;font-style:italic}body .gist .pl-mb{color:#2aa198;font-weight:700}body .gist .pl-mh .pl-en{color:#cb4b16;font-weight:700}body .gist .pl-mi{color:#859900;font-style:italic}body .gist .pl-c1,body .gist .pl-pds,body .gist .pl-s1,body .gist .pl-s1 .pl-pse .pl-s2,body .gist .pl-sv{color:#2aa198}body .gist .pl-e,body .gist .pl-en,body .gist .pl-ent,body .gist .pl-s,body .gist .pl-v{color:#268bd2}body .gist .pl-k,body .gist .pl-mdh,body .gist .pl-mdr,body .gist .pl-ml,body .gist .pl-mm,body .gist .pl-mo,body .gist .pl-mp,body .gist .pl-mr,body .gist .pl-ms,body .gist .pl-s1 .pl-v,body .gist .pl-s3{color:#859900}body .gist .pl-mh,body .gist .pl-sc,body .gist .pl-sr .pl-cce{color:#cb4b16}body .gist .highlight-source-css .pl-k,body .gist .pl-mq{color:#93a1a1}body .gist .pl-sr,body .gist .pl-sr .pl-sra,body .gist .pl-sr .pl-sre,body .gist .pl-src{color:#d30102}body .gist .highlight-source-c\+\+ .pl-s,body .gist .pl-st{color:#dc322f}body .gist .pl-mdht,body .gist .pl-mi1{background:rgba(0,64,0,.5);color:#657b83}body .gist .pl-id,body .gist .pl-ii,body .gist .pl-md,body .gist .pl-mdhf{background:rgba(64,0,0,.5);color:#657b83}</style><meta name="generator" content="Gatsby 4.4.0"/><title data-react-helmet="true">Use Google Fonts for Machine Learning (Part 1: Annotation) | ErraticGenerator.com</title><meta data-react-helmet="true" name="description" content="Note: This is the first post of the two-part series where I will go over downloading Google Fonts and cleaning up the JSON annotations…"/><meta data-react-helmet="true" name="image" content="https://erraticgenerator.com/static/6142f93069e7945f04c89914b8a695d4/google-fonts-images.png"/><meta data-react-helmet="true" property="og:url" content="https://erraticgenerator.com/blog/use-google-fonts-for-machine-learning-part1/"/><meta data-react-helmet="true" property="og:type" content="article"/><meta data-react-helmet="true" property="og:title" content="Use Google Fonts for Machine Learning (Part 1: Annotation)"/><meta data-react-helmet="true" property="og:description" content="Note: This is the first post of the two-part series where I will go over downloading Google Fonts and cleaning up the JSON annotations…"/><meta data-react-helmet="true" property="og:image" content="https://erraticgenerator.com/static/6142f93069e7945f04c89914b8a695d4/google-fonts-images.png"/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" name="twitter:title" content="Use Google Fonts for Machine Learning (Part 1: Annotation)"/><meta data-react-helmet="true" name="twitter:description" content="Note: This is the first post of the two-part series where I will go over downloading Google Fonts and cleaning up the JSON annotations…"/><meta data-react-helmet="true" name="twitter:image" content="https://erraticgenerator.com/static/6142f93069e7945f04c89914b8a695d4/google-fonts-images.png"/><link href="https://github.githubassets.com/assets/gist-embed-b3b573358bfc66d89e1e95dbf8319c09.css" rel="stylesheet"/><link rel="preconnect" href="https://www.googletagmanager.com"/><link rel="dns-prefetch" href="https://www.googletagmanager.com"/><link rel="sitemap" type="application/xml" href="/sitemap/sitemap-index.xml"/><link as="script" rel="preload" href="/webpack-runtime-e8f352920404a31184fe.js"/><link as="script" rel="preload" href="/framework-68cf14eef5bda77f0f65.js"/><link as="script" rel="preload" href="/app-d5695a8f54723371eac8.js"/><link as="script" rel="preload" href="/commons-97fc5c6ee939b429bb88.js"/><link as="script" rel="preload" href="/eb9d8cad3e7a5281726e7c4ed76f1fbad1e5b719-86bf7e9007c2da0d66d9.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-template-js-39921939ec4783de7b08.js"/><link as="fetch" rel="preload" href="/page-data/blog/use-google-fonts-for-machine-learning-part1/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/1139398070.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/1696241065.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion="css 1j3ddox">.css-1j3ddox{height:100%;display:grid;grid-template-columns:100%;grid-template-rows:120px auto 100px;}.css-1j3ddox p{margin-bottom:2.4rem;font-size:1.8rem;line-height:1.6;}</style><div class="css-1j3ddox"><style data-emotion="css-global 7l1jaa">@import url("https://fonts.googleapis.com/css2?family=Andika+New+Basic:ital@0;1&family=Open+Sans:wght@400;700&display=swap");*{margin:0;box-sizing:border-box;}html,body{font-family:"Andika New Basic",sans-serif;font-size:10px;height:100%;}a{color:black;-webkit-text-decoration:none;text-decoration:none;}</style><style data-emotion="css yepcm5">.css-yepcm5{grid-row:1/2;}</style><style data-emotion="css 8souqa">.css-8souqa{margin-bottom:48px;padding:12px 0;height:120px;background-image:linear-gradient(#fdd 0%, white 100%);}</style><header class="css-8souqa"><style data-emotion="css 1uarw26">.css-1uarw26{margin:0 auto;padding:0 12px;max-width:720px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}</style><div class="css-1uarw26"><style data-emotion="css 16xc8z8">.css-16xc8z8{-webkit-flex:4;-ms-flex:4;flex:4;}@media (max-width: 600px){.css-16xc8z8{-webkit-flex:6;-ms-flex:6;flex:6;}}</style><div class="css-16xc8z8"><style data-emotion="css 1t1kjl2">.css-1t1kjl2{font-family:"Open Sans",sans-serif;font-weight:700;}</style><h1 class="css-1t1kjl2"><a href="/">Erratic Generator</a></h1><style data-emotion="css mmvz9h">.css-mmvz9h{font-weight:400;}</style><h2 class="css-mmvz9h">Creative Coding and Design</h2></div><style data-emotion="css 18zyra0">.css-18zyra0{-webkit-flex:1;-ms-flex:1;flex:1;font-family:"Open Sans",sans-serif;font-size:1.6rem;}</style><a class="css-18zyra0" href="/about/">About</a></div></header><style data-emotion="css 1sg5m6l">.css-1sg5m6l{max-width:720px;width:100%;margin:0 auto;padding:0 12px;grid-row:2/3;}</style><main class="css-1sg5m6l"><div class="css-0"><style data-emotion="css 1tca0if">.css-1tca0if{margin-bottom:3rem;font-family:"Open Sans",sans-serif;}</style><header class="css-1tca0if"><style data-emotion="css 10d63d4">.css-10d63d4{margin-top:1rem;font-size:4rem;line-height:1.2;}</style><h1 class="css-10d63d4">Use Google Fonts for Machine Learning (Part 1: Annotation)</h1><style data-emotion="css 5ezmz0">.css-5ezmz0{margin-bottom:0.6rem;color:#666;font-size:2.4rem;font-weight:400;}</style><h2 class="css-5ezmz0">Filter the fonts you need out of thousands of Google Fonts</h2><style data-emotion="css 1dqoxsa">.css-1dqoxsa{color:#666;font-size:1.8rem;}</style><time class="css-1dqoxsa">October 31, 2020</time></header><style data-emotion="css 11cvyr3">.css-11cvyr3 h2{margin-bottom:0.8rem;font-family:"Open Sans",sans-serif;font-size:2.4rem;}.css-11cvyr3 p{margin-bottom:2.4rem;font-size:1.8rem;line-height:1.6;}.css-11cvyr3 a{color:teal;-webkit-text-decoration:underline;text-decoration:underline;}.css-11cvyr3 ul{margin-bottom:2.4rem;font-size:1.8rem;}.css-11cvyr3 figure{margin:5rem auto;width:100%;}.css-11cvyr3 .gatsby-resp-image-wrapper{max-width:100%!important;}.css-11cvyr3 figure img{width:100%;}.css-11cvyr3 figure figcaption{padding:0.6rem 4%;color:#666;font-size:1.6rem;text-align:center;}.css-11cvyr3 .gist,.css-11cvyr3 .gatsby-highlight{margin:5rem auto;}.css-11cvyr3 .gist .gist-file{border:none;}.css-11cvyr3 .gatsby-highlight,.css-11cvyr3 .gist span{font-size:1.4rem;}</style><div class="css-11cvyr3"><p><figure class='gatsby-resp-image-figure' style=''>
     <span class='gatsby-resp-image-wrapper' style='position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; '>
-      <span class='gatsby-resp-image-background-image' style="padding-bottom: 43.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAIAAAC9o5sfAAAACXBIWXMAAAsTAAALEwEAmpwYAAABjElEQVQoz02Ryc4BURSE+/EsrKwE0RFijDaEEPMY8xAEKw/RWxLzFISgDTsrz/F/0pt/c/pU3epzT9UV6vW6xWLxeDwmk8nlchkMBqPR6Pf79Xq93W6nt9ls4XDYbDajEUXR4XAEg0GNRrNYLITRaFQsFqvVaiaTqdVqqVSKptVqJZPJcrkMpPZ6PfU0m80ibjabkiQdj0dBluXNZrPf79frNc1yuZzP5zTT6fQ/XK1WVDS73e5wOMxms8/nI2i1WraNRqNUr9drtVrZNh6P63S6QCAQCoUwFYlE1FMqDFvg7rf27XZ7PB6v14v6fr/v9/vz+QQqigKkAmmu1yskpzA0l8vl+/0KDGYk3siDqW63m4S4mUpsTqfT5/MlEgkVokEci8VI93fzeDzmgyVMbrdbtcfeZDJRSRisIgNiFcgp8Oc5n8/zWt1ulzDJHPNE2m63CbzRaJRKJfjhcEjgnU6H5NEg5vLT6STkcjlEYEbwQ6FQ4DGAvAcjVHW/36eHrFQq8IPBIJ1On8/nP+yNPs3FBycSAAAAAElFTkSuQmCC'); background-size: cover; display: block;"></span>
+      <span class='gatsby-resp-image-background-image' style="padding-bottom: 43.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAIAAAC9o5sfAAAACXBIWXMAAAsTAAALEwEAmpwYAAABwUlEQVQozz2RTauyQACF/YPt7qoWQULhGBKCYFbESPk1pqMZuWrbvmVF1tQYURFRprZp1++470V4NwfO2RweHmY+nyOEfN83DMPzvOFwqOv6ZDIZDAau62qahhCaTqeGYYzHY8uyMMbT6bTT6dxuN2Y2mw2HQ4QQhBAh1O/3VVXFGPf7fdM0iwyCAEJo27aqqpqmua7barUulwuzWCwopafTiVIaxzEhZLfbxXG82WwopYSQ7XYbx/F+v4/jmFJ6PB7P53MURZ/PhymVSgCAdrvNcZwgCCzLNhqNbrf78/MjiqIkSbVaTZZlAIAgCAAASZIghJVKhRDCPJ/PNE2zLEvT9P1+J0mSpmme56/Xq8gsy/I8fzweeZ4nSVIs9/v9+/0y1WqV5/lerwcAEEWR4ziWZRVFqdVqgiDU6/Vms/m/AgB4npdluVwu/z2vVitCyOFwiKKoYC7w1ut1MRJCKKWr1epwOGy326Iul8s/ZlVVEUKFBtM0ZVmGEGKMHccZjUa6rluWFYZhEASe5+m6XjhTFOV6vTKDwcBxnCAIHMfxPE/TtMKz67q+71uWZdt2GIae500mE4QQxjgMQwjhP8+/2b1ISBZueG4AAAAASUVORK5CYII='); background-size: cover; display: block;"></span>
   <img class='gatsby-resp-image-image' alt='Google Fonts images generated from a Python script' title='Google Fonts images generated from a Python script' src='/static/6142f93069e7945f04c89914b8a695d4/c1b63/google-fonts-images.png' srcset='/static/6142f93069e7945f04c89914b8a695d4/5a46d/google-fonts-images.png 300w,
 /static/6142f93069e7945f04c89914b8a695d4/0a47e/google-fonts-images.png 600w,
 /static/6142f93069e7945f04c89914b8a695d4/c1b63/google-fonts-images.png 1200w,
 /static/6142f93069e7945f04c89914b8a695d4/d61c2/google-fonts-images.png 1800w,
-/static/6142f93069e7945f04c89914b8a695d4/e8950/google-fonts-images.png 2000w' sizes='(max-width: 1200px) 100vw, 1200px' style='width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;' loading='lazy'>
+/static/6142f93069e7945f04c89914b8a695d4/e8950/google-fonts-images.png 2000w' sizes='(max-width: 1200px) 100vw, 1200px' style='width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;' loading='lazy' decoding='async'>
     </span>
     <figcaption class='gatsby-resp-image-figcaption'>Google Fonts images generated from a Python script</figcaption>
   </figure></p>
@@ -31,24 +31,50 @@
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
 
       
-<table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
-      <tr>
-        <td id="file-gfonts-1-imports-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
-        <td id="file-gfonts-1-imports-py-LC1" class="blob-code blob-code-inner js-file-line"><span class=pl-k>import</span> <span class=pl-s1>matplotlib</span>.<span class=pl-s1>pyplot</span> <span class=pl-k>as</span> <span class=pl-s1>plt</span></td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-imports-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
-        <td id="file-gfonts-1-imports-py-LC2" class="blob-code blob-code-inner js-file-line"><span class=pl-k>from</span> <span class=pl-s1>sklearn</span>.<span class=pl-s1>preprocessing</span> <span class=pl-k>import</span> <span class=pl-v>MultiLabelBinarizer</span></td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-imports-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
-        <td id="file-gfonts-1-imports-py-LC3" class="blob-code blob-code-inner js-file-line"><span class=pl-k>import</span> <span class=pl-s1>pandas</span> <span class=pl-k>as</span> <span class=pl-s1>pd</span></td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-imports-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
-        <td id="file-gfonts-1-imports-py-LC4" class="blob-code blob-code-inner js-file-line"><span class=pl-k>import</span> <span class=pl-s1>numpy</span> <span class=pl-k>as</span> <span class=pl-s1>np</span></td>
-      </tr>
-</table>
+<div class="js-check-bidi js-blob-code-container blob-code-content">
+
+  <template class="js-file-alert-template">
+  <div data-view-component="true" class="flash flash-warn flash-full d-flex flex-items-center">
+  <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+    <path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path>
+</svg>
+  
+    <span>
+      This file contains bidirectional Unicode text that may be interpreted or compiled differently than what appears below. To review, open the file in an editor that reveals hidden Unicode characters.
+      <a href="https://github.co/hiddenchars" target="_blank">Learn more about bidirectional Unicode characters</a>
+    </span>
+
+
+  <div data-view-component="true" class="flash-action">        <a href="{{ revealButtonHref }}" data-view-component="true" class="btn-sm btn">  Show hidden characters
+</a>
+</div>
+</div></template>
+<template class="js-line-alert-template">
+  <span aria-label="This line has hidden Unicode characters" data-view-component="true" class="line-alert tooltipped tooltipped-e">
+    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+    <path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path>
+</svg>
+</span></template>
+
+  <table class="highlight tab-size js-file-line-container js-code-nav-container js-tagsearch-file" data-tab-size="8" data-paste-markdown-skip data-tagsearch-lang="Python" data-tagsearch-path="gfonts-1-imports.py">
+        <tr>
+          <td id="file-gfonts-1-imports-py-L1" class="blob-num js-line-number js-code-nav-line-number" data-line-number="1"></td>
+          <td id="file-gfonts-1-imports-py-LC1" class="blob-code blob-code-inner js-file-line"><span class=pl-k>import</span> <span class=pl-s1>matplotlib</span>.<span class=pl-s1>pyplot</span> <span class=pl-k>as</span> <span class=pl-s1>plt</span></td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-imports-py-L2" class="blob-num js-line-number js-code-nav-line-number" data-line-number="2"></td>
+          <td id="file-gfonts-1-imports-py-LC2" class="blob-code blob-code-inner js-file-line"><span class=pl-k>from</span> <span class=pl-s1>sklearn</span>.<span class=pl-s1>preprocessing</span> <span class=pl-k>import</span> <span class=pl-v>MultiLabelBinarizer</span></td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-imports-py-L3" class="blob-num js-line-number js-code-nav-line-number" data-line-number="3"></td>
+          <td id="file-gfonts-1-imports-py-LC3" class="blob-code blob-code-inner js-file-line"><span class=pl-k>import</span> <span class=pl-s1>pandas</span> <span class=pl-k>as</span> <span class=pl-s1>pd</span></td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-imports-py-L4" class="blob-num js-line-number js-code-nav-line-number" data-line-number="4"></td>
+          <td id="file-gfonts-1-imports-py-LC4" class="blob-code blob-code-inner js-file-line"><span class=pl-k>import</span> <span class=pl-s1>numpy</span> <span class=pl-k>as</span> <span class=pl-s1>np</span></td>
+        </tr>
+  </table>
+</div>
 
 
   </div>
@@ -59,7 +85,9 @@
       </div>
       <div class="gist-meta">
         <a href="https://gist.github.com/erraticgenerator/e6d010201f0b56e9f1aef7a0ee2720df/raw/66d6cf8bdb7eb8a5c5d9837eed5c6de2cf3f344e/gfonts-1-imports.py" style="float:right">view raw</a>
-        <a href="https://gist.github.com/erraticgenerator/e6d010201f0b56e9f1aef7a0ee2720df#file-gfonts-1-imports-py">gfonts-1-imports.py</a>
+        <a href="https://gist.github.com/erraticgenerator/e6d010201f0b56e9f1aef7a0ee2720df#file-gfonts-1-imports-py">
+          gfonts-1-imports.py
+        </a>
         hosted with &#10084; by <a href="https://github.com">GitHub</a>
       </div>
     </div>
@@ -75,58 +103,84 @@
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
 
       
-<table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
-      <tr>
-        <td id="file-gfonts-1-download-json-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
-        <td id="file-gfonts-1-download-json-py-LC1" class="blob-code blob-code-inner js-file-line"><span class=pl-c># option 1. dynamically download JSON</span></td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-download-json-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
-        <td id="file-gfonts-1-download-json-py-LC2" class="blob-code blob-code-inner js-file-line"><span class=pl-c># url = &#39;https://www.googleapis.com/webfonts/v1/webfonts?key=&#39;</span></td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-download-json-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
-        <td id="file-gfonts-1-download-json-py-LC3" class="blob-code blob-code-inner js-file-line"><span class=pl-c># key = &#39;YOUR-API-KEY&#39;</span></td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-download-json-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
-        <td id="file-gfonts-1-download-json-py-LC4" class="blob-code blob-code-inner js-file-line"><span class=pl-c># data = pd.read_json(url+key, orient=&#39;&#39;)</span></td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-download-json-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
-        <td id="file-gfonts-1-download-json-py-LC5" class="blob-code blob-code-inner js-file-line">
+<div class="js-check-bidi js-blob-code-container blob-code-content">
+
+  <template class="js-file-alert-template">
+  <div data-view-component="true" class="flash flash-warn flash-full d-flex flex-items-center">
+  <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+    <path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path>
+</svg>
+  
+    <span>
+      This file contains bidirectional Unicode text that may be interpreted or compiled differently than what appears below. To review, open the file in an editor that reveals hidden Unicode characters.
+      <a href="https://github.co/hiddenchars" target="_blank">Learn more about bidirectional Unicode characters</a>
+    </span>
+
+
+  <div data-view-component="true" class="flash-action">        <a href="{{ revealButtonHref }}" data-view-component="true" class="btn-sm btn">  Show hidden characters
+</a>
+</div>
+</div></template>
+<template class="js-line-alert-template">
+  <span aria-label="This line has hidden Unicode characters" data-view-component="true" class="line-alert tooltipped tooltipped-e">
+    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+    <path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path>
+</svg>
+</span></template>
+
+  <table class="highlight tab-size js-file-line-container js-code-nav-container js-tagsearch-file" data-tab-size="8" data-paste-markdown-skip data-tagsearch-lang="Python" data-tagsearch-path="gfonts-1-download-json.py">
+        <tr>
+          <td id="file-gfonts-1-download-json-py-L1" class="blob-num js-line-number js-code-nav-line-number" data-line-number="1"></td>
+          <td id="file-gfonts-1-download-json-py-LC1" class="blob-code blob-code-inner js-file-line"><span class=pl-c># option 1. dynamically download JSON</span></td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-download-json-py-L2" class="blob-num js-line-number js-code-nav-line-number" data-line-number="2"></td>
+          <td id="file-gfonts-1-download-json-py-LC2" class="blob-code blob-code-inner js-file-line"><span class=pl-c># url = &#39;https://www.googleapis.com/webfonts/v1/webfonts?key=&#39;</span></td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-download-json-py-L3" class="blob-num js-line-number js-code-nav-line-number" data-line-number="3"></td>
+          <td id="file-gfonts-1-download-json-py-LC3" class="blob-code blob-code-inner js-file-line"><span class=pl-c># key = &#39;YOUR-API-KEY&#39;</span></td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-download-json-py-L4" class="blob-num js-line-number js-code-nav-line-number" data-line-number="4"></td>
+          <td id="file-gfonts-1-download-json-py-LC4" class="blob-code blob-code-inner js-file-line"><span class=pl-c># data = pd.read_json(url+key, orient=&#39;&#39;)</span></td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-download-json-py-L5" class="blob-num js-line-number js-code-nav-line-number" data-line-number="5"></td>
+          <td id="file-gfonts-1-download-json-py-LC5" class="blob-code blob-code-inner js-file-line">
 </td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-download-json-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
-        <td id="file-gfonts-1-download-json-py-LC6" class="blob-code blob-code-inner js-file-line"><span class=pl-c># option 2. use JSON already downloaded (replace with your own file path)</span></td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-download-json-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
-        <td id="file-gfonts-1-download-json-py-LC7" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df</span> <span class=pl-c1>=</span> <span class=pl-s1>pd</span>.<span class=pl-en>read_json</span>(<span class=pl-s>&#39;../../input/fonts-master.json&#39;</span>)</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-download-json-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
-        <td id="file-gfonts-1-download-json-py-LC8" class="blob-code blob-code-inner js-file-line"><span class=pl-c># df.head()</span></td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-download-json-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
-        <td id="file-gfonts-1-download-json-py-LC9" class="blob-code blob-code-inner js-file-line">
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-download-json-py-L6" class="blob-num js-line-number js-code-nav-line-number" data-line-number="6"></td>
+          <td id="file-gfonts-1-download-json-py-LC6" class="blob-code blob-code-inner js-file-line"><span class=pl-c># option 2. use JSON already downloaded (replace with your own file path)</span></td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-download-json-py-L7" class="blob-num js-line-number js-code-nav-line-number" data-line-number="7"></td>
+          <td id="file-gfonts-1-download-json-py-LC7" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df</span> <span class=pl-c1>=</span> <span class=pl-s1>pd</span>.<span class=pl-en>read_json</span>(<span class=pl-s>&#39;../../input/fonts-master.json&#39;</span>)</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-download-json-py-L8" class="blob-num js-line-number js-code-nav-line-number" data-line-number="8"></td>
+          <td id="file-gfonts-1-download-json-py-LC8" class="blob-code blob-code-inner js-file-line"><span class=pl-c># df.head()</span></td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-download-json-py-L9" class="blob-num js-line-number js-code-nav-line-number" data-line-number="9"></td>
+          <td id="file-gfonts-1-download-json-py-LC9" class="blob-code blob-code-inner js-file-line">
 </td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-download-json-py-L10" class="blob-num js-line-number" data-line-number="10"></td>
-        <td id="file-gfonts-1-download-json-py-LC10" class="blob-code blob-code-inner js-file-line"><span class=pl-c># flatten the JSON hierarchy (easier to handle this way)</span></td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-download-json-py-L11" class="blob-num js-line-number" data-line-number="11"></td>
-        <td id="file-gfonts-1-download-json-py-LC11" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df</span> <span class=pl-c1>=</span> <span class=pl-s1>pd</span>.<span class=pl-en>json_normalize</span>(<span class=pl-s1>df</span>[<span class=pl-s>&#39;items&#39;</span>])</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-download-json-py-L12" class="blob-num js-line-number" data-line-number="12"></td>
-        <td id="file-gfonts-1-download-json-py-LC12" class="blob-code blob-code-inner js-file-line"><span class=pl-c># df.head()</span></td>
-      </tr>
-</table>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-download-json-py-L10" class="blob-num js-line-number js-code-nav-line-number" data-line-number="10"></td>
+          <td id="file-gfonts-1-download-json-py-LC10" class="blob-code blob-code-inner js-file-line"><span class=pl-c># flatten the JSON hierarchy (easier to handle this way)</span></td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-download-json-py-L11" class="blob-num js-line-number js-code-nav-line-number" data-line-number="11"></td>
+          <td id="file-gfonts-1-download-json-py-LC11" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df</span> <span class=pl-c1>=</span> <span class=pl-s1>pd</span>.<span class=pl-en>json_normalize</span>(<span class=pl-s1>df</span>[<span class=pl-s>&#39;items&#39;</span>])</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-download-json-py-L12" class="blob-num js-line-number js-code-nav-line-number" data-line-number="12"></td>
+          <td id="file-gfonts-1-download-json-py-LC12" class="blob-code blob-code-inner js-file-line"><span class=pl-c># df.head()</span></td>
+        </tr>
+  </table>
+</div>
 
 
   </div>
@@ -137,7 +191,9 @@
       </div>
       <div class="gist-meta">
         <a href="https://gist.github.com/erraticgenerator/eecd6fe37a3e1cccd2baec6a919a1a19/raw/3fe1641f73fe4b769d9e4cbf22b37c0fbea1ee34/gfonts-1-download-json.py" style="float:right">view raw</a>
-        <a href="https://gist.github.com/erraticgenerator/eecd6fe37a3e1cccd2baec6a919a1a19#file-gfonts-1-download-json-py">gfonts-1-download-json.py</a>
+        <a href="https://gist.github.com/erraticgenerator/eecd6fe37a3e1cccd2baec6a919a1a19#file-gfonts-1-download-json-py">
+          gfonts-1-download-json.py
+        </a>
         hosted with &#10084; by <a href="https://github.com">GitHub</a>
       </div>
     </div>
@@ -156,41 +212,67 @@
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
 
       
-<table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
-      <tr>
-        <td id="file-gfonts-1-cleanup-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
-        <td id="file-gfonts-1-cleanup-py-LC1" class="blob-code blob-code-inner js-file-line"><span class=pl-c># select only the columns we need</span></td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-cleanup-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
-        <td id="file-gfonts-1-cleanup-py-LC2" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>cols</span> <span class=pl-c1>=</span> [<span class=pl-s>&#39;family&#39;</span>, <span class=pl-s>&#39;variants&#39;</span>, <span class=pl-s>&#39;subsets&#39;</span>, <span class=pl-s>&#39;category&#39;</span>]</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-cleanup-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
-        <td id="file-gfonts-1-cleanup-py-LC3" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df</span> <span class=pl-c1>=</span> <span class=pl-s1>df</span>[<span class=pl-s1>cols</span>]</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-cleanup-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
-        <td id="file-gfonts-1-cleanup-py-LC4" class="blob-code blob-code-inner js-file-line"><span class=pl-c># df.head(5)</span></td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-cleanup-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
-        <td id="file-gfonts-1-cleanup-py-LC5" class="blob-code blob-code-inner js-file-line">
+<div class="js-check-bidi js-blob-code-container blob-code-content">
+
+  <template class="js-file-alert-template">
+  <div data-view-component="true" class="flash flash-warn flash-full d-flex flex-items-center">
+  <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+    <path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path>
+</svg>
+  
+    <span>
+      This file contains bidirectional Unicode text that may be interpreted or compiled differently than what appears below. To review, open the file in an editor that reveals hidden Unicode characters.
+      <a href="https://github.co/hiddenchars" target="_blank">Learn more about bidirectional Unicode characters</a>
+    </span>
+
+
+  <div data-view-component="true" class="flash-action">        <a href="{{ revealButtonHref }}" data-view-component="true" class="btn-sm btn">  Show hidden characters
+</a>
+</div>
+</div></template>
+<template class="js-line-alert-template">
+  <span aria-label="This line has hidden Unicode characters" data-view-component="true" class="line-alert tooltipped tooltipped-e">
+    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+    <path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path>
+</svg>
+</span></template>
+
+  <table class="highlight tab-size js-file-line-container js-code-nav-container js-tagsearch-file" data-tab-size="8" data-paste-markdown-skip data-tagsearch-lang="Python" data-tagsearch-path="gfonts-1-cleanup.py">
+        <tr>
+          <td id="file-gfonts-1-cleanup-py-L1" class="blob-num js-line-number js-code-nav-line-number" data-line-number="1"></td>
+          <td id="file-gfonts-1-cleanup-py-LC1" class="blob-code blob-code-inner js-file-line"><span class=pl-c># select only the columns we need</span></td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-cleanup-py-L2" class="blob-num js-line-number js-code-nav-line-number" data-line-number="2"></td>
+          <td id="file-gfonts-1-cleanup-py-LC2" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>cols</span> <span class=pl-c1>=</span> [<span class=pl-s>&#39;family&#39;</span>, <span class=pl-s>&#39;variants&#39;</span>, <span class=pl-s>&#39;subsets&#39;</span>, <span class=pl-s>&#39;category&#39;</span>]</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-cleanup-py-L3" class="blob-num js-line-number js-code-nav-line-number" data-line-number="3"></td>
+          <td id="file-gfonts-1-cleanup-py-LC3" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df</span> <span class=pl-c1>=</span> <span class=pl-s1>df</span>[<span class=pl-s1>cols</span>]</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-cleanup-py-L4" class="blob-num js-line-number js-code-nav-line-number" data-line-number="4"></td>
+          <td id="file-gfonts-1-cleanup-py-LC4" class="blob-code blob-code-inner js-file-line"><span class=pl-c># df.head(5)</span></td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-cleanup-py-L5" class="blob-num js-line-number js-code-nav-line-number" data-line-number="5"></td>
+          <td id="file-gfonts-1-cleanup-py-LC5" class="blob-code blob-code-inner js-file-line">
 </td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-cleanup-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
-        <td id="file-gfonts-1-cleanup-py-LC6" class="blob-code blob-code-inner js-file-line"><span class=pl-c># Remove any space from family string so that it matchs with file name convention.</span></td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-cleanup-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
-        <td id="file-gfonts-1-cleanup-py-LC7" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df</span>.<span class=pl-s1>family</span> <span class=pl-c1>=</span> [<span class=pl-s1>name</span>.<span class=pl-en>replace</span>(<span class=pl-s>&#39; &#39;</span>, <span class=pl-s>&#39;&#39;</span>) <span class=pl-k>for</span> <span class=pl-s1>name</span> <span class=pl-c1>in</span> <span class=pl-s1>df</span>.<span class=pl-s1>family</span>]</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-cleanup-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
-        <td id="file-gfonts-1-cleanup-py-LC8" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df</span>.<span class=pl-en>head</span>(<span class=pl-c1>5</span>)</td>
-      </tr>
-</table>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-cleanup-py-L6" class="blob-num js-line-number js-code-nav-line-number" data-line-number="6"></td>
+          <td id="file-gfonts-1-cleanup-py-LC6" class="blob-code blob-code-inner js-file-line"><span class=pl-c># Remove any space from family string so that it matchs with file name convention.</span></td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-cleanup-py-L7" class="blob-num js-line-number js-code-nav-line-number" data-line-number="7"></td>
+          <td id="file-gfonts-1-cleanup-py-LC7" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df</span>.<span class=pl-s1>family</span> <span class=pl-c1>=</span> [<span class=pl-s1>name</span>.<span class=pl-en>replace</span>(<span class=pl-s>&#39; &#39;</span>, <span class=pl-s>&#39;&#39;</span>) <span class=pl-k>for</span> <span class=pl-s1>name</span> <span class=pl-c1>in</span> <span class=pl-s1>df</span>.<span class=pl-s1>family</span>]</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-cleanup-py-L8" class="blob-num js-line-number js-code-nav-line-number" data-line-number="8"></td>
+          <td id="file-gfonts-1-cleanup-py-LC8" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df</span>.<span class=pl-en>head</span>(<span class=pl-c1>5</span>)</td>
+        </tr>
+  </table>
+</div>
 
 
   </div>
@@ -201,7 +283,9 @@
       </div>
       <div class="gist-meta">
         <a href="https://gist.github.com/erraticgenerator/e3138817b36a1a54aa59716379136062/raw/ac9236a1a36bd2a364e36d3c184c226b5133d30e/gfonts-1-cleanup.py" style="float:right">view raw</a>
-        <a href="https://gist.github.com/erraticgenerator/e3138817b36a1a54aa59716379136062#file-gfonts-1-cleanup-py">gfonts-1-cleanup.py</a>
+        <a href="https://gist.github.com/erraticgenerator/e3138817b36a1a54aa59716379136062#file-gfonts-1-cleanup-py">
+          gfonts-1-cleanup.py
+        </a>
         hosted with &#10084; by <a href="https://github.com">GitHub</a>
       </div>
     </div>
@@ -216,58 +300,84 @@
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
 
       
-<table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
-      <tr>
-        <td id="file-gfonts-1-onehot-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
-        <td id="file-gfonts-1-onehot-py-LC1" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>mlb</span> <span class=pl-c1>=</span> <span class=pl-v>MultiLabelBinarizer</span>()</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-onehot-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
-        <td id="file-gfonts-1-onehot-py-LC2" class="blob-code blob-code-inner js-file-line">
+<div class="js-check-bidi js-blob-code-container blob-code-content">
+
+  <template class="js-file-alert-template">
+  <div data-view-component="true" class="flash flash-warn flash-full d-flex flex-items-center">
+  <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+    <path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path>
+</svg>
+  
+    <span>
+      This file contains bidirectional Unicode text that may be interpreted or compiled differently than what appears below. To review, open the file in an editor that reveals hidden Unicode characters.
+      <a href="https://github.co/hiddenchars" target="_blank">Learn more about bidirectional Unicode characters</a>
+    </span>
+
+
+  <div data-view-component="true" class="flash-action">        <a href="{{ revealButtonHref }}" data-view-component="true" class="btn-sm btn">  Show hidden characters
+</a>
+</div>
+</div></template>
+<template class="js-line-alert-template">
+  <span aria-label="This line has hidden Unicode characters" data-view-component="true" class="line-alert tooltipped tooltipped-e">
+    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+    <path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path>
+</svg>
+</span></template>
+
+  <table class="highlight tab-size js-file-line-container js-code-nav-container js-tagsearch-file" data-tab-size="8" data-paste-markdown-skip data-tagsearch-lang="Python" data-tagsearch-path="gfonts-1-onehot.py">
+        <tr>
+          <td id="file-gfonts-1-onehot-py-L1" class="blob-num js-line-number js-code-nav-line-number" data-line-number="1"></td>
+          <td id="file-gfonts-1-onehot-py-LC1" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>mlb</span> <span class=pl-c1>=</span> <span class=pl-v>MultiLabelBinarizer</span>()</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-onehot-py-L2" class="blob-num js-line-number js-code-nav-line-number" data-line-number="2"></td>
+          <td id="file-gfonts-1-onehot-py-LC2" class="blob-code blob-code-inner js-file-line">
 </td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-onehot-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
-        <td id="file-gfonts-1-onehot-py-LC3" class="blob-code blob-code-inner js-file-line"><span class=pl-c># one-hot encoding + prefix</span></td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-onehot-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
-        <td id="file-gfonts-1-onehot-py-LC4" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df</span> <span class=pl-c1>=</span> <span class=pl-s1>df</span>.<span class=pl-en>join</span>(<span class=pl-s1>pd</span>.<span class=pl-v>DataFrame</span>(<span class=pl-s1>mlb</span>.<span class=pl-en>fit_transform</span>(<span class=pl-s1>df</span>.<span class=pl-en>pop</span>(<span class=pl-s>&#39;variants&#39;</span>)),</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-onehot-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
-        <td id="file-gfonts-1-onehot-py-LC5" class="blob-code blob-code-inner js-file-line">                          <span class=pl-s1>columns</span><span class=pl-c1>=</span>[<span class=pl-s1>x</span> <span class=pl-k>for</span> <span class=pl-s1>x</span> <span class=pl-c1>in</span> <span class=pl-s1>mlb</span>.<span class=pl-s1>classes_</span>],</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-onehot-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
-        <td id="file-gfonts-1-onehot-py-LC6" class="blob-code blob-code-inner js-file-line">                          <span class=pl-s1>index</span><span class=pl-c1>=</span><span class=pl-s1>df</span>.<span class=pl-s1>index</span>))</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-onehot-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
-        <td id="file-gfonts-1-onehot-py-LC7" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df</span> <span class=pl-c1>=</span> <span class=pl-s1>df</span>.<span class=pl-en>join</span>(<span class=pl-s1>pd</span>.<span class=pl-v>DataFrame</span>(<span class=pl-s1>mlb</span>.<span class=pl-en>fit_transform</span>(<span class=pl-s1>df</span>.<span class=pl-en>pop</span>(<span class=pl-s>&#39;subsets&#39;</span>)),</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-onehot-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
-        <td id="file-gfonts-1-onehot-py-LC8" class="blob-code blob-code-inner js-file-line">                          <span class=pl-s1>columns</span><span class=pl-c1>=</span>[<span class=pl-s>&#39;subsets_&#39;</span> <span class=pl-c1>+</span> <span class=pl-s1>x</span> <span class=pl-k>for</span> <span class=pl-s1>x</span> <span class=pl-c1>in</span> <span class=pl-s1>mlb</span>.<span class=pl-s1>classes_</span>],</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-onehot-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
-        <td id="file-gfonts-1-onehot-py-LC9" class="blob-code blob-code-inner js-file-line">                          <span class=pl-s1>index</span><span class=pl-c1>=</span><span class=pl-s1>df</span>.<span class=pl-s1>index</span>))</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-onehot-py-L10" class="blob-num js-line-number" data-line-number="10"></td>
-        <td id="file-gfonts-1-onehot-py-LC10" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df</span> <span class=pl-c1>=</span> <span class=pl-s1>df</span>.<span class=pl-en>join</span>(<span class=pl-s1>pd</span>.<span class=pl-en>get_dummies</span>(<span class=pl-s1>df</span>[<span class=pl-s>&#39;category&#39;</span>], <span class=pl-s1>prefix</span><span class=pl-c1>=</span><span class=pl-s>&quot;category&quot;</span>)).<span class=pl-en>drop</span>([<span class=pl-s>&#39;category&#39;</span>], <span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>)</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-onehot-py-L11" class="blob-num js-line-number" data-line-number="11"></td>
-        <td id="file-gfonts-1-onehot-py-LC11" class="blob-code blob-code-inner js-file-line">
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-onehot-py-L3" class="blob-num js-line-number js-code-nav-line-number" data-line-number="3"></td>
+          <td id="file-gfonts-1-onehot-py-LC3" class="blob-code blob-code-inner js-file-line"><span class=pl-c># one-hot encoding + prefix</span></td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-onehot-py-L4" class="blob-num js-line-number js-code-nav-line-number" data-line-number="4"></td>
+          <td id="file-gfonts-1-onehot-py-LC4" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df</span> <span class=pl-c1>=</span> <span class=pl-s1>df</span>.<span class=pl-en>join</span>(<span class=pl-s1>pd</span>.<span class=pl-v>DataFrame</span>(<span class=pl-s1>mlb</span>.<span class=pl-en>fit_transform</span>(<span class=pl-s1>df</span>.<span class=pl-en>pop</span>(<span class=pl-s>&#39;variants&#39;</span>)),</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-onehot-py-L5" class="blob-num js-line-number js-code-nav-line-number" data-line-number="5"></td>
+          <td id="file-gfonts-1-onehot-py-LC5" class="blob-code blob-code-inner js-file-line">                          <span class=pl-s1>columns</span><span class=pl-c1>=</span>[<span class=pl-s1>x</span> <span class=pl-k>for</span> <span class=pl-s1>x</span> <span class=pl-c1>in</span> <span class=pl-s1>mlb</span>.<span class=pl-s1>classes_</span>],</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-onehot-py-L6" class="blob-num js-line-number js-code-nav-line-number" data-line-number="6"></td>
+          <td id="file-gfonts-1-onehot-py-LC6" class="blob-code blob-code-inner js-file-line">                          <span class=pl-s1>index</span><span class=pl-c1>=</span><span class=pl-s1>df</span>.<span class=pl-s1>index</span>))</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-onehot-py-L7" class="blob-num js-line-number js-code-nav-line-number" data-line-number="7"></td>
+          <td id="file-gfonts-1-onehot-py-LC7" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df</span> <span class=pl-c1>=</span> <span class=pl-s1>df</span>.<span class=pl-en>join</span>(<span class=pl-s1>pd</span>.<span class=pl-v>DataFrame</span>(<span class=pl-s1>mlb</span>.<span class=pl-en>fit_transform</span>(<span class=pl-s1>df</span>.<span class=pl-en>pop</span>(<span class=pl-s>&#39;subsets&#39;</span>)),</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-onehot-py-L8" class="blob-num js-line-number js-code-nav-line-number" data-line-number="8"></td>
+          <td id="file-gfonts-1-onehot-py-LC8" class="blob-code blob-code-inner js-file-line">                          <span class=pl-s1>columns</span><span class=pl-c1>=</span>[<span class=pl-s>&#39;subsets_&#39;</span> <span class=pl-c1>+</span> <span class=pl-s1>x</span> <span class=pl-k>for</span> <span class=pl-s1>x</span> <span class=pl-c1>in</span> <span class=pl-s1>mlb</span>.<span class=pl-s1>classes_</span>],</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-onehot-py-L9" class="blob-num js-line-number js-code-nav-line-number" data-line-number="9"></td>
+          <td id="file-gfonts-1-onehot-py-LC9" class="blob-code blob-code-inner js-file-line">                          <span class=pl-s1>index</span><span class=pl-c1>=</span><span class=pl-s1>df</span>.<span class=pl-s1>index</span>))</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-onehot-py-L10" class="blob-num js-line-number js-code-nav-line-number" data-line-number="10"></td>
+          <td id="file-gfonts-1-onehot-py-LC10" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df</span> <span class=pl-c1>=</span> <span class=pl-s1>df</span>.<span class=pl-en>join</span>(<span class=pl-s1>pd</span>.<span class=pl-en>get_dummies</span>(<span class=pl-s1>df</span>[<span class=pl-s>&#39;category&#39;</span>], <span class=pl-s1>prefix</span><span class=pl-c1>=</span><span class=pl-s>&quot;category&quot;</span>)).<span class=pl-en>drop</span>([<span class=pl-s>&#39;category&#39;</span>], <span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-c1>1</span>)</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-onehot-py-L11" class="blob-num js-line-number js-code-nav-line-number" data-line-number="11"></td>
+          <td id="file-gfonts-1-onehot-py-LC11" class="blob-code blob-code-inner js-file-line">
 </td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-onehot-py-L12" class="blob-num js-line-number" data-line-number="12"></td>
-        <td id="file-gfonts-1-onehot-py-LC12" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df</span>.<span class=pl-en>head</span>(<span class=pl-c1>5</span>)</td>
-      </tr>
-</table>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-onehot-py-L12" class="blob-num js-line-number js-code-nav-line-number" data-line-number="12"></td>
+          <td id="file-gfonts-1-onehot-py-LC12" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df</span>.<span class=pl-en>head</span>(<span class=pl-c1>5</span>)</td>
+        </tr>
+  </table>
+</div>
 
 
   </div>
@@ -278,7 +388,9 @@
       </div>
       <div class="gist-meta">
         <a href="https://gist.github.com/erraticgenerator/29292524b9db891989f7a5a9eebef47a/raw/b016233c03eb18a253bc89001fd3e792de02f984/gfonts-1-onehot.py" style="float:right">view raw</a>
-        <a href="https://gist.github.com/erraticgenerator/29292524b9db891989f7a5a9eebef47a#file-gfonts-1-onehot-py">gfonts-1-onehot.py</a>
+        <a href="https://gist.github.com/erraticgenerator/29292524b9db891989f7a5a9eebef47a#file-gfonts-1-onehot-py">
+          gfonts-1-onehot.py
+        </a>
         hosted with &#10084; by <a href="https://github.com">GitHub</a>
       </div>
     </div>
@@ -293,118 +405,144 @@
   <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python  ">
 
       
-<table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC1" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>col_names</span> <span class=pl-c1>=</span> {</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC2" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;100&quot;</span>: <span class=pl-s>&quot;thin&quot;</span>,</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC3" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;100italic&quot;</span>: <span class=pl-s>&quot;thinitalic&quot;</span>,</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC4" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;200&quot;</span>: <span class=pl-s>&quot;extralight&quot;</span>,</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC5" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;200italic&quot;</span>: <span class=pl-s>&quot;extralightitalic&quot;</span>,</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC6" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;300&quot;</span>: <span class=pl-s>&quot;light&quot;</span>,</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC7" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;300italic&quot;</span>: <span class=pl-s>&quot;lightitalic&quot;</span>,</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC8" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;400&quot;</span>: <span class=pl-s>&quot;regular&quot;</span>,</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC9" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;regular&quot;</span>: <span class=pl-s>&quot;regular&quot;</span>,</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L10" class="blob-num js-line-number" data-line-number="10"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC10" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;400italic&quot;</span>: <span class=pl-s>&quot;italic&quot;</span>,</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L11" class="blob-num js-line-number" data-line-number="11"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC11" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;italic&quot;</span>: <span class=pl-s>&quot;italic&quot;</span>,</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L12" class="blob-num js-line-number" data-line-number="12"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC12" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;500&quot;</span>: <span class=pl-s>&quot;medium&quot;</span>,</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L13" class="blob-num js-line-number" data-line-number="13"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC13" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;500italic&quot;</span>: <span class=pl-s>&quot;mediumitalic&quot;</span>,</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L14" class="blob-num js-line-number" data-line-number="14"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC14" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;600&quot;</span>: <span class=pl-s>&quot;semibold&quot;</span>,</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L15" class="blob-num js-line-number" data-line-number="15"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC15" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;600italic&quot;</span>: <span class=pl-s>&quot;semibolditalic&quot;</span>,</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L16" class="blob-num js-line-number" data-line-number="16"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC16" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;700&quot;</span>: <span class=pl-s>&quot;bold&quot;</span>,</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L17" class="blob-num js-line-number" data-line-number="17"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC17" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;700italic&quot;</span>: <span class=pl-s>&quot;bolditalic&quot;</span>,</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L18" class="blob-num js-line-number" data-line-number="18"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC18" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;800&quot;</span>: <span class=pl-s>&quot;extrabold&quot;</span>,</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L19" class="blob-num js-line-number" data-line-number="19"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC19" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;800italic&quot;</span>: <span class=pl-s>&quot;extrabolditalic&quot;</span>,</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L20" class="blob-num js-line-number" data-line-number="20"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC20" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;900&quot;</span>: <span class=pl-s>&quot;black&quot;</span>,</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L21" class="blob-num js-line-number" data-line-number="21"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC21" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;900italic&quot;</span>: <span class=pl-s>&quot;blackitalic&quot;</span></td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L22" class="blob-num js-line-number" data-line-number="22"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC22" class="blob-code blob-code-inner js-file-line">}</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L23" class="blob-num js-line-number" data-line-number="23"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC23" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>col_names</span> <span class=pl-c1>=</span> {<span class=pl-s1>k</span>:<span class=pl-s>f&#39;variants_<span class=pl-s1><span class=pl-kos>{</span><span class=pl-s1>v</span><span class=pl-kos>}</span></span>&#39;</span> <span class=pl-k>for</span> <span class=pl-s1>k</span>, <span class=pl-s1>v</span> <span class=pl-c1>in</span> <span class=pl-s1>col_names</span>.<span class=pl-en>items</span>()}</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L24" class="blob-num js-line-number" data-line-number="24"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC24" class="blob-code blob-code-inner js-file-line">
+<div class="js-check-bidi js-blob-code-container blob-code-content">
+
+  <template class="js-file-alert-template">
+  <div data-view-component="true" class="flash flash-warn flash-full d-flex flex-items-center">
+  <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+    <path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path>
+</svg>
+  
+    <span>
+      This file contains bidirectional Unicode text that may be interpreted or compiled differently than what appears below. To review, open the file in an editor that reveals hidden Unicode characters.
+      <a href="https://github.co/hiddenchars" target="_blank">Learn more about bidirectional Unicode characters</a>
+    </span>
+
+
+  <div data-view-component="true" class="flash-action">        <a href="{{ revealButtonHref }}" data-view-component="true" class="btn-sm btn">  Show hidden characters
+</a>
+</div>
+</div></template>
+<template class="js-line-alert-template">
+  <span aria-label="This line has hidden Unicode characters" data-view-component="true" class="line-alert tooltipped tooltipped-e">
+    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+    <path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path>
+</svg>
+</span></template>
+
+  <table class="highlight tab-size js-file-line-container js-code-nav-container js-tagsearch-file" data-tab-size="8" data-paste-markdown-skip data-tagsearch-lang="Python" data-tagsearch-path="gfonts-1-rename-columns.py">
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L1" class="blob-num js-line-number js-code-nav-line-number" data-line-number="1"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC1" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>col_names</span> <span class=pl-c1>=</span> {</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L2" class="blob-num js-line-number js-code-nav-line-number" data-line-number="2"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC2" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;100&quot;</span>: <span class=pl-s>&quot;thin&quot;</span>,</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L3" class="blob-num js-line-number js-code-nav-line-number" data-line-number="3"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC3" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;100italic&quot;</span>: <span class=pl-s>&quot;thinitalic&quot;</span>,</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L4" class="blob-num js-line-number js-code-nav-line-number" data-line-number="4"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC4" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;200&quot;</span>: <span class=pl-s>&quot;extralight&quot;</span>,</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L5" class="blob-num js-line-number js-code-nav-line-number" data-line-number="5"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC5" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;200italic&quot;</span>: <span class=pl-s>&quot;extralightitalic&quot;</span>,</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L6" class="blob-num js-line-number js-code-nav-line-number" data-line-number="6"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC6" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;300&quot;</span>: <span class=pl-s>&quot;light&quot;</span>,</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L7" class="blob-num js-line-number js-code-nav-line-number" data-line-number="7"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC7" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;300italic&quot;</span>: <span class=pl-s>&quot;lightitalic&quot;</span>,</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L8" class="blob-num js-line-number js-code-nav-line-number" data-line-number="8"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC8" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;400&quot;</span>: <span class=pl-s>&quot;regular&quot;</span>,</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L9" class="blob-num js-line-number js-code-nav-line-number" data-line-number="9"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC9" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;regular&quot;</span>: <span class=pl-s>&quot;regular&quot;</span>,</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L10" class="blob-num js-line-number js-code-nav-line-number" data-line-number="10"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC10" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;400italic&quot;</span>: <span class=pl-s>&quot;italic&quot;</span>,</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L11" class="blob-num js-line-number js-code-nav-line-number" data-line-number="11"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC11" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;italic&quot;</span>: <span class=pl-s>&quot;italic&quot;</span>,</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L12" class="blob-num js-line-number js-code-nav-line-number" data-line-number="12"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC12" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;500&quot;</span>: <span class=pl-s>&quot;medium&quot;</span>,</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L13" class="blob-num js-line-number js-code-nav-line-number" data-line-number="13"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC13" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;500italic&quot;</span>: <span class=pl-s>&quot;mediumitalic&quot;</span>,</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L14" class="blob-num js-line-number js-code-nav-line-number" data-line-number="14"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC14" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;600&quot;</span>: <span class=pl-s>&quot;semibold&quot;</span>,</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L15" class="blob-num js-line-number js-code-nav-line-number" data-line-number="15"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC15" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;600italic&quot;</span>: <span class=pl-s>&quot;semibolditalic&quot;</span>,</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L16" class="blob-num js-line-number js-code-nav-line-number" data-line-number="16"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC16" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;700&quot;</span>: <span class=pl-s>&quot;bold&quot;</span>,</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L17" class="blob-num js-line-number js-code-nav-line-number" data-line-number="17"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC17" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;700italic&quot;</span>: <span class=pl-s>&quot;bolditalic&quot;</span>,</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L18" class="blob-num js-line-number js-code-nav-line-number" data-line-number="18"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC18" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;800&quot;</span>: <span class=pl-s>&quot;extrabold&quot;</span>,</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L19" class="blob-num js-line-number js-code-nav-line-number" data-line-number="19"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC19" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;800italic&quot;</span>: <span class=pl-s>&quot;extrabolditalic&quot;</span>,</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L20" class="blob-num js-line-number js-code-nav-line-number" data-line-number="20"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC20" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;900&quot;</span>: <span class=pl-s>&quot;black&quot;</span>,</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L21" class="blob-num js-line-number js-code-nav-line-number" data-line-number="21"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC21" class="blob-code blob-code-inner js-file-line">    <span class=pl-s>&quot;900italic&quot;</span>: <span class=pl-s>&quot;blackitalic&quot;</span></td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L22" class="blob-num js-line-number js-code-nav-line-number" data-line-number="22"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC22" class="blob-code blob-code-inner js-file-line">}</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L23" class="blob-num js-line-number js-code-nav-line-number" data-line-number="23"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC23" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>col_names</span> <span class=pl-c1>=</span> {<span class=pl-s1>k</span>:<span class=pl-s>f&#39;variants_<span class=pl-s1><span class=pl-kos>{</span><span class=pl-s1>v</span><span class=pl-kos>}</span></span>&#39;</span> <span class=pl-k>for</span> <span class=pl-s1>k</span>, <span class=pl-s1>v</span> <span class=pl-c1>in</span> <span class=pl-s1>col_names</span>.<span class=pl-en>items</span>()}</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L24" class="blob-num js-line-number js-code-nav-line-number" data-line-number="24"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC24" class="blob-code blob-code-inner js-file-line">
 </td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L25" class="blob-num js-line-number" data-line-number="25"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC25" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df</span> <span class=pl-c1>=</span> <span class=pl-s1>df</span>.<span class=pl-en>rename</span>(<span class=pl-s1>col_names</span>, <span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-s>&#39;columns&#39;</span>)</td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L26" class="blob-num js-line-number" data-line-number="26"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC26" class="blob-code blob-code-inner js-file-line">
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L25" class="blob-num js-line-number js-code-nav-line-number" data-line-number="25"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC25" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df</span> <span class=pl-c1>=</span> <span class=pl-s1>df</span>.<span class=pl-en>rename</span>(<span class=pl-s1>col_names</span>, <span class=pl-s1>axis</span><span class=pl-c1>=</span><span class=pl-s>&#39;columns&#39;</span>)</td>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L26" class="blob-num js-line-number js-code-nav-line-number" data-line-number="26"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC26" class="blob-code blob-code-inner js-file-line">
 </td>
-      </tr>
-      <tr>
-        <td id="file-gfonts-1-rename-columns-py-L27" class="blob-num js-line-number" data-line-number="27"></td>
-        <td id="file-gfonts-1-rename-columns-py-LC27" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df</span>.<span class=pl-s1>columns</span></td>
-      </tr>
-</table>
+        </tr>
+        <tr>
+          <td id="file-gfonts-1-rename-columns-py-L27" class="blob-num js-line-number js-code-nav-line-number" data-line-number="27"></td>
+          <td id="file-gfonts-1-rename-columns-py-LC27" class="blob-code blob-code-inner js-file-line"><span class=pl-s1>df</span>.<span class=pl-s1>columns</span></td>
+        </tr>
+  </table>
+</div>
 
 
   </div>
@@ -415,7 +553,9 @@
       </div>
       <div class="gist-meta">
         <a href="https://gist.github.com/erraticgenerator/edd1a23f814d5717f2eca8b8d83e868e/raw/8c64cbac371312765d9365e1b6e76505dad19601/gfonts-1-rename-columns.py" style="float:right">view raw</a>
-        <a href="https://gist.github.com/erraticgenerator/edd1a23f814d5717f2eca8b8d83e868e#file-gfonts-1-rename-columns-py">gfonts-1-rename-columns.py</a>
+        <a href="https://gist.github.com/erraticgenerator/edd1a23f814d5717f2eca8b8d83e868e#file-gfonts-1-rename-columns-py">
+          gfonts-1-rename-columns.py
+        </a>
         hosted with &#10084; by <a href="https://github.com">GitHub</a>
       </div>
     </div>
@@ -423,10 +563,10 @@
 <h2>Export as CSV File</h2>
 <p><figure class='gatsby-resp-image-figure' style=''>
     <span class='gatsby-resp-image-wrapper' style='position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1000px; '>
-      <span class='gatsby-resp-image-background-image' style="padding-bottom: 41.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA7UlEQVQY012QSQuDMBCF8/9/kctF8KbgpdEU2l48uCG4Jybx0GeGinSQx/ObJZOwYRiyLHt93uL5zIsCHz+l4HleCPHIuYOOcA5yOiGQBWRt2wZBkCRJWZbTNM3LgnGLU3gywzjO80w6Qn+cdV3neR4OhzFaW2OUlIe1Silr7XEcMLtSxph936HEEShjdV1HUYSVmqahtJQSOSg8GeWaSYkjtm1jfd/7vp+mKTVrrUGhKNIu8Is2Iii4c4aeMAyxNi5/NdNgeDLUQHrnrKqqOI7xeJhC9G9t5eJvbSo4m687UwIveSmZdV0xl/TOv24UvRqOAjD6AAAAAElFTkSuQmCC'); background-size: cover; display: block;"></span>
+      <span class='gatsby-resp-image-background-image' style="padding-bottom: 41.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsTAAALEwEAmpwYAAABB0lEQVQY002Psa6DMAxF8/9fBI+BSp0qBEuTUKldGIBApURJiEnM8lTcIjxcWcf2lS8z2tRN83y92sdDSCmk5EIIKe+cy7a9c86lEAfZp6RcCDZNU/6X3263ruustdY5rbX76acxRhtjrTU//XKt2TzPWZbVdT3Pc0oJEQFg27Z1XTdEatZ1RcQYIyJ++F4AwMZxvFwunHOlFI3pGABwPwYAOiYljoghBPZ+v/M8r6pqHMe4Vwjh0JTSsiwAEGMkF+K0wJRSRVE0TTNNE22HEMiYUoQQACClRHrmbBiG6/UqhFBKnTMfbx+Zz29/M/d9X5YlZSZX5xwieu/TXt77ZVmooSlx59w/xJW8evtg2O8AAAAASUVORK5CYII='); background-size: cover; display: block;"></span>
   <img class='gatsby-resp-image-image' alt='table' title='table' src='/static/d4ec245a1a7a1a6bcfada99b12066d69/00d43/table.png' srcset='/static/d4ec245a1a7a1a6bcfada99b12066d69/5a46d/table.png 300w,
 /static/d4ec245a1a7a1a6bcfada99b12066d69/0a47e/table.png 600w,
-/static/d4ec245a1a7a1a6bcfada99b12066d69/00d43/table.png 1000w' sizes='(max-width: 1000px) 100vw, 1000px' style='width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;' loading='lazy'>
+/static/d4ec245a1a7a1a6bcfada99b12066d69/00d43/table.png 1000w' sizes='(max-width: 1000px) 100vw, 1000px' style='width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;' loading='lazy' decoding='async'>
     </span>
     <figcaption class='gatsby-resp-image-figcaption'>table</figcaption>
   </figure></p>
@@ -444,4 +584,4 @@
 
         gtag('config', 'UA-185826355-1', {"anonymize_ip":true,"cookie_expires":0,"send_page_view":false});
       }
-      </script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/use-google-fonts-for-machine-learning-part1/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-c4336065681b4417609f.js"],"app":["/app-5e13e0d387a72a4e0bc1.js"],"component---src-pages-404-js":["/component---src-pages-404-js-6dc904ca7e4ab4ede6c1.js"],"component---src-pages-about-js":["/component---src-pages-about-js-1e5b2148c2017e410e3a.js"],"component---src-pages-index-js":["/component---src-pages-index-js-b905f9900351e08389f9.js"],"component---src-pages-privacy-js":["/component---src-pages-privacy-js-beae4d6d1eca5850aa56.js"],"component---src-templates-blog-post-template-js":["/component---src-templates-blog-post-template-js-bd8e263ed1e07a926d0c.js"]};/*]]>*/</script><script src="/polyfill-c4336065681b4417609f.js" nomodule=""></script><script src="/component---src-templates-blog-post-template-js-bd8e263ed1e07a926d0c.js" async=""></script><script src="/eb9d8cad3e7a5281726e7c4ed76f1fbad1e5b719-7b9c8ff4bca920dfac62.js" async=""></script><script src="/commons-a88009e00676e9d708bb.js" async=""></script><script src="/styles-7d4153d260c0197f0043.js" async=""></script><script src="/app-5e13e0d387a72a4e0bc1.js" async=""></script><script src="/framework-445649399d1c721f1f74.js" async=""></script><script src="/webpack-runtime-daa063bbded8b8dce7f4.js" async=""></script></body></html>
+      </script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/use-google-fonts-for-machine-learning-part1/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-921f75ffda2d2f072005.js"],"app":["/app-d5695a8f54723371eac8.js"],"component---src-pages-404-js":["/component---src-pages-404-js-f3206549b69b60bbab6c.js"],"component---src-pages-about-js":["/component---src-pages-about-js-fdafd001cc6a531692cb.js"],"component---src-pages-index-js":["/component---src-pages-index-js-61906243d2e5912737e7.js"],"component---src-pages-privacy-js":["/component---src-pages-privacy-js-4171d9fd88bf9986e73d.js"],"component---src-templates-blog-post-template-js":["/component---src-templates-blog-post-template-js-39921939ec4783de7b08.js"]};/*]]>*/</script><script src="/polyfill-921f75ffda2d2f072005.js" nomodule=""></script><script src="/component---src-templates-blog-post-template-js-39921939ec4783de7b08.js" async=""></script><script src="/eb9d8cad3e7a5281726e7c4ed76f1fbad1e5b719-86bf7e9007c2da0d66d9.js" async=""></script><script src="/commons-97fc5c6ee939b429bb88.js" async=""></script><script src="/app-d5695a8f54723371eac8.js" async=""></script><script src="/framework-68cf14eef5bda77f0f65.js" async=""></script><script src="/webpack-runtime-e8f352920404a31184fe.js" async=""></script></body></html>
