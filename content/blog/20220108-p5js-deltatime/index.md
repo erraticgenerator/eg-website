@@ -8,6 +8,7 @@ tags:
 - p5js
 - javascript
 - animation
+- creative coding
 featuredImage: thumb.jpeg
 ---
 
@@ -114,7 +115,7 @@ function draw() {
 
 Our code is more compact and there are less things to worry about. With this approach, animation may look choppy if the current frame rate is too low, but you can be sure that the time it takes for the same animation will always be the same.
 
-# Conclusion
+## Conclusion
 You have to think in *time*, not in *frames*. Instead of thinking about how much my circle will move in a frame, start thinking about how much it will move in a second. Again, this works in situations where you cannot control the frame rate. In a more traditional settings like hand-drawn or After Effects animation, you can control the frame rate so frame-based animation will work great. Also, if you go into physics simulation such as collision detection, then you will need a more advanced solution than the simple `deltaTime * speed`. I may write another post about that when I get a chance later.
 
 If you liked my post, please follow me to get more stories like this. I write about creative coding for artists and designers. Thank you for reading and hope this was helpful!
