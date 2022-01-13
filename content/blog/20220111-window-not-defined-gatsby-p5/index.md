@@ -92,7 +92,9 @@ function MyComponent() {
 ## Other possible solutions
 Here are other methods I found online, which unfortunately, was too complex for my liking or did not work for me. But I will leave theme here for future reference.
 
+- General guides from Gatsby (very helpful): 
+  - https://www.gatsbyjs.com/docs/debugging-html-builds/
+  - https://www.gatsbyjs.com/docs/using-client-side-only-packages/
 - Here is a discussion on the problem from ReactP5Wrapper repo: https://github.com/P5-wrapper/react/issues/37
-- General information on dubugging HTML build: https://www.gatsbyjs.com/docs/debugging-html-builds/
 - A discussion on p5js repo: https://github.com/processing/p5.js/issues/3926
 
