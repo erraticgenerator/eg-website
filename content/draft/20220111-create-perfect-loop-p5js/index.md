@@ -1,8 +1,8 @@
 ---
-slug: '/blog/linear-interpolation-and-easing/'
-title: How to Use Lerp and Easing Correctly
-subtitle: Let's keep linear interpolation linear
-date: 2022-01-11
+slug: '/blog/create-perfect-loop-p5js/'
+title: Create A Perfect Loop in p5js
+subtitle: 
+date: 2022-12-11
 updated: null
 tags:
 - p5js

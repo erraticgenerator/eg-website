@@ -2,7 +2,7 @@
 slug: '/blog/react-p5-wrapper/'
 title: Using p5js and React together
 subtitle: Best of both worlds?
-date: 2022-01-10
+date: 2022-12-10
 updated: null
 tags:
 - p5js
