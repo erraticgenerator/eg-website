@@ -1,6 +1,6 @@
 ---
-slug: '/blog/window-not-defined-gatsbyjs-p5js/'
-title: Window Is Not Defined
+slug: '/blog/window-not-defined-error-gatsbyjs-p5js/'
+title: Window Is Not Defined Error
 subtitle: An error while using gatsbyjs and p5js together
 date: 2022-01-13
 updated: null
