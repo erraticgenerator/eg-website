@@ -57,7 +57,7 @@ function draw() {
 }
 ```
 
-![Linear motion](1-linear.gif)
+![Linear motion. Image by Author](1-linear.gif)
 
 
 Here, `25` is the speed of the movement. The circle moves 5 pixels each frame, and when it reaches the end, it will jump back to the beginning position. If you want to make it move faster, simply increase the speed by changing `5` to `10`, for example.
@@ -92,7 +92,7 @@ function draw() {
 }
 ```
 
-![Self-updating lerp](2-self-update.gif)
+![Self-updating lerp. Image by Author](2-self-update.gif)
 
 This method is great in that it is very simple to set up and it gets the job done most of the time. In fact, this is the method that I used in [my post on animating text a year ago](/blog/animate-word-by-word-in-p5js/), but this is not really how the `lerp` or linear interpolation function is supposed to be used because it's not really linear, and there are other problems, too.
 
@@ -235,7 +235,7 @@ function easeInOutSine(x) {
 }
 ```
 
-![Ease In Out Sine](3-ease-inout-sine.gif)
+![Ease In Out Sine. Image by Author](3-ease-inout-sine.gif)
 
 We now have control over many asepect of our animation - the start value and end value we are animating, the total duration of the animation, as well as the type of easing we want to apply. So play with different duration, different start/end values, and find different easing functions. Here is a super fun bouncy easing I found from https://easings.net again. We don't have to tweak any of our code because this easing function also takes the same `x` as the only parameter:
 
@@ -257,7 +257,7 @@ function easeOutBounce(x) {
 ```
 
 
-![Ease Out Bounce](4-ease-out-bounce.gif)
+![Ease Out Bounce. Image by Author](4-ease-out-bounce.gif)
 
 ## Rober Penner's Easing Equations
 When you do research on easing functions, you may find the easing functions are described in different shapes, so-called "Penner Easing," such as this one that takes four parameters:
@@ -319,7 +319,7 @@ function easeInOutCubic(t, b, c, d) {
 }
 ```
 
-![With Penner easing function](5-penner-easing.gif)
+![With Penner easing function. Image by Author](5-penner-easing.gif)
 
 Now, it's just a matter of finding an easing equation that suits your need. As long as you can come up with an equation that goes from 0 to 1, you can also create your own easing function. A website tool like https://www.desmos.com/ will be useful.
 
