@@ -183,7 +183,7 @@ function easeInOutSine(x) {
 
 The function above smoothes out the change of the value `x` at the beginning and near the end. I took this function from https://easings.net. This website is a great resource that provides you with all kinds of easing functions, so do check it out.
 
-Now, when we interpolate the `x` value, instead of using `t` as is, which is linear, we will apply easing first and then interpolate the `x`. This way, we keep `t` linear, but the change in `x` will have easing applied. Again, `t` always goes from 0 to 1 even after applying easing. What matters now is what happens inbetween.
+Now, when we interpolate the `x` value, instead of using `t` as is, which is linear, we will apply easing first and then interpolate the `x`. This way, we keep `t` linear, but the change in `x` will have easing applied. Again, `t` always goes from 0 to 1 even after applying easing. What matters now is what happens in-between.
 
 ```js
 x = lerp(startX, endX, easeInOutSine(t))
@@ -259,7 +259,7 @@ function easeOutBounce(x) {
 
 ![Ease Out Bounce. Image by Author](4-ease-out-bounce.gif)
 
-## Rober Penner's Easing Equations
+## Robert Penner's Easing Equations
 When you do research on easing functions, you may find the easing functions are described in different shapes, so-called "Penner Easing," such as this one that takes four parameters:
 
 ```js
