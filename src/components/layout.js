@@ -23,7 +23,7 @@ const header = css`
 
 const mainContainer = css`
   // border: 5px solid red;
-  max-width: 720px;
+  max-width: 800px;
   width: 100%; // without this, it doesn't shrink.
   margin: 0 auto;
   padding: 0 12px;
@@ -39,7 +39,7 @@ export default function Layout(props) {
     <div css={pageContainer}>
       <Global
         styles={css`
-          @import url("https://fonts.googleapis.com/css2?family=Andika+New+Basic:ital@0;1&family=Open+Sans:wght@400;700&display=swap");
+          @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
 
           * {
             margin: 0;
@@ -48,7 +48,7 @@ export default function Layout(props) {
 
           html,
           body {
-            font-family: "Andika New Basic", sans-serif;
+            font-family: "Raleway", sans-serif;
             font-size: 10px;
             height: 100%;
           }

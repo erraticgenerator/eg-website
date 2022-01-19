@@ -14,7 +14,6 @@ import SEO from "../components/seo"
 
 // Article has 2 children (featured image, header)
 const Article = styled.article`
-  font-family: "Open Sans", sans-serif;
   margin: 7rem 0;
   display: flex;
   flex-direction: row;
@@ -45,7 +44,6 @@ const postTitle = css`
 
 const postSubtitle = css`
   margin-bottom: 0.8rem;
-  font-family: "Andika New Basic", sans-serif;
   font-size: 1.8rem;
   font-weight: 400;
   color: #666;

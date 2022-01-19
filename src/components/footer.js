@@ -17,7 +17,7 @@ const footer = css`
 const container = css`
   margin: 0 auto;
   padding: 0 12px;
-  max-width: 720px;
+  max-width: 800px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,7 +45,8 @@ const Footer = () => {
     <footer css={footer}>
       <div css={container}>
         <div css={copyright}>
-          Copyright 2020-2021 • ErraticGenerator.com • <Link to="/privacy/">Our Privacy Policy</Link>
+          Copyright 2020-2021 • ErraticGenerator.com •{" "}
+          <Link to="/privacy/">Our Privacy Policy</Link>
         </div>
         <ul css={listLinks}>
           <li>

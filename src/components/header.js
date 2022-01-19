@@ -12,7 +12,6 @@ const header = css`
 `
 
 const siteTitle = css`
-  font-family: "Open Sans", sans-serif;
   font-weight: 700;
 `
 
@@ -24,7 +23,7 @@ const container = css`
   // outline: 1px solid red;
   margin: 0 auto;
   padding: 0 12px;
-  max-width: 720px;
+  max-width: 800px;
   display: flex;
 `
 
@@ -37,7 +36,6 @@ const child1 = css`
 
 const child2 = css`
   flex: 1;
-  font-family: "Open Sans", sans-serif;
   font-size: 1.6rem;
 `
 
@@ -53,7 +51,9 @@ const Header = () => {
           </h1>
           <h2 css={siteTagline}>{metadata.tagline}</h2>
         </div>
-        <Link css={child2} to="/about/">About</Link>
+        <Link css={child2} to="/about/">
+          About
+        </Link>
       </div>
     </header>
   )

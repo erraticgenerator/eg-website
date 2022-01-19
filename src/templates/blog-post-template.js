@@ -16,7 +16,6 @@ const header = css`
   // outline: 1px solid red;
   margin-bottom: 3rem;
   // padding: 0 60px;
-  font-family: "Open Sans", sans-serif;
 `
 
 const title = css`
@@ -64,6 +63,9 @@ const markdown = css`
   ul {
     margin-bottom: 2.4rem;
     font-size: 1.8rem;
+  }
+  li {
+    line-height: 1.6;
   }
 
   figure {
