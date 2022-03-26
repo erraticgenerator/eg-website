@@ -6,7 +6,7 @@ index.js
 
 import React from "react"
 import { Link, graphql } from "gatsby"
-import Img from "gatsby-image"
+// import Img from "gatsby-image"
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 import Layout from "../components/layout"
@@ -90,9 +90,9 @@ const Index = ({ data }) => {
           <Article key={node.id}>
             <FeaturedImage>
               <Link to={node.frontmatter.slug}>
-                {childImageSharp && (
+                {/* {childImageSharp && (
                   <Img fluid={{ ...childImageSharp.fluid, aspectRatio: 1.5 }} />
-                )}
+                )} */}
               </Link>
             </FeaturedImage>
 

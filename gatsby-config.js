@@ -61,12 +61,12 @@ module.exports = {
               // markdownCaptions: true,
             },
           },
-          {
-            resolve: `gatsby-remark-figure-caption`,
-            options: {
-              figureClassName: "md-figure",
-            },
-          },
+          // {
+          //   resolve: `gatsby-remark-figure-caption`,
+          //   options: {
+          //     figureClassName: "md-figure",
+          //   },
+          // },
           `gatsby-remark-static-images`, // place after gatsby-remark-images
         ],
       },
