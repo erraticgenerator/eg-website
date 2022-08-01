@@ -6,11 +6,11 @@ index.js
 
 import React from "react"
 import { Link, graphql } from "gatsby"
-// import Img from "gatsby-image"
+import Img from "gatsby-image"
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 // Article has 2 children (featured image, header)
 const Article = styled.article`
@@ -79,7 +79,7 @@ const Index = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={metadata.title} description={metadata.tagline} />
+      <Seo title={metadata.title} description={metadata.tagline} />
       {edges.map(({ node }) => {
         // for now, only use png/jpg, no gif support (sharp doesn't support)
         // also, aspectRatio works, but generated file is not cropped.
@@ -90,9 +90,9 @@ const Index = ({ data }) => {
           <Article key={node.id}>
             <FeaturedImage>
               <Link to={node.frontmatter.slug}>
-                {/* {childImageSharp && (
+                {childImageSharp && (
                   <Img fluid={{ ...childImageSharp.fluid, aspectRatio: 1.5 }} />
-                )} */}
+                )}
               </Link>
             </FeaturedImage>
 

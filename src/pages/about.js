@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import { css } from "@emotion/react"
 // import styled from "@emotion/styled"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 // find a way to do a full height page layout no matter how long contents are.
 const contents = css`
@@ -26,19 +26,28 @@ const contents = css`
     margin-bottom: 2.4rem;
     font-size: 1.8rem;
   }
+
+  pre {
+    background-color: #eee;
+    padding: 1rem;
+  }
 `
 
 const About = () => {
   return (
     <Layout>
-      <SEO title="About" description="About ErraticGenerator.com" />
+      <Seo title="About" description="About ErraticGenerator.com" />
       <div css={contents}>
         <h1>About</h1>
         <p>
           Hi, I'm Erratic Generator. I create contents for creative coding and
           design. I mainly use JavaScript and Processing. I also use Python and
-          Tensorflow for machine learning. I am still figuring out how to use
-          this website.
+          Tensorflow for machine learning.
+        </p>
+        <h2>Tezos donation address</h2>
+        <p>Thank you for your support!</p>
+        <p>
+          <pre>tz1cr64U6Ga4skQ4oWYqchFLGgT6mmkyQZe9</pre>
         </p>
         <h2>Credits</h2>
         <ul>

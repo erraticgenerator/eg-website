@@ -10,6 +10,7 @@
     "@react-icons/all-files": "^4.1.0",
     "babel-plugin-styled-components": "^2.0.2",
     "gatsby": "^4.10.0",
+    "gatsby-image": "^3.11.0",
     "gatsby-plugin-catch-links": "^4.4.0",
     "gatsby-plugin-emotion": "^7.4.0",
     "gatsby-plugin-google-analytics": "^4.4.0",

@@ -9,6 +9,11 @@ const container = css`
   border-top: 1px solid #aaa;
   font-size: 1.8rem;
   text-align: center;
+
+  pre {
+    background-color: #eee;
+    padding: 1rem;
+  }
 `
 
 const text = css`
