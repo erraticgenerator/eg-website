@@ -27,10 +27,12 @@ const KofiCta = () => {
   return (
     <div css={container}>
       <p css={text}>
-        I publish the same articles on Medium, but they are behind the paywall.
-        Your support will help me keep this website open to everyone. If you
-        liked my contents, please consider supporting. Thank you!
+        If you liked my contents, please consider supporting. Thank you!
       </p>
+      <p>
+        Tezos donation address: <pre>tz1cr64U6Ga4skQ4oWYqchFLGgT6mmkyQZe9</pre>
+      </p>
+      <p>Kofi donation link:</p>
 
       <OutboundLink
         css={button}
