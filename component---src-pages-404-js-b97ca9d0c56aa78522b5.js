@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkerraticgenerator_com=self.webpackChunkerraticgenerator_com||[]).push([[883],{429:function(e,r,t){t.r(r);t(7294);var n=t(1597),a=t(1977),c=t(3431);r.default=function(){return(0,c.tZ)(a.Z,null,"404 error",(0,c.tZ)(n.Link,{to:"/"},"Back to homepage"))}}}]);
+//# sourceMappingURL=component---src-pages-404-js-b97ca9d0c56aa78522b5.js.map
